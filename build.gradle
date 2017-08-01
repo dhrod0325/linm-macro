@@ -1,0 +1,75 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
+group 'lm.macro'
+version '1.0'
+
+apply plugin: 'base'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:1.0'
+    }
+}
+
+configurations.all {
+    transitive = false
+}
+
+allprojects {
+    configurations.all {
+        exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+    }
+
+    repositories {
+        jcenter()
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'http://www.egovframe.go.kr/maven'
+        }
+        maven {
+            url 'https://code.lds.org/nexus/content/groups/main-repo'
+        }
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+subprojects { subproject ->
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'java'
+
+    compileJava {
+        options.encoding = "UTF-8"
+    }
+
+    sourceSets {
+        main {
+            resources {
+                srcDirs = ["src/main/java", "src/main/resources"]; include "**/*.*"
+            }
+        }
+    }
+
+    task initSourceFolders {
+        subproject.sourceSets*.java.srcDirs*.each {
+            if (!it.exists()) {
+                it.mkdirs()
+            }
+        }
+
+        subproject.sourceSets*.resources.srcDirs*.each {
+            if (!it.exists()) {
+                it.mkdirs()
+            }
+        }
+    }
+}
+

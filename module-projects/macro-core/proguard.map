@@ -1,0 +1,1708 @@
+lm.macro.Main -> lm.macro.Main:
+    22:22:void <init>() -> <init>
+    29:30:void main(java.lang.String[]) -> main
+    34:34:org.springframework.boot.builder.SpringApplicationBuilder configure(org.springframework.boot.builder.SpringApplicationBuilder) -> configure
+    39:45:void onStartup(javax.servlet.ServletContext) -> onStartup
+    24:26:void <clinit>() -> <clinit>
+lm.macro.Run -> lm.macro.Run:
+    5:5:void <init>() -> <init>
+    7:8:void main(java.lang.String[]) -> main
+lm.macro.auto.android.device.model.LmAndroidDevice -> lm.macro.auto.android.device.model.LmAndroidDevice:
+    java.lang.String getSerial() -> getSerial
+    int getPort() -> getPort
+    void pull(java.lang.String,java.io.File) -> pull
+    java.io.InputStream shell(java.lang.String[]) -> shell
+    void tap(double,double) -> tap
+    void swipe(double,double,double,double,long) -> swipe
+    void swipe(double,double,double,double) -> swipe
+lm.macro.auto.android.device.model.impl.LmAdbAndroidDevice -> lm.macro.auto.android.device.model.impl.LmAdbAndroidDevice:
+    java.lang.String serial -> a
+    java.util.List buyItems -> b
+    20:20:java.util.List getBuyItems() -> getBuyItems
+    24:25:void setBuyItems(java.util.List) -> setBuyItems
+    27:28:void <init>() -> <init>
+    30:32:void <init>(java.lang.String) -> <init>
+    35:36:void setSerial(java.lang.String) -> setSerial
+    40:40:java.lang.String getSerial() -> getSerial
+    45:45:int getPort() -> getPort
+    50:50:void pull(java.lang.String,java.io.File) -> pull
+    54:55:java.io.InputStream shell(java.lang.String[]) -> shell
+    60:61:void tap(double,double) -> tap
+    65:66:void swipe(double,double,double,double,long) -> swipe
+    70:71:void swipe(double,double,double,double) -> swipe
+lm.macro.auto.android.device.model.impl.LmJadbAndroidDevice -> lm.macro.auto.android.device.model.impl.LmJadbAndroidDevice:
+    lm.macro.auto.log.LmLog logger -> a
+    se.vidstige.jadb.JadbDevice device -> b
+    18:24:void <init>(se.vidstige.jadb.JadbDevice) -> <init>
+    28:28:se.vidstige.jadb.JadbDevice getDevice() -> getDevice
+    33:43:java.lang.String getSerial() -> getSerial
+    49:61:int getPort() -> getPort
+    66:67:void pull(java.lang.String,java.io.File) -> pull
+    71:75:java.io.InputStream shell(java.lang.String[]) -> shell
+    80:82:void tap(double,double) -> tap
+    86:87:void swipe(double,double,double,double,long) -> swipe
+    91:92:void swipe(double,double,double,double) -> swipe
+    96:100:boolean equals(java.lang.Object) -> equals
+lm.macro.auto.android.device.service.LmAndroidDeviceService -> lm.macro.auto.android.device.service.LmAndroidDeviceService:
+    java.util.List getDeviceList() -> getDeviceList
+    lm.macro.auto.android.device.model.LmAndroidDevice getDeviceByPort(int) -> getDeviceByPort
+lm.macro.auto.android.device.service.impl.LmAbstractAndroidDeviceService -> lm.macro.auto.android.device.service.impl.LmAbstractAndroidDeviceService:
+    8:8:void <init>() -> <init>
+    11:19:lm.macro.auto.android.device.model.LmAndroidDevice getDeviceByPort(int) -> getDeviceByPort
+lm.macro.auto.android.device.service.impl.LmAdbAndroidService -> lm.macro.auto.android.device.service.impl.LmAdbAndroidService:
+    12:12:void <init>() -> <init>
+    15:31:java.util.List getDeviceList() -> getDeviceList
+lm.macro.auto.android.device.service.impl.LmJadbAndroidService -> lm.macro.auto.android.device.service.impl.LmJadbAndroidService:
+    se.vidstige.jadb.JadbConnection connection -> a
+    15:15:void <init>() -> <init>
+    20:21:void setConnection(se.vidstige.jadb.JadbConnection) -> setConnection
+    25:41:java.util.List getDeviceList() -> getDeviceList
+lm.macro.auto.android.screen.LmAbstractAndroidScreen -> lm.macro.auto.android.screen.LmAbstractAndroidScreen:
+    lm.macro.auto.log.LmLog logger -> logger
+    java.awt.image.BufferedImage screenShotIO -> a
+    org.opencv.core.Mat opencvScreenShot -> b
+    java.lang.String fileDir -> fileDir
+    java.lang.String fileName -> fileName
+    15:16:void <init>() -> <init>
+    26:32:void dirCheck(lm.macro.auto.android.device.model.LmAndroidDevice) -> dirCheck
+    36:39:void afterPropertiesSet() -> afterPropertiesSet
+    43:43:java.awt.image.BufferedImage getScreenShotIO() -> getScreenShotIO
+    47:48:void setScreenShotIO(java.awt.image.BufferedImage) -> setScreenShotIO
+    52:52:org.opencv.core.Mat getCvScreenShot() -> getCvScreenShot
+    56:57:void setOpencvScreenShot(org.opencv.core.Mat) -> setOpencvScreenShot
+    61:61:lm.macro.auto.object.pixel.LmPixelData findPixelMatch(org.opencv.core.Mat,double) -> findPixelMatch
+    66:66:lm.macro.auto.object.pixel.LmPixelData findPixelMatch(org.opencv.core.Mat) -> findPixelMatch
+    71:71:int findPixelMatches(double,org.opencv.core.Mat[]) -> findPixelMatches
+    75:75:java.lang.String getFileDir() -> getFileDir
+    79:80:void setFileDir(java.lang.String) -> setFileDir
+    83:83:java.lang.String getFileName() -> getFileName
+    87:88:void setFileName(java.lang.String) -> setFileName
+    91:91:java.io.File getFile() -> getFile
+lm.macro.auto.android.screen.LmAndroidScreen -> lm.macro.auto.android.screen.LmAndroidScreen:
+    lm.macro.auto.object.pixel.LmPixelData findPixelMatch(org.opencv.core.Mat,double) -> findPixelMatch
+    lm.macro.auto.object.pixel.LmPixelData findPixelMatch(org.opencv.core.Mat) -> findPixelMatch
+    int findPixelMatches(double,org.opencv.core.Mat[]) -> findPixelMatches
+lm.macro.auto.android.screen.LmLocalAndroidScreen -> lm.macro.auto.android.screen.LmLocalAndroidScreen:
+    lm.macro.auto.manager.process.LmAdbProcessManager adbProcessManager -> a
+    19:19:void <init>() -> <init>
+    24:25:void setAdbProcessManager(lm.macro.auto.manager.process.LmAdbProcessManager) -> setAdbProcessManager
+    28:33:void loadScreenFromBuffer(java.awt.image.BufferedImage) -> loadScreenFromBuffer
+    38:55:void refreshScreen(lm.macro.auto.android.device.model.LmAndroidDevice) -> refreshScreen
+    58:62:java.awt.image.BufferedImage captureByTitle(java.lang.String) -> a
+    67:67:void destroy() -> destroy
+lm.macro.auto.android.screen.LmSyncAndroidScreen -> lm.macro.auto.android.screen.LmSyncAndroidScreen:
+    11:11:void <init>() -> <init>
+    14:19:void refreshScreen(lm.macro.auto.android.device.model.LmAndroidDevice) -> refreshScreen
+    23:28:void initWithFile(java.io.File) -> initWithFile
+    32:36:void destroy() -> destroy
+    39:39:java.io.File getFile() -> getFile
+    43:44:void setFileName(java.lang.String) -> setFileName
+lm.macro.auto.common.LmCommon -> lm.macro.auto.common.LmCommon:
+    java.lang.String DIR_PATH -> DIR_PATH
+    java.lang.String SOURCE_PATH -> SOURCE_PATH
+    org.apache.commons.configuration2.ImmutableConfiguration prop -> prop
+    java.lang.String WEB_SERVER_URL -> WEB_SERVER_URL
+    int MACRO_SCHEDULER_TIME -> MACRO_SCHEDULER_TIME
+    long REFRESH_SLEEP -> REFRESH_SLEEP
+    int TELEPORT_FIND_MAX_COUNT -> TELEPORT_FIND_MAX_COUNT
+    int FIND_WAREHOUSE_MAX_COUNT -> FIND_WAREHOUSE_MAX_COUNT
+    java.lang.String ADB_PATH -> ADB_PATH
+    java.lang.String IMAGE_PATH -> IMAGE_PATH
+    java.lang.String 빨간물약 -> 빨간물약
+    java.lang.String 주홍물약 -> 주홍물약
+    java.lang.String 초록물약 -> 초록물약
+    java.lang.String 강화초록물약 -> 강화초록물약
+    java.lang.String 파란물약 -> 파란물약
+    java.lang.String 변신주문서 -> 변신주문서
+    java.lang.String 인형소환주문서 -> 인형소환주문서
+    java.lang.String 와퍼 -> 와퍼
+    java.lang.String 은화살 -> 은화살
+    java.lang.String 해독제 -> 해독제
+    java.lang.String 순간이동주문서 -> 순간이동주문서
+    java.lang.String 귀환주문서 -> 귀환주문서
+    java.lang.String 혈맹귀환주문서 -> 혈맹귀환주문서
+    java.lang.String 정령옥 -> 정령옥
+    java.lang.String 마력의돌 -> 마력의돌
+    java.lang.String 숫돌 -> 숫돌
+    java.lang.String 에바의축복 -> 에바의축복
+    java.lang.String 용해제 -> 용해제
+    java.lang.String 영리한칠면조 -> 영리한칠면조
+    java.lang.String 날쌘연어찜 -> 날쌘연어찜
+    java.lang.String 진주 -> 진주
+    java.lang.String 힘센한우스테이크 -> 힘센한우스테이크
+    java.lang.String 철괴 -> 철괴
+    java.lang.String 용기의물약 -> 용기의물약
+    java.lang.String 드레곤의다이아몬드 -> 드레곤의다이아몬드
+    java.lang.String 상점마을 -> 상점마을
+    java.lang.String 중간상점마을 -> 중간상점마을
+    java.lang.String 가방무게 -> 가방무게
+    java.lang.String 가죽 -> 가죽
+    java.lang.String 보석 -> 보석
+    java.lang.String 천 -> 천
+    java.lang.String 글루딘마을 -> 글루딘마을
+    java.lang.String 켄트마을 -> 켄트마을
+    java.lang.String 은기사마을 -> 은기사마을
+    java.lang.String 우드벡마을 -> 우드벡마을
+    java.lang.String 기란마을 -> 기란마을
+    java.lang.String 하이네마을 -> 하이네마을
+    java.lang.String 화전민마을 -> 화전민마을
+    java.lang.String 웰던마을 -> 웰던마을
+    java.lang.String 오렌마을 -> 오렌마을
+    java.lang.String 아덴마을 -> 아덴마을
+    java.lang.String 요정숲마을 -> 요정숲마을
+    java.lang.String 조이스틱_상 -> 조이스틱_상
+    java.lang.String 조이스틱_우상 -> 조이스틱_우상
+    java.lang.String 조이스틱_우 -> 조이스틱_우
+    java.lang.String 조이스틱_우하 -> 조이스틱_우하
+    java.lang.String 조이스틱_하 -> 조이스틱_하
+    java.lang.String 조이스틱_좌하 -> 조이스틱_좌하
+    java.lang.String 조이스틱_좌 -> 조이스틱_좌
+    java.lang.String 조이스틱_좌상 -> 조이스틱_좌상
+    11:11:void <init>() -> <init>
+    91:101:java.util.List 조이스틱좌표() -> 조이스틱좌표
+    105:107:java.lang.String getDirPath() -> getDirPath
+    12:30:void <clinit>() -> <clinit>
+lm.macro.auto.constants.LmMotionClickSlot -> lm.macro.auto.constants.LmMotionClickSlot:
+    lm.macro.auto.constants.LmMotionClickSlot SLOT1 -> SLOT1
+    lm.macro.auto.constants.LmMotionClickSlot SLOT2 -> SLOT2
+    lm.macro.auto.constants.LmMotionClickSlot SLOT3 -> SLOT3
+    lm.macro.auto.constants.LmMotionClickSlot SLOT4 -> SLOT4
+    lm.macro.auto.constants.LmMotionClickSlot SLOT5 -> SLOT5
+    lm.macro.auto.constants.LmMotionClickSlot SLOT6 -> SLOT6
+    lm.macro.auto.constants.LmMotionClickSlot SLOT7 -> SLOT7
+    lm.macro.auto.constants.LmMotionClickSlot SLOT8 -> SLOT8
+    java.lang.String name -> a
+    lm.macro.auto.constants.LmMotionClickSlot[] $VALUES -> b
+    3:3:lm.macro.auto.constants.LmMotionClickSlot[] values() -> values
+    3:3:lm.macro.auto.constants.LmMotionClickSlot valueOf(java.lang.String) -> valueOf
+    15:17:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    21:21:java.lang.String toString() -> toString
+    3:11:void <clinit>() -> <clinit>
+lm.macro.auto.data.model.item.LmBuyItem -> lm.macro.auto.data.model.item.LmBuyItem:
+    java.lang.String name -> a
+    int buyCount -> b
+    java.lang.String deviceSerial -> c
+    15:16:void <init>() -> <init>
+    18:22:void <init>(java.lang.String,java.lang.String,int) -> <init>
+    24:27:void <init>(java.lang.String,int) -> <init>
+    30:30:java.lang.String getName() -> getName
+    34:35:void setName(java.lang.String) -> setName
+    38:38:java.lang.Integer getBuyCount() -> getBuyCount
+    42:43:void setBuyCount(int) -> setBuyCount
+    46:46:java.lang.String getDeviceSerial() -> getDeviceSerial
+    50:51:void setDeviceSerial(java.lang.String) -> setDeviceSerial
+    55:55:java.lang.String toString() -> toString
+lm.macro.auto.data.model.item.LmDeleteItem -> lm.macro.auto.data.model.item.LmDeleteItem:
+    java.lang.String name -> a
+    int deleteCount -> b
+    java.lang.String deviceSerial -> c
+    15:16:void <init>() -> <init>
+    18:22:void <init>(java.lang.String,java.lang.String,int) -> <init>
+    25:25:java.lang.String getName() -> getName
+    29:30:void setName(java.lang.String) -> setName
+    33:33:int getDeleteCount() -> getDeleteCount
+    37:38:void setDeleteCount(int) -> setDeleteCount
+    41:41:java.lang.String getDeviceSerial() -> getDeviceSerial
+    45:46:void setDeviceSerial(java.lang.String) -> setDeviceSerial
+lm.macro.auto.data.model.item.LmHuntJoystick -> lm.macro.auto.data.model.item.LmHuntJoystick:
+    java.lang.Long id -> a
+    java.lang.String joystickLoc -> b
+    double joystickDelay -> c
+    12:12:void <init>() -> <init>
+    21:21:java.lang.String getJoystickLoc() -> getJoystickLoc
+    25:26:void setJoystickLoc(java.lang.String) -> setJoystickLoc
+    29:29:double getJoystickDelay() -> getJoystickDelay
+    33:34:void setJoystickDelay(double) -> setJoystickDelay
+    37:37:java.lang.Long getId() -> getId
+    41:42:void setId(java.lang.Long) -> setId
+    46:46:java.lang.String toString() -> toString
+lm.macro.auto.data.model.item.LmHuntMap -> lm.macro.auto.data.model.item.LmHuntMap:
+    java.lang.Long id -> a
+    java.lang.String name -> b
+    java.util.List huntJoysticks -> c
+    boolean noDungeon -> d
+    11:18:void <init>() -> <init>
+    26:26:java.lang.String getName() -> getName
+    30:31:void setName(java.lang.String) -> setName
+    34:34:java.util.List getHuntJoysticks() -> getHuntJoysticks
+    38:39:void setHuntJoysticks(java.util.List) -> setHuntJoysticks
+    42:42:java.lang.Long getId() -> getId
+    46:47:void setId(java.lang.Long) -> setId
+    51:51:java.lang.String toString() -> toString
+    59:59:boolean isNoDungeon() -> isNoDungeon
+    63:64:void setNoDungeon(boolean) -> setNoDungeon
+lm.macro.auto.data.model.netstat.LmNetstatProcessHolder -> lm.macro.auto.data.model.netstat.LmNetstatProcessHolder:
+    lm.macro.auto.utils.cmd.Process process -> a
+    java.util.List netstatList -> b
+    11:11:void <init>() -> <init>
+    16:16:lm.macro.auto.utils.cmd.Process getProcess() -> getProcess
+    20:21:void setProcess(lm.macro.auto.utils.cmd.Process) -> setProcess
+    24:24:java.util.List getNetstatList() -> getNetstatList
+    28:29:void setNetstatList(java.util.List) -> setNetstatList
+lm.macro.auto.data.model.process.LmAdbProcess -> lm.macro.auto.data.model.process.LmAdbProcess:
+    boolean isInitialize -> a
+    java.lang.String uuid -> b
+    java.lang.String forwardName -> c
+    int hostPort -> d
+    int guestPort -> e
+    java.lang.String emulatorName -> f
+    26:41:void <init>() -> <init>
+    44:46:java.lang.String getForwardName() -> getForwardName
+    50:51:void setForwardName(java.lang.String) -> setForwardName
+    54:56:int getHostPort() -> getHostPort
+    60:61:void setHostPort(int) -> setHostPort
+    64:66:int getGuestPort() -> getGuestPort
+    70:71:void setGuestPort(int) -> setGuestPort
+    74:76:java.lang.String getEmulatorName() -> getEmulatorName
+    80:81:void setEmulatorName(java.lang.String) -> setEmulatorName
+    84:85:java.lang.String getUuid() -> getUuid
+    89:90:void setUuid(java.lang.String) -> setUuid
+    93:166:void initializingWithXml() -> initializingWithXml
+    169:188:lm.macro.auto.data.model.netstat.LmNetstatProcessHolder findHandlerProcess(int) -> findHandlerProcess
+    194:196:java.lang.String toString() -> toString
+lm.macro.auto.data.model.screen.LmScreenShot -> lm.macro.auto.data.model.screen.LmScreenShot:
+    java.awt.image.BufferedImage getScreenShotIO() -> getScreenShotIO
+    org.opencv.core.Mat getCvScreenShot() -> getCvScreenShot
+    void refreshScreen(lm.macro.auto.android.device.model.LmAndroidDevice) -> refreshScreen
+    void destroy() -> destroy
+lm.macro.auto.data.model.setting.LmHuntSetting -> lm.macro.auto.data.model.setting.LmHuntSetting:
+    java.lang.String DAMAGED_MOTION_TELEPORT -> DAMAGED_MOTION_TELEPORT
+    java.lang.String DAMAGED_MOTION_HOME -> DAMAGED_MOTION_HOME
+    java.lang.String deviceSerial -> a
+    java.util.List huntMapList -> b
+    boolean redPotionEmptyGoHome -> c
+    boolean orangePotionEmptyGoHome -> d
+    boolean hpGoHome -> e
+    int hpGoHomeValue -> f
+    boolean arrowGoHome -> g
+    int arrowCheckCount -> h
+    boolean huntStartInMap -> i
+    int huntStartMinHp -> j
+    boolean redPotionEmptyStopMacro -> k
+    boolean homeInStopMacro -> l
+    boolean heavyGoHome -> m
+    boolean useShopping -> n
+    boolean useSelfCheck -> o
+    boolean useAutoCheck -> p
+    int selfCheckTime -> q
+    int autoCheckTime -> r
+    boolean useCheckLetter -> s
+    boolean useHuntTeleport -> t
+    java.lang.String poisonUseSlot -> u
+    java.lang.String damagedMotion -> v
+    9:74:void <init>() -> <init>
+    79:79:java.lang.String getDeviceSerial() -> getDeviceSerial
+    83:84:void setDeviceSerial(java.lang.String) -> setDeviceSerial
+    87:87:boolean isRedPotionEmptyGoHome() -> isRedPotionEmptyGoHome
+    91:92:void setRedPotionEmptyGoHome(boolean) -> setRedPotionEmptyGoHome
+    95:95:boolean isOrangePotionEmptyGoHome() -> isOrangePotionEmptyGoHome
+    99:100:void setOrangePotionEmptyGoHome(boolean) -> setOrangePotionEmptyGoHome
+    103:103:boolean isHpGoHome() -> isHpGoHome
+    107:108:void setHpGoHome(boolean) -> setHpGoHome
+    111:111:int getHpGoHomeValue() -> getHpGoHomeValue
+    115:116:void setHpGoHomeValue(int) -> setHpGoHomeValue
+    119:119:boolean isArrowGoHome() -> isArrowGoHome
+    123:124:void setArrowGoHome(boolean) -> setArrowGoHome
+    127:127:int getArrowCheckCount() -> getArrowCheckCount
+    131:132:void setArrowCheckCount(int) -> setArrowCheckCount
+    135:135:boolean isHuntStartInMap() -> isHuntStartInMap
+    139:140:void setHuntStartInMap(boolean) -> setHuntStartInMap
+    143:143:boolean isHomeInStopMacro() -> isHomeInStopMacro
+    147:148:void setHomeInStopMacro(boolean) -> setHomeInStopMacro
+    151:151:boolean isHeavyGoHome() -> isHeavyGoHome
+    155:156:void setHeavyGoHome(boolean) -> setHeavyGoHome
+    159:159:boolean isUseShopping() -> isUseShopping
+    163:164:void setUseShopping(boolean) -> setUseShopping
+    167:167:boolean isUseSelfCheck() -> isUseSelfCheck
+    171:172:void setUseSelfCheck(boolean) -> setUseSelfCheck
+    175:175:int getSelfCheckTime() -> getSelfCheckTime
+    179:180:void setSelfCheckTime(int) -> setSelfCheckTime
+    183:183:boolean isUseAutoCheck() -> isUseAutoCheck
+    187:188:void setUseAutoCheck(boolean) -> setUseAutoCheck
+    191:191:int getAutoCheckTime() -> getAutoCheckTime
+    195:196:void setAutoCheckTime(int) -> setAutoCheckTime
+    199:199:boolean isUseCheckLetter() -> isUseCheckLetter
+    203:204:void setUseCheckLetter(boolean) -> setUseCheckLetter
+    207:207:boolean isUseHuntTeleport() -> isUseHuntTeleport
+    211:212:void setUseHuntTeleport(boolean) -> setUseHuntTeleport
+    215:215:java.lang.String getDamagedMotion() -> getDamagedMotion
+    219:220:void setDamagedMotion(java.lang.String) -> setDamagedMotion
+    223:223:java.util.List getHuntMapList() -> getHuntMapList
+    227:228:void setHuntMapList(java.util.List) -> setHuntMapList
+    231:231:int getHuntStartMinHp() -> getHuntStartMinHp
+    235:236:void setHuntStartMinHp(int) -> setHuntStartMinHp
+    239:239:java.lang.String getPoisonUseSlot() -> getPoisonUseSlot
+    243:244:void setPoisonUseSlot(java.lang.String) -> setPoisonUseSlot
+    247:247:boolean isRedPotionEmptyStopMacro() -> isRedPotionEmptyStopMacro
+    251:252:void setRedPotionEmptyStopMacro(boolean) -> setRedPotionEmptyStopMacro
+lm.macro.auto.data.model.setting.LmShopSetting -> lm.macro.auto.data.model.setting.LmShopSetting:
+    java.lang.String deviceSerial -> a
+    java.util.List buyItems -> b
+    10:13:void <init>() -> <init>
+    16:16:java.lang.String getDeviceSerial() -> getDeviceSerial
+    20:21:void setDeviceSerial(java.lang.String) -> setDeviceSerial
+    24:24:java.util.List getBuyItems() -> getBuyItems
+    28:29:void setBuyItems(java.util.List) -> setBuyItems
+lm.macro.auto.data.model.setting.LmWareHouseSetting -> lm.macro.auto.data.model.setting.LmWareHouseSetting:
+    java.lang.Long id -> a
+    java.lang.String wareHouseSerial -> b
+    9:9:void <init>() -> <init>
+    17:17:java.lang.Long getId() -> getId
+    21:22:void setId(java.lang.Long) -> setId
+    25:25:java.lang.String getWareHouseSerial() -> getWareHouseSerial
+    29:30:void setWareHouseSerial(java.lang.String) -> setWareHouseSerial
+lm.macro.auto.data.repository.LmAdbProcessRepository -> lm.macro.auto.data.repository.LmAdbProcessRepository:
+lm.macro.auto.data.repository.LmBuyItemRepository -> lm.macro.auto.data.repository.LmBuyItemRepository:
+    java.util.List findAllByDeviceSerial(java.lang.String) -> findAllByDeviceSerial
+lm.macro.auto.data.repository.LmDeleteItemRepository -> lm.macro.auto.data.repository.LmDeleteItemRepository:
+    java.util.List findAllByDeviceSerial(java.lang.String) -> findAllByDeviceSerial
+lm.macro.auto.data.repository.LmHuntMapRepository -> lm.macro.auto.data.repository.LmHuntMapRepository:
+lm.macro.auto.data.repository.LmHuntSettingRepository -> lm.macro.auto.data.repository.LmHuntSettingRepository:
+    lm.macro.auto.data.model.setting.LmHuntSetting findByDeviceSerial(java.lang.String) -> findByDeviceSerial
+lm.macro.auto.data.service.LmAdbProcessRepositoryService -> lm.macro.auto.data.service.LmAdbProcessRepositoryService:
+    12:12:void <init>() -> <init>
+    18:20:void save(java.util.List) -> save
+lm.macro.auto.data.service.LmBuyItemRepositoryService -> lm.macro.auto.data.service.LmBuyItemRepositoryService:
+    11:11:void <init>() -> <init>
+    16:16:java.util.List findAllByDeviceSerial(java.lang.String) -> findAllByDeviceSerial
+    20:21:void save(lm.macro.auto.data.model.item.LmBuyItem) -> save
+lm.macro.auto.data.service.LmDeleteItemRepositoryService -> lm.macro.auto.data.service.LmDeleteItemRepositoryService:
+    12:12:void <init>() -> <init>
+    17:17:java.util.List findAllByDeviceSerial(java.lang.String) -> findAllByDeviceSerial
+    21:22:void save(lm.macro.auto.data.model.item.LmDeleteItem) -> save
+lm.macro.auto.data.service.LmHuntMapRepositoryService -> lm.macro.auto.data.service.LmHuntMapRepositoryService:
+    10:10:void <init>() -> <init>
+    15:15:lm.macro.auto.data.model.item.LmHuntMap save(lm.macro.auto.data.model.item.LmHuntMap) -> save
+lm.macro.auto.data.service.LmHuntSettingRepositoryService -> lm.macro.auto.data.service.LmHuntSettingRepositoryService:
+    10:10:void <init>() -> <init>
+    15:16:void save(lm.macro.auto.data.model.setting.LmHuntSetting) -> save
+    19:19:lm.macro.auto.data.model.setting.LmHuntSetting findByDeviceSerial(java.lang.String) -> findByDeviceSerial
+lm.macro.auto.event.LmDeviceConnectEvent -> lm.macro.auto.event.LmDeviceConnectEvent:
+    java.lang.String EVENT_CONNECT -> EVENT_CONNECT
+    java.lang.String EVENT_DISCONNECT -> EVENT_DISCONNECT
+    java.lang.String eventType -> a
+    lm.macro.auto.manager.device.LmConnectedDeviceHolder device -> b
+    14:17:void <init>(java.lang.Object,java.lang.String,lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> <init>
+    20:20:java.lang.String getEventType() -> getEventType
+    24:25:void setEventType(java.lang.String) -> setEventType
+    28:28:lm.macro.auto.manager.device.LmConnectedDeviceHolder getDevice() -> getDevice
+    32:33:void setDevice(lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> setDevice
+lm.macro.auto.graphics.LmAbstractGraphics -> lm.macro.auto.graphics.LmAbstractGraphics:
+    java.util.List graphics -> graphics
+    8:9:void <init>() -> <init>
+    12:13:void add(java.lang.String,java.lang.String) -> add
+    16:16:lm.macro.auto.graphics.LmGraphic create(java.lang.String,java.lang.String) -> create
+    20:29:lm.macro.auto.graphics.LmGraphic getByName(java.lang.String) -> getByName
+    33:33:java.util.List getGraphics() -> getGraphics
+lm.macro.auto.graphics.LmDeleteItemGraphics -> lm.macro.auto.graphics.LmDeleteItemGraphics:
+    8:14:void <init>() -> <init>
+lm.macro.auto.graphics.LmGraphic -> lm.macro.auto.graphics.LmGraphic:
+    java.lang.String name -> a
+    java.lang.String imageName -> b
+    11:12:void <init>() -> <init>
+    14:17:void <init>(java.lang.String,java.lang.String) -> <init>
+    20:20:java.lang.String getName() -> getName
+    24:25:void setName(java.lang.String) -> setName
+    28:28:java.lang.String getImageName() -> getImageName
+    32:33:void setImageName(java.lang.String) -> setImageName
+    36:36:org.opencv.core.Mat toMat() -> toMat
+lm.macro.auto.graphics.LmGraphics -> lm.macro.auto.graphics.LmGraphics:
+    org.opencv.core.Mat NPC_SHOP_1 -> NPC_SHOP_1
+    org.opencv.core.Mat NPC_SHOP_2 -> NPC_SHOP_2
+    org.opencv.core.Mat NPC_WAREHOUSE -> NPC_WAREHOUSE
+    org.opencv.core.Mat POTION_EMPTY -> POTION_EMPTY
+    org.opencv.core.Mat DUNGEON -> DUNGEON
+    org.opencv.core.Mat BUTTON_OK -> BUTTON_OK
+    org.opencv.core.Mat BUTTON_MENU -> BUTTON_MENU
+    org.opencv.core.Mat BUTTON_MENU_OPEN -> BUTTON_MENU_OPEN
+    org.opencv.core.Mat BUTTON_MENU_CLOSE -> BUTTON_MENU_CLOSE
+    org.opencv.core.Mat BAG_OPENED -> BAG_OPENED
+    org.opencv.core.Mat BAG_HEAVY -> BAG_HEAVY
+    org.opencv.core.Mat ATTACK -> ATTACK
+    org.opencv.core.Mat PAD_NUM_0 -> PAD_NUM_0
+    org.opencv.core.Mat PAD_NUM_1 -> PAD_NUM_1
+    org.opencv.core.Mat PAD_NUM_2 -> PAD_NUM_2
+    org.opencv.core.Mat PAD_NUM_3 -> PAD_NUM_3
+    org.opencv.core.Mat PAD_NUM_4 -> PAD_NUM_4
+    org.opencv.core.Mat PAD_NUM_5 -> PAD_NUM_5
+    org.opencv.core.Mat PAD_NUM_6 -> PAD_NUM_6
+    org.opencv.core.Mat PAD_NUM_7 -> PAD_NUM_7
+    org.opencv.core.Mat PAD_NUM_8 -> PAD_NUM_8
+    org.opencv.core.Mat PAD_NUM_9 -> PAD_NUM_9
+    org.opencv.core.Mat ITEM_NUM_10000 -> ITEM_NUM_10000
+    org.opencv.core.Mat ITEM_NUM_20000 -> ITEM_NUM_20000
+    org.opencv.core.Mat ITEM_NUM_30000 -> ITEM_NUM_30000
+    org.opencv.core.Mat ITEM_NUM_40000 -> ITEM_NUM_40000
+    org.opencv.core.Mat IS_DIE -> IS_DIE
+    org.opencv.core.Mat IS_POISON -> IS_POISON
+    7:7:void <init>() -> <init>
+    45:45:org.opencv.core.Mat loadImage(java.lang.String) -> loadImage
+    8:42:void <clinit>() -> <clinit>
+lm.macro.auto.graphics.LmShopItemGraphics -> lm.macro.auto.graphics.LmShopItemGraphics:
+    8:52:void <init>() -> <init>
+lm.macro.auto.graphics.LmTeleportGraphics -> lm.macro.auto.graphics.LmTeleportGraphics:
+    7:85:void <init>() -> <init>
+lm.macro.auto.graphics.LmTestGraphics -> lm.macro.auto.graphics.LmTestGraphics:
+    3:3:void <init>() -> <init>
+lm.macro.auto.graphics.LmVillageGraphics -> lm.macro.auto.graphics.LmVillageGraphics:
+    8:20:void <init>() -> <init>
+    23:25:boolean isInVillage(java.lang.String,lm.macro.auto.android.screen.LmAndroidScreen) -> isInVillage
+    29:36:lm.macro.auto.graphics.LmGraphic isInVillage(lm.macro.auto.android.screen.LmAndroidScreen) -> isInVillage
+lm.macro.auto.log.LmLog -> lm.macro.auto.log.LmLog:
+    org.apache.commons.logging.Log logger -> a
+    org.springframework.messaging.simp.SimpMessagingTemplate simpMessagingTemplate -> b
+    22:25:void <init>(java.lang.Class) -> <init>
+    28:28:java.lang.String deviceMessage(lm.macro.auto.android.device.model.LmAndroidDevice,java.lang.Object) -> a
+    32:35:void debug(java.lang.Object,lm.macro.auto.android.device.model.LmAndroidDevice) -> debug
+    38:41:void debug(java.lang.Object) -> debug
+    44:46:void info(java.lang.Object) -> info
+    49:51:void info(java.lang.Object,lm.macro.auto.android.device.model.LmAndroidDevice) -> info
+    54:56:void error(java.lang.Object) -> error
+    59:61:void error(java.lang.Object,lm.macro.auto.android.device.model.LmAndroidDevice) -> error
+    64:75:void triggerLog(lm.macro.auto.log.LmLogMessage) -> a
+    78:79:void trace(java.lang.String) -> trace
+    82:84:void trace(java.lang.String,lm.macro.auto.android.device.model.LmAndroidDevice) -> trace
+lm.macro.auto.log.LmLogMessage -> lm.macro.auto.log.LmLogMessage:
+    java.lang.String type -> a
+    java.lang.Object message -> b
+    lm.macro.auto.android.device.model.LmAndroidDevice device -> c
+    13:14:void <init>() -> <init>
+    16:19:void <init>(java.lang.String,java.lang.Object) -> <init>
+    21:25:void <init>(java.lang.String,java.lang.Object,lm.macro.auto.android.device.model.LmAndroidDevice) -> <init>
+    28:28:java.lang.String getType() -> getType
+    32:33:void setType(java.lang.String) -> setType
+    36:36:java.lang.Object getMessage() -> getMessage
+    40:41:void setMessage(java.lang.Object) -> setMessage
+    44:44:lm.macro.auto.android.device.model.LmAndroidDevice getDevice() -> getDevice
+    48:49:void setDevice(lm.macro.auto.android.device.model.LmAndroidDevice) -> setDevice
+lm.macro.auto.manager.device.LmConnectedDeviceHolder -> lm.macro.auto.manager.device.LmConnectedDeviceHolder:
+    lm.macro.auto.manager.process.LmAdbProcessManager adbProcessManager -> a
+    lm.macro.auto.android.device.model.LmAndroidDevice device -> b
+    lm.macro.auto.object.instance.LmAiInstance aiInstance -> c
+    java.net.InetAddress ipAddress -> d
+    boolean connect -> e
+    boolean running -> f
+    boolean reconnect -> g
+    long runTime -> h
+    25:37:void <init>() -> <init>
+    40:49:void <init>(lm.macro.auto.android.device.model.LmAndroidDevice) -> <init>
+    53:54:void setAdbProcessManager(lm.macro.auto.manager.process.LmAdbProcessManager) -> setAdbProcessManager
+    57:59:lm.macro.auto.android.device.model.LmAndroidDevice getDevice() -> getDevice
+    63:65:lm.macro.auto.object.instance.LmAiInstance getPcInstance() -> getPcInstance
+    69:69:lm.macro.auto.data.model.process.LmAdbProcess getAdbProcess() -> getAdbProcess
+    73:73:boolean isConnect() -> isConnect
+    77:78:void setConnect(boolean) -> setConnect
+    81:81:boolean isRunning() -> isRunning
+    85:86:void setRunning(boolean) -> setRunning
+    90:96:boolean equals(java.lang.Object) -> equals
+    101:101:java.lang.String toString() -> toString
+    105:105:boolean isReconnect() -> isReconnect
+    109:110:void setReconnect(boolean) -> setReconnect
+    113:113:long getRunTime() -> getRunTime
+    117:118:void setRunTime(long) -> setRunTime
+    121:121:lm.macro.auto.manager.process.LmAdbProcessManager adbProcessManager() -> adbProcessManager
+    125:125:java.net.InetAddress getIpAddress() -> getIpAddress
+    129:130:void setIpAddress(java.net.InetAddress) -> setIpAddress
+lm.macro.auto.manager.device.LmConnectedDeviceManager -> lm.macro.auto.manager.device.LmConnectedDeviceManager:
+    lm.macro.auto.log.LmLog logger -> a
+    java.util.List connectedDeviceList -> b
+    14:17:void <init>() -> <init>
+    20:24:void connect(lm.macro.auto.android.device.model.LmAndroidDevice[]) -> connect
+    27:30:void connect(lm.macro.auto.manager.device.LmConnectedDeviceHolder[]) -> connect
+    33:44:void connect(lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> connect
+    47:58:void disConnect(lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> disConnect
+    61:63:java.util.List getConnectedDeviceList() -> getConnectedDeviceList
+    67:75:lm.macro.auto.manager.device.LmConnectedDeviceHolder getConnectedDeviceByPort(int) -> getConnectedDeviceByPort
+    79:87:lm.macro.auto.manager.device.LmConnectedDeviceHolder getConnectedDeviceBySerial(java.lang.String) -> getConnectedDeviceBySerial
+lm.macro.auto.manager.process.LmAdbProcessManager -> lm.macro.auto.manager.process.LmAdbProcessManager:
+    java.util.List getProcessList() -> getProcessList
+    java.util.List getProcessList(boolean) -> getProcessList
+    void refresh() -> refresh
+    lm.macro.auto.data.model.process.LmAdbProcess getAdbProcessByHostPort(int) -> getAdbProcessByHostPort
+lm.macro.auto.manager.process.LmInMemoryAdbProcessManager -> lm.macro.auto.manager.process.LmInMemoryAdbProcessManager:
+    java.util.List processList -> a
+    12:13:void <init>() -> <init>
+    17:18:void afterPropertiesSet() -> afterPropertiesSet
+    22:24:void refresh() -> refresh
+    28:36:lm.macro.auto.data.model.process.LmAdbProcess getAdbProcessByHostPort(int) -> getAdbProcessByHostPort
+    41:45:java.util.List getProcessList(boolean) -> getProcessList
+    50:50:java.util.List getProcessList() -> getProcessList
+lm.macro.auto.manager.screen.LmScreenManager -> lm.macro.auto.manager.screen.LmScreenManager:
+    java.util.Map screenHashMap -> a
+    lm.macro.auto.log.LmLog logger -> b
+    13:15:void <init>() -> <init>
+    18:29:lm.macro.auto.android.screen.LmAndroidScreen getScreen(lm.macro.auto.android.device.model.LmAndroidDevice) -> getScreen
+    21:21:lm.macro.auto.android.screen.LmAndroidScreen lambda$getScreen$0(java.lang.String) -> a
+lm.macro.auto.motion.LmAutoPattern -> lm.macro.auto.motion.LmAutoPattern:
+    java.lang.Long id -> a
+    int devicePort -> b
+    java.lang.String name -> c
+    java.lang.String type1 -> d
+    int value1 -> e
+    int above1 -> f
+    int below1 -> g
+    java.lang.String type2 -> h
+    int value2 -> i
+    int above2 -> j
+    int below2 -> k
+    java.lang.String motion -> l
+    boolean start -> m
+    long useTime -> n
+    int delay -> o
+    39:47:void <init>() -> <init>
+    39:56:void <init>(java.lang.String,java.lang.String,int,int,int,java.lang.String) -> <init>
+    59:59:long getUseTime() -> getUseTime
+    63:64:void setUseTime(long) -> setUseTime
+    67:67:java.lang.String getName() -> getName
+    71:72:void setName(java.lang.String) -> setName
+    75:75:int getValue1() -> getValue1
+    79:80:void setValue1(int) -> setValue1
+    83:83:int getAbove1() -> getAbove1
+    87:88:void setAbove1(int) -> setAbove1
+    91:91:int getBelow1() -> getBelow1
+    95:96:void setBelow1(int) -> setBelow1
+    99:99:java.lang.String getMotion() -> getMotion
+    103:104:void setMotion(java.lang.String) -> setMotion
+    107:107:java.lang.String getType1() -> getType1
+    111:112:void setType1(java.lang.String) -> setType1
+    115:115:boolean isStart() -> isStart
+    119:120:void setStart(boolean) -> setStart
+    123:123:java.lang.Long getId() -> getId
+    127:128:void setId(java.lang.Long) -> setId
+    132:140:boolean equals(java.lang.Object) -> equals
+    144:144:int getDevicePort() -> getDevicePort
+    148:149:void setDevicePort(int) -> setDevicePort
+    152:152:java.lang.String getType2() -> getType2
+    156:157:void setType2(java.lang.String) -> setType2
+    160:160:int getValue2() -> getValue2
+    164:165:void setValue2(int) -> setValue2
+    168:168:int getAbove2() -> getAbove2
+    172:173:void setAbove2(int) -> setAbove2
+    176:176:int getBelow2() -> getBelow2
+    180:181:void setBelow2(int) -> setBelow2
+    184:184:int getDelay() -> getDelay
+    188:189:void setDelay(int) -> setDelay
+    192:192:int getDelayMilliSecond() -> getDelayMilliSecond
+    197:202:boolean validate() -> validate
+lm.macro.auto.motion.LmAutoPatternExecutor -> lm.macro.auto.motion.LmAutoPatternExecutor:
+    lm.macro.auto.log.LmLog logger -> a
+    8:9:void <init>() -> <init>
+    12:30:void execute(lm.macro.auto.object.instance.LmPcInstance,lm.macro.auto.motion.LmAutoPattern) -> execute
+lm.macro.auto.motion.LmAutoPatternRepository -> lm.macro.auto.motion.LmAutoPatternRepository:
+    java.util.List findByDevicePort(int) -> findByDevicePort
+lm.macro.auto.motion.LmAutoPatternService -> lm.macro.auto.motion.LmAutoPatternService:
+    java.util.List autoPatterns -> a
+    13:17:void <init>() -> <init>
+    21:22:void afterPropertiesSet() -> afterPropertiesSet
+    25:27:void refresh() -> refresh
+    30:33:void save(lm.macro.auto.motion.LmAutoPattern) -> save
+    36:38:void remove(lm.macro.auto.motion.LmAutoPattern) -> remove
+    41:52:void execute(lm.macro.auto.object.instance.LmPcInstance) -> execute
+    55:63:java.util.List findByDevicePort(int) -> findByDevicePort
+    67:75:lm.macro.auto.motion.LmAutoPattern findOne(lm.macro.auto.motion.LmAutoPattern) -> findOne
+lm.macro.auto.object.LmSlot -> lm.macro.auto.object.LmSlot:
+    java.util.Map slotData -> slotData
+    10:10:void <init>() -> <init>
+    46:50:void useSlot(int,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.object.LmSlot$SlotType) -> useSlot
+    16:16:void <clinit>() -> <clinit>
+lm.macro.auto.object.LmSlot$1 -> lm.macro.auto.object.a:
+    16:41:void <init>() -> <init>
+lm.macro.auto.object.LmSlot$SlotType -> lm.macro.auto.object.LmSlot$SlotType:
+    lm.macro.auto.object.LmSlot$SlotType SLOT1 -> SLOT1
+    lm.macro.auto.object.LmSlot$SlotType SLOT2 -> SLOT2
+    lm.macro.auto.object.LmSlot$SlotType SLOT3 -> SLOT3
+    lm.macro.auto.object.LmSlot$SlotType SLOT4 -> SLOT4
+    lm.macro.auto.object.LmSlot$SlotType SLOT5 -> SLOT5
+    lm.macro.auto.object.LmSlot$SlotType SLOT6 -> SLOT6
+    lm.macro.auto.object.LmSlot$SlotType SLOT7 -> SLOT7
+    lm.macro.auto.object.LmSlot$SlotType SLOT8 -> SLOT8
+    lm.macro.auto.object.LmSlot$SlotType[] $VALUES -> a
+    52:52:lm.macro.auto.object.LmSlot$SlotType[] values() -> values
+    52:52:lm.macro.auto.object.LmSlot$SlotType valueOf(java.lang.String) -> valueOf
+    52:52:void <init>(java.lang.String,int) -> <init>
+    52:54:void <clinit>() -> <clinit>
+lm.macro.auto.object.instance.LmAbstractInstance -> lm.macro.auto.object.instance.LmAbstractInstance:
+    lm.macro.auto.log.LmLog logger -> logger
+    lm.macro.auto.object.instance.LmPcState state -> state
+    lm.macro.auto.android.device.model.LmAndroidDevice device -> device
+    8:16:void <init>() -> <init>
+    20:21:void setState(lm.macro.auto.object.instance.LmPcState) -> setState
+    25:25:lm.macro.auto.object.instance.LmPcState getState() -> getState
+    29:29:lm.macro.auto.android.device.model.LmAndroidDevice getDevice() -> getDevice
+    34:35:void setDevice(lm.macro.auto.android.device.model.LmAndroidDevice) -> setDevice
+lm.macro.auto.object.instance.LmAiInstance -> lm.macro.auto.object.instance.LmAiInstance:
+    void ai(lm.macro.auto.android.screen.LmAndroidScreen,long) -> ai
+    void setState(lm.macro.auto.object.instance.LmPcState) -> setState
+    lm.macro.auto.object.instance.LmPcState getState() -> getState
+    void setDevice(lm.macro.auto.android.device.model.LmAndroidDevice) -> setDevice
+    lm.macro.auto.android.device.model.LmAndroidDevice getDevice() -> getDevice
+    lm.macro.auto.android.screen.LmAndroidScreen getScreen() -> getScreen
+    java.lang.String getName() -> getName
+    void setName(java.lang.String) -> setName
+lm.macro.auto.object.instance.LmBagManagerInstance -> lm.macro.auto.object.instance.LmBagManagerInstance:
+    3:3:void <init>() -> <init>
+lm.macro.auto.object.instance.LmParty -> lm.macro.auto.object.instance.LmParty:
+    boolean isOwner -> a
+    lm.macro.auto.object.instance.LmPcInstance pcInstance -> b
+    java.util.List partyList -> c
+    6:11:void <init>() -> <init>
+    14:15:void setPartyList(java.util.List) -> setPartyList
+    18:26:java.util.List getMyPartyList() -> getMyPartyList
+    30:30:lm.macro.auto.object.instance.LmPcInstance getPcInstance() -> getPcInstance
+    34:35:void setPcInstance(lm.macro.auto.object.instance.LmPcInstance) -> setPcInstance
+    38:38:boolean isOwner() -> isOwner
+    42:43:void setOwner(boolean) -> setOwner
+lm.macro.auto.object.instance.LmPcInstance -> lm.macro.auto.object.instance.LmPcInstance:
+    lm.macro.auto.object.instance.LmShopInstance shopInstance -> a
+    lm.macro.auto.object.instance.LmTeleportInstanceImpl teleportInstance -> b
+    lm.macro.auto.graphics.LmVillageGraphics villageGraphics -> c
+    lm.macro.auto.object.pixel.impl.LmAuto autoPixel -> d
+    lm.macro.auto.object.pixel.impl.LmSelf selfPixel -> e
+    java.lang.String name -> f
+    int hp -> g
+    int mp -> h
+    boolean auto -> i
+    boolean self -> j
+    lm.macro.auto.utils.LmTimeChecker autoCheckTime -> k
+    lm.macro.auto.utils.LmTimeChecker selfCheckTime -> l
+    lm.macro.auto.utils.LmTimeChecker letterCheckTime -> m
+    lm.macro.auto.utils.LmTimeChecker poisonCheckTime -> n
+    lm.macro.auto.utils.LmTimeChecker commonCheckTime -> o
+    lm.macro.auto.graphics.LmGraphic village -> p
+    lm.macro.auto.data.model.setting.LmHuntSetting huntSetting -> q
+    lm.macro.auto.object.pixel.impl.LmDieRestart dieRestart -> r
+    lm.macro.auto.object.pixel.impl.LmJoystick joystick -> s
+    lm.macro.auto.android.screen.LmAndroidScreen screen -> t
+    long macroStartTime -> u
+    39:93:void <init>() -> <init>
+    104:104:lm.macro.auto.android.screen.LmAndroidScreen getScreen() -> getScreen
+    109:109:java.lang.String getName() -> getName
+    113:114:void setName(java.lang.String) -> setName
+    117:118:void refreshScreen() -> refreshScreen
+    122:135:void initialize(lm.macro.auto.android.screen.LmAndroidScreen) -> a
+    139:160:void ai(lm.macro.auto.android.screen.LmAndroidScreen,long) -> ai
+    163:176:void poisonCheck(long,lm.macro.auto.android.screen.LmAndroidScreen) -> a
+    180:188:void checkLetter(long,lm.macro.auto.android.screen.LmAndroidScreen) -> b
+    192:328:void startHunt(lm.macro.auto.android.screen.LmAndroidScreen,long) -> a
+    331:343:void goHomeAndSleep2000(lm.macro.auto.android.screen.LmAndroidScreen) -> goHomeAndSleep2000
+    346:379:java.util.List checkRealBuyItems() -> checkRealBuyItems
+    384:426:void shoppingStart(lm.macro.auto.android.screen.LmAndroidScreen) -> b
+    429:441:void startHomeAndShopping(lm.macro.auto.android.screen.LmAndroidScreen,boolean) -> a
+    450:451:void startHomeAndShopping(lm.macro.auto.android.screen.LmAndroidScreen) -> c
+    454:467:void autoCheck(lm.macro.auto.android.screen.LmAndroidScreen,long) -> b
+    470:472:void setSelf(lm.macro.auto.android.screen.LmAndroidScreen,boolean) -> setSelf
+    475:477:void setAuto(lm.macro.auto.android.screen.LmAndroidScreen,boolean) -> setAuto
+    480:481:boolean isDamaged(lm.macro.auto.android.screen.LmAndroidScreen) -> isDamaged
+    485:492:void calcHpAndMp(lm.macro.auto.android.screen.LmAndroidScreen) -> calcHpAndMp
+    495:501:void executeAutoPatterns() -> executeAutoPatterns
+    505:509:void useSlot(int,lm.macro.auto.object.LmSlot$SlotType) -> useSlot
+    512:512:int getHp() -> getHp
+    516:517:void setHp(int) -> setHp
+    520:520:int getMp() -> getMp
+    524:525:void setMp(int) -> setMp
+    528:528:boolean isInVillage() -> isInVillage
+    532:532:boolean isAuto() -> isAuto
+    536:537:void setAuto(boolean) -> setAuto
+    540:540:boolean isSelf() -> isSelf
+    544:545:void setSelf(boolean) -> setSelf
+    548:551:java.util.Map getUseItems() -> getUseItems
+    555:555:lm.macro.auto.graphics.LmGraphic getVillage() -> getVillage
+    559:560:void setVillage(lm.macro.auto.graphics.LmGraphic) -> setVillage
+    563:563:lm.macro.auto.data.model.setting.LmHuntSetting getHuntSetting() -> getHuntSetting
+    567:567:java.util.List getBuyItems() -> getBuyItems
+    571:572:void saveScreenShot(java.awt.image.BufferedImage,java.lang.String) -> a
+    575:592:void useSlotFromString(java.lang.String) -> useSlotFromString
+    596:597:void setPartyManager(lm.macro.auto.object.manager.LmPartyManager) -> setPartyManager
+    600:600:long getMacroStartTime() -> getMacroStartTime
+    604:605:void setMacroStartTime(long) -> setMacroStartTime
+lm.macro.auto.object.instance.LmPcState -> lm.macro.auto.object.instance.LmPcState:
+    lm.macro.auto.object.instance.LmPcState PLAY -> PLAY
+    lm.macro.auto.object.instance.LmPcState STOP -> STOP
+    lm.macro.auto.object.instance.LmPcState SHOPPING -> SHOPPING
+    java.lang.String name -> a
+    lm.macro.auto.object.instance.LmPcState[] $VALUES -> b
+    6:6:lm.macro.auto.object.instance.LmPcState[] values() -> values
+    6:6:lm.macro.auto.object.instance.LmPcState valueOf(java.lang.String) -> valueOf
+    13:15:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    19:19:java.lang.String toString() -> toString
+    6:9:void <clinit>() -> <clinit>
+lm.macro.auto.object.instance.LmShopInstance -> lm.macro.auto.object.instance.LmShopInstance:
+    lm.macro.auto.log.LmLog logger -> a
+    lm.macro.auto.object.pixel.LmCustomPixel cart1Button -> b
+    lm.macro.auto.object.pixel.LmCustomPixel cart10Button -> c
+    lm.macro.auto.object.pixel.LmCustomPixel cart100Button -> d
+    lm.macro.auto.object.pixel.LmCustomPixel cart1000Button -> e
+    lm.macro.auto.object.pixel.LmCustomPixel buyButton -> f
+    lm.macro.auto.object.pixel.LmCustomPixel buyOkButton -> g
+    lm.macro.auto.object.pixel.LmNpcShopPixel npcShopPixel -> h
+    19:34:void <init>() -> <init>
+    37:46:void startBuyItem(java.util.List,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> startBuyItem
+    50:74:lm.macro.auto.object.pixel.LmMatPixel findItem(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,lm.macro.auto.graphics.LmGraphic) -> a
+    78:83:void scrollUp(lm.macro.auto.android.device.model.LmAndroidDevice) -> scrollUp
+    86:186:void buyItem(java.util.List,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> buyItem
+    39:45:void lambda$startBuyItem$0(lm.macro.auto.android.screen.LmAndroidScreen,lm.macro.auto.android.device.model.LmAndroidDevice,java.util.List) -> a
+lm.macro.auto.object.instance.LmTeleportInstance -> lm.macro.auto.object.instance.LmTeleportInstance:
+    boolean toTeleport(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,java.lang.String,boolean) -> toTeleport
+lm.macro.auto.object.instance.LmTeleportInstanceImpl -> lm.macro.auto.object.instance.LmTeleportInstanceImpl:
+    lm.macro.auto.log.LmLog logger -> a
+    lm.macro.auto.object.pixel.impl.LmMap mapPixel -> b
+    lm.macro.auto.object.pixel.impl.LmMenuButton menuButton -> c
+    18:25:void <init>() -> <init>
+    29:46:void openTeleport(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openTeleport
+    49:53:boolean toTeleport(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,java.lang.String,boolean) -> toTeleport
+    57:105:boolean _toTeleport(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,java.lang.String,boolean) -> a
+lm.macro.auto.object.instance.LmWarehouseInstance -> lm.macro.auto.object.instance.LmWarehouseInstance:
+    14:14:void <init>() -> <init>
+    16:47:lm.macro.auto.object.pixel.LmPixelData findWareHouse(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> findWareHouse
+    51:61:void openWareHouse(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openWareHouse
+lm.macro.auto.object.manager.LmPartyManager -> lm.macro.auto.object.manager.LmPartyManager:
+    java.util.List partyList -> a
+    12:13:void <init>() -> <init>
+    16:24:java.util.List nonOwnerPartyList() -> a
+    28:34:lm.macro.auto.object.instance.LmParty partyOwner() -> partyOwner
+    38:44:void addParty(lm.macro.auto.object.instance.LmPcInstance) -> addParty
+    47:54:void initialize() -> initialize
+lm.macro.auto.object.pixel.LmBooleanPixel -> lm.macro.auto.object.pixel.LmBooleanPixel:
+    6:6:void <init>() -> <init>
+    9:23:void setBoolean(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,boolean) -> setBoolean
+    boolean isTrue(lm.macro.auto.android.screen.LmAndroidScreen) -> isTrue
+lm.macro.auto.object.pixel.LmColorRangePixel -> lm.macro.auto.object.pixel.LmColorRangePixel:
+    10:10:void <init>() -> <init>
+    lm.macro.auto.utils.pixel.LmColorCheck red() -> red
+    lm.macro.auto.utils.pixel.LmColorCheck green() -> green
+    lm.macro.auto.utils.pixel.LmColorCheck blue() -> blue
+    19:27:double percent(java.awt.image.BufferedImage) -> percent
+    31:32:double percent(lm.macro.auto.android.screen.LmAndroidScreen) -> percent
+lm.macro.auto.object.pixel.LmCustomPixel -> lm.macro.auto.object.pixel.LmCustomPixel:
+    int width -> a
+    int height -> b
+    lm.macro.auto.object.pixel.LmPixelData pixelData -> c
+    8:9:void <init>() -> <init>
+    11:15:void <init>(int,int,int,int) -> <init>
+    19:19:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    23:24:void setPixelData(lm.macro.auto.object.pixel.LmPixelData) -> setPixelData
+    28:28:int getWidth() -> getWidth
+    32:33:void setWidth(int) -> setWidth
+    37:37:int getHeight() -> getHeight
+    41:42:void setHeight(int) -> setHeight
+lm.macro.auto.object.pixel.LmMatPixel -> lm.macro.auto.object.pixel.LmMatPixel:
+    java.lang.String name -> a
+    org.opencv.core.Mat mat -> b
+    double matchPercent -> c
+    lm.macro.auto.android.screen.LmAndroidScreen screen -> d
+    lm.macro.auto.object.pixel.LmPixelData pixelMatch -> e
+    int width -> f
+    int height -> g
+    11:21:void <init>(org.opencv.core.Mat) -> <init>
+    11:26:void <init>(org.opencv.core.Mat,double) -> <init>
+    11:33:void <init>(lm.macro.auto.android.screen.LmAndroidScreen,org.opencv.core.Mat) -> <init>
+    11:40:void <init>(lm.macro.auto.android.screen.LmAndroidScreen,org.opencv.core.Mat,double) -> <init>
+    11:45:void <init>(java.lang.String,org.opencv.core.Mat) -> <init>
+    11:51:void <init>(java.lang.String,lm.macro.auto.android.screen.LmAndroidScreen,org.opencv.core.Mat) -> <init>
+    54:57:void <init>(java.lang.String,lm.macro.auto.android.screen.LmAndroidScreen,org.opencv.core.Mat,double) -> <init>
+    60:60:lm.macro.auto.android.screen.LmAndroidScreen getScreen() -> getScreen
+    64:65:void setScreen(lm.macro.auto.android.screen.LmAndroidScreen) -> setScreen
+    69:69:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    74:74:int getWidth() -> getWidth
+    79:79:int getHeight() -> getHeight
+    84:92:void init(lm.macro.auto.android.screen.LmAndroidScreen) -> init
+    95:95:org.opencv.core.Mat getMat() -> getMat
+    99:100:void setMat(org.opencv.core.Mat) -> setMat
+    104:104:java.lang.String toString() -> toString
+    109:118:void click(lm.macro.auto.android.device.model.LmAndroidDevice,boolean) -> click
+    121:121:java.lang.String getName() -> getName
+    125:126:void setName(java.lang.String) -> setName
+lm.macro.auto.object.pixel.LmNpcShopPixel -> lm.macro.auto.object.pixel.LmNpcShopPixel:
+    lm.macro.auto.object.pixel.LmNpcShopPixel$LmNpcShopCallback callback -> a
+    lm.macro.auto.object.pixel.impl.LmJoystick joystick -> b
+    13:17:void <init>() -> <init>
+    20:21:void setCallback(lm.macro.auto.object.pixel.LmNpcShopPixel$LmNpcShopCallback) -> setCallback
+    25:28:double[] clickPosition() -> clickPosition
+    33:74:lm.macro.auto.object.pixel.LmPixelData findShopLocation(lm.macro.auto.android.screen.LmAndroidScreen,lm.macro.auto.android.device.model.LmAndroidDevice,int) -> a
+    78:115:void openShop(int,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openShop
+    119:124:void click(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen,int,lm.macro.auto.object.pixel.LmNpcShopPixel$LmNpcShopCallback) -> click
+lm.macro.auto.object.pixel.LmNpcShopPixel$LmNpcShopCallback -> lm.macro.auto.object.pixel.LmNpcShopPixel$LmNpcShopCallback:
+    void onOpen() -> onOpen
+lm.macro.auto.object.pixel.LmOkPixel -> lm.macro.auto.object.pixel.LmOkPixel:
+    8:9:void <init>(lm.macro.auto.android.screen.LmAndroidScreen) -> <init>
+lm.macro.auto.object.pixel.LmPixel -> lm.macro.auto.object.pixel.LmPixel:
+    lm.macro.auto.log.LmLog logger -> logger
+    8:9:void <init>() -> <init>
+    lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    int getWidth() -> getWidth
+    int getHeight() -> getHeight
+    18:28:void iconClick(lm.macro.auto.android.device.model.LmAndroidDevice) -> iconClick
+    31:41:void click(lm.macro.auto.android.device.model.LmAndroidDevice) -> click
+    45:51:void swipe(lm.macro.auto.android.device.model.LmAndroidDevice,double,double,long) -> swipe
+    54:57:double[] clickPosition() -> clickPosition
+    61:62:void longPress(lm.macro.auto.android.device.model.LmAndroidDevice,long) -> longPress
+    65:66:void swipeTop(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeTop
+    69:70:void swipeTopRight(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeTopRight
+    73:74:void swipeRight(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeRight
+    77:78:void swipeBottomRight(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeBottomRight
+    81:82:void swipeBottom(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeBottom
+    85:86:void swipeBottomLeft(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeBottomLeft
+    89:90:void swipeLeft(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeLeft
+    93:94:void swipeTopLeft(lm.macro.auto.android.device.model.LmAndroidDevice,double,long) -> swipeTopLeft
+lm.macro.auto.object.pixel.LmPixelData -> lm.macro.auto.object.pixel.LmPixelData:
+    double x -> a
+    double y -> b
+    double percent -> c
+    4:9:void <init>() -> <init>
+    4:14:void <init>(double,double) -> <init>
+    4:20:void <init>(double,double,double) -> <init>
+    23:23:double getX() -> getX
+    27:28:void setX(double) -> setX
+    31:31:double getY() -> getY
+    35:36:void setY(double) -> setY
+    40:43:java.lang.String toString() -> toString
+    48:48:boolean isExists() -> isExists
+    52:52:double getPercent() -> getPercent
+    56:57:void setPercent(double) -> setPercent
+lm.macro.auto.object.pixel.LmPortalPixel -> lm.macro.auto.object.pixel.LmPortalPixel:
+    11:12:void <init>(lm.macro.auto.android.screen.LmAndroidScreen) -> <init>
+    16:25:void click(lm.macro.auto.android.device.model.LmAndroidDevice) -> click
+lm.macro.auto.object.pixel.impl.LmAttackCheck -> lm.macro.auto.object.pixel.impl.LmAttackCheck:
+    12:12:void <init>() -> <init>
+    15:15:lm.macro.auto.utils.pixel.LmColorCheck red() -> red
+    20:20:lm.macro.auto.utils.pixel.LmColorCheck green() -> green
+    25:25:lm.macro.auto.utils.pixel.LmColorCheck blue() -> blue
+    30:30:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    35:35:int getWidth() -> getWidth
+    40:40:int getHeight() -> getHeight
+    45:45:boolean isAttack(lm.macro.auto.android.screen.LmAndroidScreen) -> isAttack
+lm.macro.auto.object.pixel.impl.LmAuto -> lm.macro.auto.object.pixel.impl.LmAuto:
+    10:10:void <init>() -> <init>
+    13:13:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    18:18:int getWidth() -> getWidth
+    23:23:int getHeight() -> getHeight
+    28:47:boolean isTrue(lm.macro.auto.android.screen.LmAndroidScreen) -> isTrue
+lm.macro.auto.object.pixel.impl.LmBag -> lm.macro.auto.object.pixel.impl.LmBag:
+    lm.macro.auto.log.LmLog logger -> a
+    lm.macro.auto.object.pixel.LmCustomPixel[] itemCells -> b
+    int cutScreenX -> c
+    int cutScreenY -> d
+    int margin -> e
+    org.opencv.core.Mat[] numbers -> numbers
+    19:43:void <init>() -> <init>
+    46:46:boolean isHeavy(lm.macro.auto.android.screen.LmAndroidScreen) -> isHeavy
+    50:51:boolean isOpen(lm.macro.auto.android.screen.LmAndroidScreen) -> isOpen
+    55:56:void close(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> close
+    59:77:void setOpen(boolean,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> setOpen
+    80:83:void scrollTop(lm.macro.auto.android.device.model.LmAndroidDevice) -> scrollTop
+    86:87:void scrollDown(lm.macro.auto.android.device.model.LmAndroidDevice) -> scrollDown
+    90:100:void selectTab(lm.macro.auto.object.pixel.impl.LmBag$LmItemType,lm.macro.auto.android.device.model.LmAndroidDevice) -> selectTab
+    103:114:void openAndScrollTop(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openAndScrollTop
+    117:129:lm.macro.auto.object.pixel.LmCustomPixel findItem(int,lm.macro.auto.object.pixel.impl.LmBag$LmItemType,org.opencv.core.Mat,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> findItem
+    136:154:lm.macro.auto.object.pixel.LmCustomPixel findItem(lm.macro.auto.object.pixel.impl.LmBag$LmItemType,org.opencv.core.Mat,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> findItem
+    161:175:void melt(org.opencv.core.Mat,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> melt
+    184:245:int getItemCount(lm.macro.auto.object.pixel.LmCustomPixel,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> getItemCount
+    253:272:void delete(org.opencv.core.Mat,int,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> delete
+    177:177:void <clinit>() -> <clinit>
+lm.macro.auto.object.pixel.impl.LmBag$LmItemType -> lm.macro.auto.object.pixel.impl.LmBag$LmItemType:
+    lm.macro.auto.object.pixel.impl.LmBag$LmItemType ALL -> ALL
+    lm.macro.auto.object.pixel.impl.LmBag$LmItemType WEAPON -> WEAPON
+    lm.macro.auto.object.pixel.impl.LmBag$LmItemType ETC -> ETC
+    java.lang.String name -> a
+    lm.macro.auto.object.pixel.impl.LmBag$LmItemType[] $VALUES -> b
+    274:274:lm.macro.auto.object.pixel.impl.LmBag$LmItemType[] values() -> values
+    274:274:lm.macro.auto.object.pixel.impl.LmBag$LmItemType valueOf(java.lang.String) -> valueOf
+    281:283:void <init>(java.lang.String,int,java.lang.String) -> <init>
+    287:287:java.lang.String toString() -> toString
+    274:277:void <clinit>() -> <clinit>
+lm.macro.auto.object.pixel.impl.LmDieRestart -> lm.macro.auto.object.pixel.impl.LmDieRestart:
+    int dieCount -> a
+    10:10:void <init>() -> <init>
+    17:24:void restart(lm.macro.auto.android.screen.LmAndroidScreen,lm.macro.auto.android.device.model.LmAndroidDevice) -> restart
+    27:28:boolean isDie(lm.macro.auto.android.screen.LmAndroidScreen) -> isDie
+    32:32:int getDieCount() -> getDieCount
+lm.macro.auto.object.pixel.impl.LmHp -> lm.macro.auto.object.pixel.impl.LmHp:
+    11:11:void <init>() -> <init>
+    14:14:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    19:19:int getWidth() -> getWidth
+    24:24:int getHeight() -> getHeight
+    29:29:lm.macro.auto.utils.pixel.LmColorCheck red() -> red
+    34:34:lm.macro.auto.utils.pixel.LmColorCheck green() -> green
+    39:39:lm.macro.auto.utils.pixel.LmColorCheck blue() -> blue
+    44:48:double percent(java.awt.image.BufferedImage) -> percent
+    53:63:double percent(lm.macro.auto.android.screen.LmAndroidScreen) -> percent
+lm.macro.auto.object.pixel.impl.LmJoystick -> lm.macro.auto.object.pixel.impl.LmJoystick:
+    long JOYSTICK_DELAY -> JOYSTICK_DELAY
+    7:7:void <init>() -> <init>
+    15:15:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    20:20:int getWidth() -> getWidth
+    25:25:int getHeight() -> getHeight
+    30:30:double[] clickPosition() -> clickPosition
+    35:36:void swipe(lm.macro.auto.android.device.model.LmAndroidDevice,double,double,long) -> swipe
+lm.macro.auto.object.pixel.impl.LmLetter -> lm.macro.auto.object.pixel.impl.LmLetter:
+    8:8:void <init>() -> <init>
+    10:26:void check(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> check
+lm.macro.auto.object.pixel.impl.LmMap -> lm.macro.auto.object.pixel.impl.LmMap:
+    7:7:void <init>() -> <init>
+    10:10:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    15:15:int getWidth() -> getWidth
+    20:20:int getHeight() -> getHeight
+    25:26:void click(lm.macro.auto.android.device.model.LmAndroidDevice) -> click
+lm.macro.auto.object.pixel.impl.LmMenu -> lm.macro.auto.object.pixel.impl.LmMenu:
+    lm.macro.auto.object.pixel.impl.LmMenuButton menuButton -> a
+    lm.macro.auto.object.pixel.impl.LmBag bag -> b
+    8:11:void <init>() -> <init>
+    14:14:boolean isOpen(lm.macro.auto.android.screen.LmAndroidScreen) -> isOpen
+    18:19:void openMenu(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openMenu
+    22:24:void closeMenu(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> closeMenu
+    27:33:void openBag(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> openBag
+    36:37:void closeBag(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmLocalAndroidScreen) -> closeBag
+lm.macro.auto.object.pixel.impl.LmMenuButton -> lm.macro.auto.object.pixel.impl.LmMenuButton:
+    lm.macro.auto.log.LmLog logger -> a
+    9:10:void <init>() -> <init>
+    13:13:boolean isOpen(lm.macro.auto.android.screen.LmAndroidScreen) -> isOpen
+    17:36:void setOpen(boolean,lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.android.screen.LmAndroidScreen) -> setOpen
+lm.macro.auto.object.pixel.impl.LmMp -> lm.macro.auto.object.pixel.impl.LmMp:
+    10:10:void <init>() -> <init>
+    13:13:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    18:18:int getWidth() -> getWidth
+    23:23:int getHeight() -> getHeight
+    27:42:double percent(lm.macro.auto.android.screen.LmAndroidScreen) -> percent
+lm.macro.auto.object.pixel.impl.LmNumberPad -> lm.macro.auto.object.pixel.impl.LmNumberPad:
+    lm.macro.auto.android.device.model.LmAndroidDevice device -> a
+    lm.macro.auto.object.pixel.LmCustomPixel[] numberPads -> b
+    11:13:void <init>(lm.macro.auto.android.device.model.LmAndroidDevice) -> <init>
+    15:36:void <init>() -> <init>
+    39:45:void enterNumber(int) -> enterNumber
+    48:55:void ok() -> ok
+    58:66:int[] splitNumber(int) -> splitNumber
+    72:92:lm.macro.auto.object.pixel.LmCustomPixel getCursorByNumber(int) -> getCursorByNumber
+lm.macro.auto.object.pixel.impl.LmPixels -> lm.macro.auto.object.pixel.impl.LmPixels:
+    8:8:void <init>() -> <init>
+    10:10:lm.macro.auto.object.pixel.LmCustomPixel 상점에서_장비_탭_버튼() -> 상점에서_장비_탭_버튼
+    14:14:lm.macro.auto.object.pixel.LmCustomPixel 메뉴버튼() -> 메뉴버튼
+    18:18:lm.macro.auto.object.pixel.LmCustomPixel 가방닫기버튼() -> 가방닫기버튼
+    22:22:lm.macro.auto.object.pixel.LmCustomPixel 재시작버튼() -> 재시작버튼
+    26:26:lm.macro.auto.object.pixel.LmCustomPixel 텔레포트이동버튼() -> 텔레포트이동버튼
+    30:30:lm.macro.auto.object.pixel.LmCustomPixel 상점구매1() -> 상점구매1
+    34:34:lm.macro.auto.object.pixel.LmCustomPixel 상점구매10() -> 상점구매10
+    38:38:lm.macro.auto.object.pixel.LmCustomPixel 상점구매100() -> 상점구매100
+    42:42:lm.macro.auto.object.pixel.LmCustomPixel 상점구매1000() -> 상점구매1000
+    47:47:lm.macro.auto.object.pixel.LmCustomPixel 상점구매버튼() -> 상점구매버튼
+    51:51:lm.macro.auto.object.pixel.LmCustomPixel 상점구매확인버튼() -> 상점구매확인버튼
+lm.macro.auto.object.pixel.impl.LmPoisonHp -> lm.macro.auto.object.pixel.impl.LmPoisonHp:
+    10:10:void <init>() -> <init>
+    13:38:double percent(java.awt.image.BufferedImage) -> percent
+    43:43:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    48:48:int getWidth() -> getWidth
+    53:53:int getHeight() -> getHeight
+lm.macro.auto.object.pixel.impl.LmSelf -> lm.macro.auto.object.pixel.impl.LmSelf:
+    10:10:void <init>() -> <init>
+    13:13:lm.macro.auto.object.pixel.LmPixelData getPixelData() -> getPixelData
+    18:18:int getWidth() -> getWidth
+    23:23:int getHeight() -> getHeight
+    28:44:boolean isTrue(lm.macro.auto.android.screen.LmAndroidScreen) -> isTrue
+lm.macro.auto.object.pixel.listener.LmPixelOnclickListener -> lm.macro.auto.object.pixel.listener.LmPixelOnclickListener:
+    void click(lm.macro.auto.android.device.model.LmAndroidDevice,lm.macro.auto.object.pixel.LmPixel) -> click
+lm.macro.auto.packet.LmHpAndMpPacketBean -> lm.macro.auto.packet.LmHpAndMpPacketBean:
+    int hp -> hp
+    int maxHp -> maxHp
+    int mp -> mp
+    int maxMp -> maxMp
+    13:18:void <init>(int,int,int,int) -> <init>
+    22:22:java.lang.String toString() -> toString
+lm.macro.auto.packet.LmPacketUtils -> lm.macro.auto.packet.LmPacketUtils:
+    6:6:void <init>() -> <init>
+    8:34:int read2ByteData(byte[]) -> read2ByteData
+lm.macro.auto.packet.LmPcInstancePacketListener -> lm.macro.auto.packet.LmPcInstancePacketListener:
+    int SNIFF_PORT -> SNIFF_PORT
+    lm.macro.auto.manager.device.LmConnectedDeviceManager connectedDeviceManager -> a
+    java.util.Map netstatProcessHolderMap -> b
+    java.util.List packetList -> c
+    22:31:void <init>() -> <init>
+    34:35:void addPacket(lm.macro.auto.packet.items.LmBasePacket) -> addPacket
+    39:40:void setConnectedDeviceManager(lm.macro.auto.manager.device.LmConnectedDeviceManager) -> setConnectedDeviceManager
+    44:97:void listen(org.pcap4j.packet.TcpPacket,byte[],int,int) -> listen
+    100:125:void packetHandle$78d98f50(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> a
+    139:139:void calcHpAndMp(lm.macro.auto.object.instance.LmPcInstance) -> calcHpAndMp
+    142:144:void main(java.lang.String[]) -> main
+    67:67:lm.macro.auto.data.model.netstat.LmNetstatProcessHolder lambda$listen$0(lm.macro.auto.manager.device.LmConnectedDeviceHolder,java.lang.Integer) -> a
+lm.macro.auto.packet.PacketTest -> lm.macro.auto.packet.PacketTest:
+    16:16:void <init>() -> <init>
+    18:38:void main(java.lang.String[]) -> main
+lm.macro.auto.packet.items.LmAbstractPacket -> lm.macro.auto.packet.items.LmAbstractPacket:
+    int PACKET_NOT_FOUND -> PACKET_NOT_FOUND
+    java.util.Map valueMap -> valueMap
+    8:11:void <init>() -> <init>
+    15:19:void onHandleServer(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleServer
+    23:23:void onHandleClient(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleClient
+    26:28:java.util.Map getDataMapByPort(int) -> getDataMapByPort
+    32:35:void putValue(java.util.Map,java.lang.String,int) -> putValue
+    int getItemCount(byte[],byte[]) -> getItemCount
+    40:40:java.util.Map getValueMap() -> getValueMap
+    44:45:void setValueMap(java.util.Map) -> setValueMap
+    void _handlePacket(byte[],lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],java.util.Map,int,int) -> _handlePacket
+    26:26:java.util.Map lambda$getDataMapByPort$0(java.lang.Integer) -> a
+    9:9:void <clinit>() -> <clinit>
+lm.macro.auto.packet.items.LmBagPacket -> lm.macro.auto.packet.items.LmBagPacket:
+    13:13:void <init>() -> <init>
+    16:27:int getItemCount(byte[],byte[]) -> getItemCount
+    32:37:void _handlePacket(byte[],lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],java.util.Map,int,int) -> _handlePacket
+    42:42:void onHandleClient(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleClient
+lm.macro.auto.packet.items.LmBasePacket -> lm.macro.auto.packet.items.LmBasePacket:
+    void onHandleServer(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleServer
+    void onHandleClient(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleClient
+lm.macro.auto.packet.items.LmHpMpPacket -> lm.macro.auto.packet.items.LmHpMpPacket:
+    14:14:void <init>() -> <init>
+    17:17:int getItemCount(byte[],byte[]) -> getItemCount
+    22:22:void _handlePacket(byte[],lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],java.util.Map,int,int) -> _handlePacket
+    26:32:void onHandleServer(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleServer
+    35:66:void calcHpAndMp(byte[]) -> calcHpAndMp
+lm.macro.auto.packet.items.LmItemUsePacket -> lm.macro.auto.packet.items.LmItemUsePacket:
+    13:13:void <init>() -> <init>
+    15:38:int getItemCount(byte[],int,byte[]) -> getItemCount
+    43:43:int getItemCount(byte[],byte[]) -> getItemCount
+    48:101:void _handlePacket(byte[],lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],java.util.Map,int,int) -> _handlePacket
+    105:106:void onHandleServer(lm.macro.auto.manager.device.LmConnectedDeviceHolder,int,byte[],byte[],int,int) -> onHandleServer
+lm.macro.auto.scheduler.LmMacroControlScheduler -> lm.macro.auto.scheduler.LmMacroControlScheduler:
+    lm.macro.auto.log.LmLog logger -> a
+    java.util.Map taskList -> b
+    22:34:void <init>() -> <init>
+    38:78:void runMacro() -> runMacro
+    82:92:void schedule(lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> schedule
+    49:64:void lambda$runMacro$0(lm.macro.auto.manager.device.LmConnectedDeviceHolder) -> a
+lm.macro.auto.scheduler.LmReconnectScheduler -> lm.macro.auto.scheduler.LmReconnectScheduler:
+    13:14:void <init>() -> <init>
+    21:32:void schedule() -> schedule
+lm.macro.auto.server.LmServerCommunicationScheduler -> lm.macro.auto.server.LmServerCommunicationScheduler:
+    15:16:void <init>() -> <init>
+    26:49:void schedule() -> schedule
+lm.macro.auto.server.LmServerCommunicationService -> lm.macro.auto.server.LmServerCommunicationService:
+    18:18:void <init>() -> <init>
+    22:33:org.apache.http.HttpResponse sendToImageFile(java.lang.String,java.io.File) -> sendToImageFile
+lm.macro.auto.utils.LmAdbProcessUtils -> lm.macro.auto.utils.LmAdbProcessUtils:
+    14:14:void <init>() -> <init>
+    16:16:java.util.List devices() -> devices
+    20:28:lm.macro.auto.data.model.process.LmAdbProcess getAdbProcessByHostPort(int) -> getAdbProcessByHostPort
+    32:47:java.util.List getAdbProcessList() -> getAdbProcessList
+    51:63:lm.macro.auto.utils.cmd.Netstat getAdbHandleProcessNetstatByUUID(java.lang.String,int) -> getAdbHandleProcessNetstatByUUID
+    67:79:lm.macro.auto.utils.cmd.Process getAdbHandleProcessByUUID(java.lang.String,int) -> getAdbHandleProcessByUUID
+lm.macro.auto.utils.LmAdbUtils -> lm.macro.auto.utils.LmAdbUtils:
+    java.lang.String ADB_FILE -> a
+    lm.macro.auto.log.LmLog logger -> b
+    13:13:void <init>() -> <init>
+    19:35:java.lang.String execCommand(java.lang.String[]) -> execCommand
+    39:55:java.util.List getDevices() -> getDevices
+    59:61:java.lang.String shell(java.lang.String,java.lang.String[]) -> shell
+    65:65:java.lang.String pull(java.lang.String,java.lang.String) -> pull
+    69:71:java.lang.String sendEvent(java.lang.String,java.lang.String[]) -> sendEvent
+    75:75:java.lang.String tap(java.lang.String,double,double) -> tap
+    79:87:java.lang.String swipe(java.lang.String,double,double,double,double,long) -> swipe
+    91:91:java.lang.String swipe(java.lang.String,double,double,double,double) -> swipe
+    95:95:java.lang.String swipeTop(java.lang.String,double,double,double,long) -> swipeTop
+    99:99:java.lang.String swipeRight(java.lang.String,double,double,double,long) -> swipeRight
+    103:103:java.lang.String swipeBottom(java.lang.String,double,double,double,long) -> swipeBottom
+    107:107:java.lang.String swipeLeft(java.lang.String,double,double,double,long) -> swipeLeft
+    111:117:java.io.File screenCap(java.lang.String,java.lang.String,java.lang.String) -> screenCap
+    14:16:void <clinit>() -> <clinit>
+lm.macro.auto.utils.LmAdbUtils$DeviceInfo -> lm.macro.auto.utils.LmAdbUtils$DeviceInfo:
+    java.lang.String serial -> a
+    java.lang.String state -> b
+    124:127:void <init>(java.lang.String,java.lang.String) -> <init>
+    130:130:java.lang.String getSerial() -> getSerial
+    134:135:void setSerial(java.lang.String) -> setSerial
+    138:138:java.lang.String getState() -> getState
+    142:143:void setState(java.lang.String) -> setState
+    147:147:java.lang.String toString() -> toString
+lm.macro.auto.utils.LmCommonUtils -> lm.macro.auto.utils.LmCommonUtils:
+    lm.macro.auto.log.LmLog logger -> a
+    16:16:void <init>() -> <init>
+    22:32:void sleep(java.lang.String,long) -> sleep
+    35:36:void sleep(long) -> sleep
+    39:40:void okClick(lm.macro.auto.android.device.model.LmAndroidDevice) -> okClick
+    46:55:void saveScreenShot(lm.macro.auto.android.device.model.LmAndroidDevice,java.awt.image.BufferedImage,java.lang.String) -> saveScreenShot
+    17:17:void <clinit>() -> <clinit>
+lm.macro.auto.utils.LmCvUtils -> lm.macro.auto.utils.LmCvUtils:
+    lm.macro.auto.log.LmLog logger -> a
+    16:16:void <init>() -> <init>
+    20:20:lm.macro.auto.object.pixel.LmPixelData findMatchScreen(org.opencv.core.Mat,org.opencv.core.Mat) -> findMatchScreen
+    25:57:lm.macro.auto.object.pixel.LmPixelData findMatchScreen(org.opencv.core.Mat,org.opencv.core.Mat,double) -> findMatchScreen
+    61:71:int findMatchScreens(org.opencv.core.Mat,double,org.opencv.core.Mat[]) -> findMatchScreens
+    75:84:org.opencv.core.Mat bufferedImageToMat(java.awt.image.BufferedImage) -> bufferedImageToMat
+    88:94:lm.macro.auto.object.pixel.LmPixelData cropAndFindMatch(java.awt.image.BufferedImage,int,int,int,int,org.opencv.core.Mat,double) -> cropAndFindMatch
+    17:17:void <clinit>() -> <clinit>
+lm.macro.auto.utils.LmGameScreenUtils -> lm.macro.auto.utils.LmGameScreenUtils:
+    lm.macro.auto.log.LmLog logger -> a
+    9:9:void <init>() -> <init>
+    13:17:void skipTalk(lm.macro.auto.android.device.model.LmAndroidDevice) -> skipTalk
+    20:30:boolean isTeleportScreen(lm.macro.auto.android.screen.LmAndroidScreen) -> isTeleportScreen
+    34:44:boolean isShopScreen(lm.macro.auto.android.screen.LmAndroidScreen) -> isShopScreen
+    48:53:boolean isNormalGameScreen(lm.macro.auto.android.screen.LmAndroidScreen) -> isNormalGameScreen
+    57:58:boolean isMenuOpen(lm.macro.auto.android.screen.LmAndroidScreen) -> isMenuOpen
+    10:10:void <clinit>() -> <clinit>
+lm.macro.auto.utils.LmPropUtils -> lm.macro.auto.utils.LmPropUtils:
+    boolean $assertionsDisabled -> a
+    11:11:void <init>() -> <init>
+    14:21:org.apache.commons.configuration2.ImmutableConfiguration load(java.lang.String) -> load
+    25:30:org.apache.commons.configuration2.builder.fluent.PropertiesBuilderParameters basePropertiesBuilderParameters() -> a
+    11:11:void <clinit>() -> <clinit>
+lm.macro.auto.utils.LmResourceUtils -> lm.macro.auto.utils.LmResourceUtils:
+    14:14:void <init>() -> <init>
+    16:23:java.io.File getConfigFile(java.lang.String,java.lang.String) -> getConfigFile
+    27:54:java.util.Map getConfigResourceAll() -> getConfigResourceAll
+    58:70:java.util.List getConfigFiles(java.lang.String) -> getConfigFiles
+    74:75:java.util.List getConfigResources(java.lang.String) -> getConfigResources
+    79:90:java.util.List listResources(java.lang.String) -> listResources
+    95:110:org.springframework.core.io.Resource getResource(java.lang.String) -> getResource
+    114:120:java.io.File getFile(java.lang.String) -> getFile
+    83:83:boolean lambda$listResources$3(java.io.File) -> a
+    46:46:java.util.List lambda$getConfigResourceAll$2(java.lang.String) -> a
+    32:32:boolean lambda$getConfigResourceAll$1(java.io.File) -> b
+    29:29:java.util.List lambda$getConfigResourceAll$0(java.lang.String) -> b
+lm.macro.auto.utils.LmStringUtils -> lm.macro.auto.utils.LmStringUtils:
+    9:9:void <init>() -> <init>
+    11:11:java.lang.String replaceInvalidFileAndDirectoryName(java.lang.String) -> replaceInvalidFileAndDirectoryName
+    15:22:java.util.List enumValuesStringList(java.lang.Class) -> enumValuesStringList
+    27:39:int findPortFromSerialName(java.lang.String) -> findPortFromSerialName
+lm.macro.auto.utils.LmTimeChecker -> lm.macro.auto.utils.LmTimeChecker:
+    long time -> a
+    5:5:void <init>() -> <init>
+    16:16:boolean isWaitTime(long,long) -> isWaitTime
+    28:36:boolean isWaitTime(long,long,boolean) -> isWaitTime
+    40:41:void refreshTime() -> a
+    44:44:long getTime() -> getTime
+    48:49:void setTime(long) -> setTime
+lm.macro.auto.utils.TimerCounter -> lm.macro.auto.utils.TimerCounter:
+    int counter -> a
+    3:4:void <init>() -> <init>
+    9:16:boolean waitSecond(int) -> waitSecond
+lm.macro.auto.utils.cmd.Netstat -> lm.macro.auto.utils.cmd.Netstat:
+    java.lang.String type -> a
+    java.lang.String src -> b
+    java.lang.String dest -> c
+    java.lang.String state -> d
+    int pid -> e
+    12:13:void <init>() -> <init>
+    15:21:void <init>(java.lang.String,java.lang.String,java.lang.String,java.lang.String,int) -> <init>
+    24:24:java.lang.String getType() -> getType
+    28:29:void setType(java.lang.String) -> setType
+    32:32:java.lang.String getSrc() -> getSrc
+    36:37:void setSrc(java.lang.String) -> setSrc
+    40:40:java.lang.String getDest() -> getDest
+    44:45:void setDest(java.lang.String) -> setDest
+    48:48:java.lang.String getState() -> getState
+    52:53:void setState(java.lang.String) -> setState
+    56:56:int getPid() -> getPid
+    60:61:void setPid(int) -> setPid
+    65:65:java.lang.String toString() -> toString
+lm.macro.auto.utils.cmd.Process -> lm.macro.auto.utils.cmd.Process:
+    java.lang.String name -> name
+    java.lang.String title -> title
+    java.lang.String commandLine -> commandLine
+    java.lang.String parentProcessId -> parentProcessId
+    java.lang.String executablePath -> executablePath
+    int pid -> pid
+    3:3:void <init>() -> <init>
+    12:12:java.lang.String getName() -> getName
+    16:17:void setName(java.lang.String) -> setName
+    20:20:int getPid() -> getPid
+    24:25:void setPid(int) -> setPid
+    28:28:java.lang.String getCommandLine() -> getCommandLine
+    32:33:void setCommandLine(java.lang.String) -> setCommandLine
+    36:36:java.lang.String getParentProcessId() -> getParentProcessId
+    40:41:void setParentProcessId(java.lang.String) -> setParentProcessId
+    44:44:java.lang.String getTitle() -> getTitle
+    48:49:void setTitle(java.lang.String) -> setTitle
+    52:52:java.lang.String getExecutablePath() -> getExecutablePath
+    56:57:void setExecutablePath(java.lang.String) -> setExecutablePath
+lm.macro.auto.utils.cmd.ProcessUtils -> lm.macro.auto.utils.cmd.ProcessUtils:
+    12:12:void <init>() -> <init>
+    14:15:void killByPid(int) -> killByPid
+    19:28:java.util.List getNetstatByPidAndPort(int,int) -> getNetstatByPidAndPort
+    32:51:java.util.List getNetstatListByPort(int) -> getNetstatListByPort
+    55:82:java.util.List generate(java.util.List) -> generate
+    86:94:java.util.List processList(java.lang.String) -> processList
+    98:112:java.util.List taskListByProcessNameInfo(java.lang.String) -> taskListByProcessNameInfo
+    116:120:java.lang.String[] wmicInfo(int) -> wmicInfo
+    124:142:lm.macro.auto.utils.cmd.Process taskByPid(java.lang.String) -> taskByPid
+    146:151:java.lang.String taskInfoFromCsv(java.lang.String) -> taskInfoFromCsv
+    155:164:java.io.InputStream execCommand(java.lang.String[]) -> execCommand
+lm.macro.auto.utils.gnu.GnuBoardItem -> lm.macro.auto.utils.gnu.GnuBoardItem:
+    java.lang.String href -> a
+    java.lang.String wr_subject -> b
+    java.lang.String wr_content -> c
+    java.lang.String wr_id -> d
+    7:7:void <init>() -> <init>
+    14:14:java.lang.String getWr_subject() -> getWr_subject
+    18:19:void setWr_subject(java.lang.String) -> setWr_subject
+    22:22:java.lang.String getWr_content() -> getWr_content
+    26:27:void setWr_content(java.lang.String) -> setWr_content
+    30:30:java.lang.String getWr_id() -> getWr_id
+    34:35:void setWr_id(java.lang.String) -> setWr_id
+    38:42:java.lang.String getContentShort() -> getContentShort
+    47:47:java.lang.String getHref() -> getHref
+    51:52:void setHref(java.lang.String) -> setHref
+lm.macro.auto.utils.gnu.GnuUtils -> lm.macro.auto.utils.gnu.GnuUtils:
+    12:12:void <init>() -> <init>
+    14:18:java.util.List getLatestList(java.lang.String,java.lang.String) -> getLatestList
+lm.macro.auto.utils.gnu.GnuUtils$1 -> lm.macro.auto.utils.gnu.a:
+    18:18:void <init>() -> <init>
+lm.macro.auto.utils.pixel.LmColorCheck -> lm.macro.auto.utils.pixel.LmColorCheck:
+    int value -> a
+    lm.macro.auto.utils.pixel.LmColorCheckType colorCheckType -> b
+    10:13:void <init>(int,lm.macro.auto.utils.pixel.LmColorCheckType) -> <init>
+    16:16:int getValue() -> getValue
+    20:20:lm.macro.auto.utils.pixel.LmColorCheckType getColorCheckType() -> getColorCheckType
+lm.macro.auto.utils.pixel.LmColorCheckType -> lm.macro.auto.utils.pixel.LmColorCheckType:
+    lm.macro.auto.utils.pixel.LmColorCheckType ABOVE -> ABOVE
+    lm.macro.auto.utils.pixel.LmColorCheckType BELOW -> BELOW
+    lm.macro.auto.utils.pixel.LmColorCheckType[] $VALUES -> a
+    6:6:lm.macro.auto.utils.pixel.LmColorCheckType[] values() -> values
+    6:6:lm.macro.auto.utils.pixel.LmColorCheckType valueOf(java.lang.String) -> valueOf
+    6:6:void <init>(java.lang.String,int) -> <init>
+    6:7:void <clinit>() -> <clinit>
+lm.macro.auto.utils.pixel.LmPixelUtils -> lm.macro.auto.utils.pixel.LmPixelUtils:
+    lm.macro.auto.log.LmLog logger -> a
+    13:13:void <init>() -> <init>
+    17:17:java.awt.Color[][] loadPixelsFromImage(java.io.File) -> loadPixelsFromImage
+    21:33:java.awt.Color[][] loadPixelsFromBuffer(java.awt.image.BufferedImage) -> loadPixelsFromBuffer
+    38:67:java.awt.Color[][] screenPixelRangeToColors(java.awt.image.BufferedImage,double,double,int,int) -> screenPixelRangeToColors
+    71:76:java.awt.Color[][] screenPixelRangeToColors(lm.macro.auto.android.screen.LmAndroidScreen,double,double,int,int) -> a
+    81:90:java.awt.Color[][] screenPixelRangeToColors(lm.macro.auto.android.screen.LmAndroidScreen,lm.macro.auto.object.pixel.LmPixel) -> screenPixelRangeToColors
+    94:112:java.awt.image.BufferedImage convertColorsToBufferedImage(java.awt.Color[][]) -> convertColorsToBufferedImage
+    116:133:double findColorRange(java.awt.Color[][],lm.macro.auto.utils.pixel.LmColorCheck,lm.macro.auto.utils.pixel.LmColorCheck,lm.macro.auto.utils.pixel.LmColorCheck,int) -> findColorRange
+    137:137:double findColorRange(java.awt.Color[][],lm.macro.auto.utils.pixel.LmColorCheck,lm.macro.auto.utils.pixel.LmColorCheck,lm.macro.auto.utils.pixel.LmColorCheck) -> findColorRange
+    141:141:java.awt.image.BufferedImage crop(java.awt.image.BufferedImage,int,int,int,int) -> crop
+    14:14:void <clinit>() -> <clinit>
+lm.macro.gui.GuiMain -> lm.macro.gui.GuiMain:
+    lm.macro.gui.component.menu.system.GuiSystemMenu systemMenu -> a
+    lm.macro.gui.component.view.GuiTabView guiTabView -> b
+    lm.macro.gui.component.view.serverInfo.GuiView guiView -> c
+    org.eclipse.swt.widgets.Display display -> d
+    org.eclipse.swt.widgets.Shell shell -> e
+    lm.macro.gui.GuiMain guiMain -> f
+    12:22:void <init>() -> <init>
+    27:60:void start() -> start
+    63:64:void initComponents() -> a
+    67:67:org.eclipse.swt.widgets.Display getDisplay() -> getDisplay
+    71:71:org.eclipse.swt.widgets.Shell getShell() -> getShell
+    75:75:lm.macro.gui.component.view.serverInfo.GuiView getGuiView() -> getGuiView
+    81:81:lm.macro.gui.GuiMain getInstance() -> getInstance
+    85:85:lm.macro.gui.component.view.GuiTabView getGuiTabView() -> getGuiTabView
+    39:40:void lambda$start$0(org.eclipse.swt.widgets.Event) -> a
+    78:78:void <clinit>() -> <clinit>
+lm.macro.gui.GuiUtils -> lm.macro.gui.GuiUtils:
+    7:7:void <init>() -> <init>
+    10:10:void update() -> update
+    13:17:void start(lm.macro.gui.GuiUtils$GuiCallback) -> start
+    20:29:void shutDown() -> shutDown
+    14:16:void lambda$start$0(lm.macro.gui.GuiUtils$GuiCallback) -> a
+lm.macro.gui.GuiUtils$GuiCallback -> lm.macro.gui.GuiUtils$GuiCallback:
+    void run() -> run
+lm.macro.gui.MessageAppender -> lm.macro.gui.MessageAppender:
+    11:11:void <init>() -> <init>
+    14:40:void start() -> start
+lm.macro.gui.MessageAppender$1 -> lm.macro.gui.a:
+    14:14:void <init>() -> <init>
+    18:18:void write(int) -> write
+    22:32:void write(byte[]) -> write
+    36:36:void write(byte[],int,int) -> write
+    23:31:void lambda$write$0(byte[]) -> a
+lm.macro.gui.SWTResourceManager -> lm.macro.gui.SWTResourceManager:
+    java.util.Map m_colorMap -> a
+    java.util.Map m_imageMap -> b
+    int TOP_LEFT -> TOP_LEFT
+    int TOP_RIGHT -> TOP_RIGHT
+    int BOTTOM_LEFT -> BOTTOM_LEFT
+    int BOTTOM_RIGHT -> BOTTOM_RIGHT
+    int LAST_CORNER_KEY -> LAST_CORNER_KEY
+    java.util.Map[] m_decoratedImageMap -> c
+    java.util.Map m_fontMap -> d
+    java.util.Map m_fontToBoldFontMap -> e
+    java.util.Map m_idToCursorMap -> f
+    28:28:void <init>() -> <init>
+    43:44:org.eclipse.swt.graphics.Color getColor(int) -> getColor
+    58:58:org.eclipse.swt.graphics.Color getColor(int,int,int) -> getColor
+    68:74:org.eclipse.swt.graphics.Color getColor(org.eclipse.swt.graphics.RGB) -> getColor
+    80:84:void disposeColors() -> disposeColors
+    103:110:org.eclipse.swt.graphics.Image getImage(java.io.InputStream) -> getImage
+    121:131:org.eclipse.swt.graphics.Image getImage(java.lang.String) -> getImage
+    143:154:org.eclipse.swt.graphics.Image getImage(java.lang.Class,java.lang.String) -> getImage
+    161:168:org.eclipse.swt.graphics.Image getMissingImage() -> a
+    205:205:org.eclipse.swt.graphics.Image decorateImage(org.eclipse.swt.graphics.Image,org.eclipse.swt.graphics.Image) -> decorateImage
+    219:255:org.eclipse.swt.graphics.Image decorateImage(org.eclipse.swt.graphics.Image,org.eclipse.swt.graphics.Image,int) -> decorateImage
+    263:281:void disposeImages() -> disposeImages
+    307:307:org.eclipse.swt.graphics.Font getFont(java.lang.String,int,int) -> getFont
+    326:349:org.eclipse.swt.graphics.Font getFont(java.lang.String,int,int,boolean,boolean) -> getFont
+    359:366:org.eclipse.swt.graphics.Font getBoldFont(org.eclipse.swt.graphics.Font) -> getBoldFont
+    373:382:void disposeFonts() -> disposeFonts
+    400:406:org.eclipse.swt.graphics.Cursor getCursor(int) -> getCursor
+    412:416:void disposeCursors() -> disposeCursors
+    427:431:void dispose() -> dispose
+    34:391:void <clinit>() -> <clinit>
+lm.macro.gui.component.menu.system.GuiSystemMenu -> lm.macro.gui.component.menu.system.GuiSystemMenu:
+    lm.macro.gui.GuiMain guiMain -> a
+    org.eclipse.swt.widgets.MenuItem systemMenu -> b
+    org.eclipse.swt.widgets.Menu systemMenuContainer -> c
+    14:16:void <init>(lm.macro.gui.GuiMain) -> <init>
+    22:27:void create() -> create
+    30:32:void initSystemMenu() -> a
+    35:37:void initSystemMenuContainer() -> b
+    40:88:void initServerStartMenu() -> c
+lm.macro.gui.component.menu.system.GuiSystemMenu$1 -> lm.macro.gui.component.menu.system.a:
+    42:42:void <init>() -> <init>
+lm.macro.gui.component.menu.system.GuiSystemMenu$2 -> lm.macro.gui.component.menu.system.b:
+    55:55:void <init>() -> <init>
+lm.macro.gui.component.menu.system.GuiSystemMenu$3 -> lm.macro.gui.component.menu.system.c:
+    81:81:void <init>() -> <init>
+lm.macro.gui.component.view.GuiTabView -> lm.macro.gui.component.view.GuiTabView:
+    lm.macro.gui.GuiMain guiMain -> a
+    org.eclipse.swt.widgets.TabFolder tabFolder -> b
+    org.eclipse.swt.widgets.Composite composite -> c
+    17:19:void <init>(lm.macro.gui.GuiMain) -> <init>
+    22:25:void init() -> init
+    28:38:void initComposite() -> a
+    41:43:void initTab() -> b
+    46:46:org.eclipse.swt.widgets.TabFolder getTabFolder() -> getTabFolder
+lm.macro.gui.component.view.serverInfo.GuiView -> lm.macro.gui.component.view.serverInfo.GuiView:
+    lm.macro.gui.component.view.GuiTabView guiTabView -> a
+    org.eclipse.swt.custom.StyledText chatting -> b
+    org.eclipse.swt.browser.Browser browser -> c
+    20:22:void <init>(lm.macro.gui.component.view.GuiTabView) -> <init>
+    25:32:void init() -> init
+    35:49:org.eclipse.swt.widgets.Control 로그탭_뷰() -> a
+    53:68:org.eclipse.swt.widgets.Composite 매크로탭_뷰() -> b
+    72:72:org.eclipse.swt.custom.StyledText getChatting() -> getChatting
+    76:76:org.eclipse.swt.browser.Browser getBrowser() -> getBrowser
+    80:80:lm.macro.gui.component.view.GuiTabView getGuiTabView() -> getGuiTabView
+    48:48:void lambda$로그탭_뷰$0(org.eclipse.swt.widgets.Event) -> a
+lm.macro.login.LmGunLoginService -> lm.macro.login.LmGunLoginService:
+    15:15:void <init>() -> <init>
+    18:32:lm.macro.login.LmUser login(java.lang.String,java.lang.String) -> login
+lm.macro.login.LmGunLoginService$1 -> lm.macro.login.a:
+    java.lang.String val$id -> a
+    java.lang.String val$pw -> b
+    22:25:void <init>(java.lang.String,java.lang.String) -> <init>
+lm.macro.login.LmLoginService -> lm.macro.login.LmLoginService:
+    lm.macro.login.LmUser login(java.lang.String,java.lang.String) -> login
+lm.macro.login.LmUser -> lm.macro.login.LmUser:
+    java.lang.String id -> a
+    java.lang.String pw -> b
+    java.lang.String name -> c
+    java.util.Date registerDate -> d
+    java.util.Date macroUseDate -> e
+    java.lang.String message -> f
+    int macroUseType -> g
+    7:7:void <init>() -> <init>
+    23:23:java.lang.String getId() -> getId
+    27:28:void setId(java.lang.String) -> setId
+    31:31:java.lang.String getPw() -> getPw
+    35:36:void setPw(java.lang.String) -> setPw
+    39:39:java.lang.String getName() -> getName
+    43:44:void setName(java.lang.String) -> setName
+    47:47:java.util.Date getRegisterDate() -> getRegisterDate
+    51:52:void setRegisterDate(java.util.Date) -> setRegisterDate
+    55:55:java.util.Date getMacroUseDate() -> getMacroUseDate
+    59:60:void setMacroUseDate(java.util.Date) -> setMacroUseDate
+    63:63:int getMacroUseType() -> getMacroUseType
+    67:68:void setMacroUseType(int) -> setMacroUseType
+    71:71:java.lang.String getMessage() -> getMessage
+    75:76:void setMessage(java.lang.String) -> setMessage
+    79:79:boolean isLoggedIn() -> isLoggedIn
+lm.macro.pcap.Packet -> lm.macro.pcap.Packet:
+    java.lang.String CHARSET -> CHARSET
+    byte[] data -> a
+    int _off -> b
+    int result -> c
+    int size -> d
+    6:10:void <init>() -> <init>
+    15:18:lm.macro.pcap.Packet data(byte[]) -> data
+    22:24:lm.macro.pcap.Packet data(byte[],int) -> data
+    28:28:boolean isRead(int) -> isRead
+    32:32:int readC() -> readC
+    36:38:int readH() -> readH
+    42:48:int readDD() -> readDD
+    52:56:int readD() -> readD
+    60:68:double readF() -> readF
+    74:90:java.lang.String readS() -> readS
+    95:120:java.lang.String readSS() -> readSS
+    124:127:byte[] readB() -> readB
+    131:133:byte[] getCurrentReadableBytes() -> getCurrentReadableBytes
+lm.macro.pcap.PacketHandler -> lm.macro.pcap.PacketHandler:
+    java.util.List listeners -> a
+    org.pcap4j.core.PcapHandle pcapHandle -> b
+    14:15:void <init>() -> <init>
+    19:22:void addListener(lm.macro.pcap.PcapHandleListener) -> addListener
+    25:28:void removeListener(lm.macro.pcap.PcapHandleListener) -> removeListener
+    31:37:void run() -> run
+    40:41:void stop() -> stop
+    44:45:int packetValidCheck(org.pcap4j.packet.Packet) -> a
+    49:66:void handle(org.pcap4j.packet.Packet) -> b
+    69:79:byte[] getData(org.pcap4j.packet.Packet) -> c
+lm.macro.pcap.PcapHandleListener -> lm.macro.pcap.PcapHandleListener:
+    void listen(org.pcap4j.packet.TcpPacket,byte[],int,int) -> listen
+lm.macro.pcap.Test -> lm.macro.pcap.Test:
+    17:17:void <init>() -> <init>
+    19:42:void main(java.lang.String[]) -> main
+lm.macro.pcap.encryption.Blowfish -> lm.macro.pcap.encryption.Blowfish:
+    lm.macro.pcap.encryption.UChar8 uc8 -> a
+    lm.macro.pcap.encryption.ULong32 ul32 -> b
+    long v -> c
+    long w -> d
+    int[] P -> e
+    long[][] S -> f
+    9:242:void <init>() -> <init>
+    247:298:long[] blowfish_init(long[]) -> blowfish_init
+    302:308:long blowfish_F(long) -> blowfish_F
+    312:339:void blowfish_encrypt(long,long) -> blowfish_encrypt
+    361:367:long[] getSeeds(long[]) -> getSeeds
+    371:371:int _rotr(int,int) -> _rotr
+lm.macro.pcap.encryption.Encryption -> lm.macro.pcap.encryption.Encryption:
+    boolean le -> le
+    lm.macro.pcap.encryption.Blowfish _Blowfish -> a
+    lm.macro.pcap.encryption.UByte8 ub8 -> b
+    lm.macro.pcap.encryption.UChar8 uc8 -> c
+    lm.macro.pcap.encryption.ULong32 ul32 -> d
+    char[] Dac1 -> e
+    char[] Eac1 -> f
+    long[] encodeKey -> g
+    long[] decodeKey -> h
+    12:22:void <init>() -> <init>
+    25:25:lm.macro.pcap.encryption.UByte8 getUByte8() -> getUByte8
+    29:29:lm.macro.pcap.encryption.UChar8 getUChar8() -> getUChar8
+    33:33:lm.macro.pcap.encryption.ULong32 getULong32() -> getULong32
+    37:45:void initKeys(long) -> initKeys
+    48:52:char[] encrypt(char[]) -> encrypt
+    56:60:char[] decrypt(char[],int) -> decrypt
+    64:73:char[] _encrypt(char[]) -> a
+    77:91:char[] _decrypt(char[],int) -> a
+lm.macro.pcap.encryption.UByte8 -> lm.macro.pcap.encryption.UByte8:
+    3:3:void <init>() -> <init>
+    11:20:byte[] fromArray(long[]) -> fromArray
+    30:36:byte[] fromArray(char[]) -> fromArray
+    40:44:byte[] fromArray(char[],byte[]) -> fromArray
+    54:54:byte fromUChar8(char) -> fromUChar8
+    64:71:byte[] fromULong32(long) -> fromULong32
+lm.macro.pcap.encryption.UChar8 -> lm.macro.pcap.encryption.UChar8:
+    3:3:void <init>() -> <init>
+    11:20:char[] fromArray(long[]) -> fromArray
+    24:31:char[] fromArray(long[],char[]) -> fromArray
+    41:47:char[] fromArray(byte[],int) -> fromArray
+    51:55:char[] fromArray(byte[],char[],int) -> fromArray
+    65:65:char fromUByte8(byte) -> fromUByte8
+    75:82:char[] fromULong32(long) -> fromULong32
+lm.macro.pcap.encryption.ULong32 -> lm.macro.pcap.encryption.ULong32:
+    long MAX_UNSIGNEDLONG_VALUE -> MAX_UNSIGNEDLONG_VALUE
+    8:8:void <init>() -> <init>
+    18:18:long fromArray(char[]) -> fromArray
+    28:28:long fromArray(byte[]) -> fromArray
+    39:39:long fromLong64(long) -> fromLong64
+    49:49:long fromInt32(int) -> fromInt32
+    60:60:long add(long,long) -> add
+    71:71:long sub(long,long) -> sub
+lm.macro.pcap.util.PcapUtils -> lm.macro.pcap.util.PcapUtils:
+    13:13:void <init>() -> <init>
+    15:32:org.pcap4j.core.PcapNetworkInterface getLocalLanPcapNetworkInterface() -> getLocalLanPcapNetworkInterface
+    37:62:java.net.InetAddress getLocalHostLANAddress() -> getLocalHostLANAddress
+lm.macro.sns.kakao.KakaoApi -> lm.macro.sns.kakao.KakaoApi:
+    9:9:void <init>() -> <init>
+    11:11:lm.macro.sns.kakao.KakaoApi instance() -> instance
+    16:16:java.lang.String getAccessTokenEndpoint() -> getAccessTokenEndpoint
+    21:21:java.lang.String getAuthorizationBaseUrl() -> getAuthorizationBaseUrl
+    26:26:com.github.scribejava.core.builder.api.OAuth2SignatureType getSignatureType() -> getSignatureType
+lm.macro.sns.kakao.KakaoApi$InstanceHolder -> lm.macro.sns.kakao.a:
+    lm.macro.sns.kakao.KakaoApi INSTANCE -> a
+    29:29:lm.macro.sns.kakao.KakaoApi access$000() -> a
+    30:30:void <clinit>() -> <clinit>
+lm.macro.sns.kakao.KakaoFeedMessage -> lm.macro.sns.kakao.KakaoFeedMessage:
+    java.lang.String object_type -> a
+    java.lang.String title -> b
+    java.lang.String description -> c
+    java.lang.String image_url -> d
+    java.lang.String web_url -> e
+    8:9:void <init>() -> <init>
+    16:16:java.lang.String getObject_type() -> getObject_type
+    20:21:void setObject_type(java.lang.String) -> setObject_type
+    24:24:java.lang.String getTitle() -> getTitle
+    28:29:void setTitle(java.lang.String) -> setTitle
+    32:32:java.lang.String getDescription() -> getDescription
+    36:37:void setDescription(java.lang.String) -> setDescription
+    40:40:java.lang.String getImage_url() -> getImage_url
+    44:45:void setImage_url(java.lang.String) -> setImage_url
+    48:48:java.lang.String getWeb_url() -> getWeb_url
+    52:53:void setWeb_url(java.lang.String) -> setWeb_url
+    57:68:java.lang.String toParam() -> toParam
+    8:8:java.lang.String access$000(lm.macro.sns.kakao.KakaoFeedMessage) -> a
+    8:8:java.lang.String access$100(lm.macro.sns.kakao.KakaoFeedMessage) -> b
+    8:8:java.lang.String access$200(lm.macro.sns.kakao.KakaoFeedMessage) -> c
+    8:8:java.lang.String access$300(lm.macro.sns.kakao.KakaoFeedMessage) -> d
+lm.macro.sns.kakao.KakaoFeedMessage$1 -> lm.macro.sns.kakao.b:
+    lm.macro.sns.kakao.KakaoFeedMessage this$0 -> a
+    59:66:void <init>(lm.macro.sns.kakao.KakaoFeedMessage) -> <init>
+lm.macro.sns.kakao.KakaoFeedMessage$1$1 -> lm.macro.sns.kakao.c:
+    lm.macro.sns.kakao.KakaoFeedMessage$1 this$1 -> a
+    63:65:void <init>(lm.macro.sns.kakao.KakaoFeedMessage$1) -> <init>
+lm.macro.sns.kakao.KakaoSendMessage -> lm.macro.sns.kakao.KakaoSendMessage:
+    java.lang.String toParam() -> toParam
+lm.macro.sns.model.SnsToken -> lm.macro.sns.model.SnsToken:
+    java.lang.String snsType -> a
+    java.lang.String accessToken -> b
+    java.lang.String tokenType -> c
+    java.lang.Integer expiresIn -> d
+    java.lang.String refreshToken -> e
+    java.lang.String scope -> f
+    java.util.Date registerDate -> g
+    9:9:void <init>() -> <init>
+    21:30:boolean isExpired() -> isExpired
+    34:34:java.lang.String getAccessToken() -> getAccessToken
+    38:39:void setAccessToken(java.lang.String) -> setAccessToken
+    42:42:java.lang.String getTokenType() -> getTokenType
+    46:47:void setTokenType(java.lang.String) -> setTokenType
+    50:50:java.lang.Integer getExpiresIn() -> getExpiresIn
+    54:55:void setExpiresIn(java.lang.Integer) -> setExpiresIn
+    58:58:java.lang.String getRefreshToken() -> getRefreshToken
+    62:63:void setRefreshToken(java.lang.String) -> setRefreshToken
+    66:66:java.lang.String getScope() -> getScope
+    70:71:void setScope(java.lang.String) -> setScope
+    74:74:java.lang.String getSnsType() -> getSnsType
+    78:79:void setSnsType(java.lang.String) -> setSnsType
+    82:82:java.util.Date getRegisterDate() -> getRegisterDate
+    86:87:void setRegisterDate(java.util.Date) -> setRegisterDate
+lm.macro.sns.repository.SnsTokenRepository -> lm.macro.sns.repository.SnsTokenRepository:
+    lm.macro.sns.model.SnsToken findBySnsType(java.lang.String) -> findBySnsType
+    void removeAllBySnsType(java.lang.String) -> removeAllBySnsType
+lm.macro.sns.service.KakaoSnsService -> lm.macro.sns.service.KakaoSnsService:
+    java.lang.String callback -> callback
+    java.lang.String apiKey -> apiKey
+    18:18:void <init>() -> <init>
+    24:24:java.lang.String getSnsType() -> getSnsType
+    29:32:com.github.scribejava.core.oauth.OAuth20Service createService() -> createService
+    36:54:com.github.scribejava.core.model.Response feed(java.lang.String,java.lang.String,java.lang.String,java.lang.String) -> feed
+lm.macro.sns.service.SnsAbstractService -> lm.macro.sns.service.SnsAbstractService:
+    com.github.scribejava.core.oauth.OAuth20Service service -> service
+    java.lang.String getSnsType() -> getSnsType
+    com.github.scribejava.core.oauth.OAuth20Service createService() -> createService
+    23:25:void <init>() -> <init>
+    28:28:java.lang.String getAuthorizationUrl() -> getAuthorizationUrl
+    33:43:void refreshToken() -> refreshToken
+    46:54:void requestToken(java.lang.String) -> requestToken
+    57:59:void save(lm.macro.sns.model.SnsToken) -> save
+    62:62:lm.macro.sns.model.SnsToken getSnsToken() -> getSnsToken
+    67:78:void refreshTokenScheduled() -> refreshTokenScheduled
+    81:81:com.github.scribejava.core.oauth.OAuth20Service getService() -> getService
+lm.macro.sns.util.SnsUtils -> lm.macro.sns.util.SnsUtils:
+    9:9:void <init>() -> <init>
+    11:14:com.github.scribejava.core.model.OAuth2AccessToken toOAuth2AccessToken(lm.macro.sns.model.SnsToken) -> toOAuth2AccessToken
+    18:21:lm.macro.sns.model.SnsToken copy(com.github.scribejava.core.model.OAuth2AccessToken) -> copy
+lm.macro.spring.app.LmAppContext -> lm.macro.spring.app.LmAppContext:
+    org.springframework.context.ApplicationContext ctx -> a
+    16:16:void <init>() -> <init>
+    20:20:org.springframework.context.ApplicationContext getCtx() -> getCtx
+    24:27:java.lang.Object getBean(java.lang.String) -> getBean
+    31:34:java.lang.Object getBean(java.lang.Class) -> getBean
+    38:42:void publishEvent(org.springframework.context.ApplicationEvent) -> publishEvent
+    45:45:java.lang.Object getBean(java.lang.String,java.lang.Class) -> getBean
+    50:53:void autowireBean(java.lang.Object[]) -> autowireBean
+    57:62:void autowireBean(java.lang.Object) -> autowireBean
+    65:68:void autowireBeanList(java.util.List) -> a
+    71:84:void autowireBeanObject(java.lang.Object) -> a
+    88:89:void setApplicationContext(org.springframework.context.ApplicationContext) -> setApplicationContext
+lm.macro.spring.config.LmAppConfiguration -> lm.macro.spring.config.LmAppConfiguration:
+    22:22:void <init>() -> <init>
+    25:30:org.springframework.core.task.TaskExecutor taskExecutor() -> taskExecutor
+    35:37:org.springframework.scheduling.TaskScheduler taskScheduler() -> taskScheduler
+    42:42:lm.macro.auto.packet.items.LmBagPacket bagPacket() -> bagPacket
+    47:47:lm.macro.auto.packet.items.LmItemUsePacket itemUsePacket() -> itemUsePacket
+    52:56:lm.macro.auto.packet.LmPcInstancePacketListener pcInstancePacketListener() -> pcInstancePacketListener
+    61:72:lm.macro.pcap.PacketHandler packetHandler() -> packetHandler
+    78:78:lm.macro.auto.android.screen.LmAndroidScreen teleportScreen() -> teleportScreen
+    84:84:lm.macro.auto.android.screen.LmAndroidScreen initScreen() -> initScreen
+    90:90:lm.macro.auto.android.screen.LmAndroidScreen npcShopScreen() -> npcShopScreen
+    96:96:lm.macro.auto.android.screen.LmAndroidScreen captureScreen() -> captureScreen
+    102:102:lm.macro.auto.android.screen.LmAndroidScreen buyItemScreen() -> buyItemScreen
+    106:108:lm.macro.auto.android.screen.LmAndroidScreen createBean(java.lang.String) -> a
+    66:70:void lambda$packetHandler$0() -> a
+lm.macro.spring.config.LmAppDatasourceConfiguration -> lm.macro.spring.config.LmAppDatasourceConfiguration:
+    24:24:void <init>() -> <init>
+    27:38:javax.sql.DataSource dataSource() -> dataSource
+    43:51:org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean entityManagerFactory() -> entityManagerFactory
+    56:58:org.springframework.transaction.PlatformTransactionManager transactionManager(javax.persistence.EntityManagerFactory) -> transactionManager
+    63:63:org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor exceptionTranslation() -> exceptionTranslation
+    67:72:java.util.Map additionalProperties() -> a
+lm.macro.spring.config.LmFileHttpMessageConverter -> lm.macro.spring.config.LmFileHttpMessageConverter:
+    java.lang.String tempFilePrefix -> a
+    java.lang.String tempFileSuffix -> b
+    29:30:void <init>() -> <init>
+    38:38:java.lang.Long getContentLength(java.io.File,org.springframework.http.MediaType) -> getContentLength
+    47:47:org.springframework.http.MediaType getDefaultContentType(java.io.File) -> getDefaultContentType
+    56:58:java.io.File readInternal(java.lang.Class,org.springframework.http.HttpInputMessage) -> readInternal
+    66:66:boolean supports(java.lang.Class) -> supports
+    75:84:void writeInternal(java.io.File,org.springframework.http.HttpOutputMessage) -> writeInternal
+    90:91:void setTempFilePrefix(java.lang.String) -> setTempFilePrefix
+    97:98:void setTempFileSuffix(java.lang.String) -> setTempFileSuffix
+    21:21:void writeInternal(java.lang.Object,org.springframework.http.HttpOutputMessage) -> writeInternal
+    21:21:java.lang.Object readInternal(java.lang.Class,org.springframework.http.HttpInputMessage) -> readInternal
+    21:21:java.lang.Long getContentLength(java.lang.Object,org.springframework.http.MediaType) -> getContentLength
+    21:21:org.springframework.http.MediaType getDefaultContentType(java.lang.Object) -> getDefaultContentType
+lm.macro.spring.config.LmWebConfiguration -> lm.macro.spring.config.LmWebConfiguration:
+    27:27:void <init>() -> <init>
+    30:30:lm.macro.web.interceptor.LmAuthInterceptor authInterceptor() -> authInterceptor
+    35:39:org.springframework.http.converter.ByteArrayHttpMessageConverter byteArrayHttpMessageConverter() -> byteArrayHttpMessageConverter
+    44:53:void configureMessageConverters(java.util.List) -> configureMessageConverters
+    57:62:org.springframework.web.servlet.view.InternalResourceViewResolver internalResourceViewResolver() -> internalResourceViewResolver
+    67:69:void addResourceHandlers(org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry) -> addResourceHandlers
+    73:74:void addViewControllers(org.springframework.web.servlet.config.annotation.ViewControllerRegistry) -> addViewControllers
+    78:79:void addInterceptors(org.springframework.web.servlet.config.annotation.InterceptorRegistry) -> addInterceptors
+    83:83:lm.macro.login.LmLoginService loginService() -> loginService
+lm.macro.spring.config.LmWebSocketConfiguration -> lm.macro.spring.config.LmWebSocketConfiguration:
+    11:11:void <init>() -> <init>
+    14:15:void registerStompEndpoints(org.springframework.web.socket.config.annotation.StompEndpointRegistry) -> registerStompEndpoints
+    19:21:void configureMessageBroker(org.springframework.messaging.simp.config.MessageBrokerRegistry) -> configureMessageBroker
+lm.macro.web.controller.LmMainController -> lm.macro.web.controller.LmMainController:
+    17:17:void <init>() -> <init>
+    29:33:java.lang.String index(org.springframework.ui.ModelMap) -> index
+    38:46:java.lang.String setMacro(org.springframework.ui.ModelMap) -> setMacro
+    51:51:java.lang.String setParty(org.springframework.ui.ModelMap) -> setParty
+    56:56:java.lang.String monitor(org.springframework.ui.ModelMap) -> monitor
+    61:61:java.lang.String log() -> log
+    66:66:java.lang.String editor() -> editor
+lm.macro.web.controller.common.LmAutoPatternController -> lm.macro.web.controller.common.LmAutoPatternController:
+    13:13:void <init>() -> <init>
+    19:21:java.util.List save(lm.macro.auto.motion.LmAutoPattern) -> save
+    26:27:java.util.List remove(lm.macro.auto.motion.LmAutoPattern) -> remove
+    32:32:java.util.List findByDevicePort(lm.macro.auto.motion.LmAutoPattern) -> findByDevicePort
+    37:41:lm.macro.auto.motion.LmAutoPattern stopAutoPattern(lm.macro.auto.motion.LmAutoPattern) -> stopAutoPattern
+    46:50:lm.macro.auto.motion.LmAutoPattern startAutoPattern(lm.macro.auto.motion.LmAutoPattern) -> startAutoPattern
+lm.macro.web.controller.common.LmBuyItemSettingController -> lm.macro.web.controller.common.LmBuyItemSettingController:
+    17:17:void <init>() -> <init>
+    26:26:void initBinder() -> initBinder
+    30:48:java.lang.Object save(java.lang.String,javax.servlet.http.HttpServletRequest) -> save
+lm.macro.web.controller.common.LmCommonController -> lm.macro.web.controller.common.LmCommonController:
+    28:28:void <init>() -> <init>
+    43:70:java.util.List getAdbProcessList() -> getAdbProcessList
+    75:75:java.util.List getConnectedDeviceList() -> getConnectedDeviceList
+    80:84:java.util.List connectDevice(lm.macro.auto.data.model.process.LmAdbProcess) -> connectDevice
+    89:91:java.util.List disConnectDevice(int) -> disConnectDevice
+    96:108:byte[] getDeviceScreen(int) -> getDeviceScreen
+    119:135:void getDeviceScreenCrop(int,int,int,int,int,javax.servlet.http.HttpServletResponse) -> getDeviceScreenCrop
+lm.macro.web.controller.common.LmHuntSettingController -> lm.macro.web.controller.common.LmHuntSettingController:
+    20:20:void <init>() -> <init>
+    26:38:void initBinder(org.springframework.web.bind.WebDataBinder) -> initBinder
+    42:44:lm.macro.auto.data.model.setting.LmHuntSetting save(lm.macro.auto.data.model.setting.LmHuntSetting) -> save
+lm.macro.web.controller.common.LmHuntSettingController$1 -> lm.macro.web.controller.common.a:
+    26:26:void <init>() -> <init>
+    30:36:void setAsText(java.lang.String) -> setAsText
+lm.macro.web.controller.common.LmHuntSettingController$1$1 -> lm.macro.web.controller.common.b:
+    30:30:void <init>() -> <init>
+lm.macro.web.controller.editor.LmEditorController -> lm.macro.web.controller.editor.LmEditorController:
+    6:6:void <init>() -> <init>
+lm.macro.web.controller.login.LmLoginController -> lm.macro.web.controller.login.LmLoginController:
+    16:16:void <init>() -> <init>
+    22:22:java.lang.String login(lm.macro.login.LmUser) -> login
+    27:39:java.lang.String loginProc(lm.macro.login.LmUser,org.springframework.validation.BindingResult,javax.servlet.http.HttpSession,org.springframework.ui.ModelMap) -> loginProc
+lm.macro.web.controller.macro.LmMacroController -> lm.macro.web.controller.macro.LmMacroController:
+    14:14:void <init>() -> <init>
+    20:22:lm.macro.auto.manager.device.LmConnectedDeviceHolder startMacro(int) -> startMacro
+    27:30:lm.macro.auto.manager.device.LmConnectedDeviceHolder stopMacro(int) -> stopMacro
+lm.macro.web.controller.sns.LmSnsController -> lm.macro.web.controller.sns.LmSnsController:
+    13:13:void <init>() -> <init>
+    19:22:java.lang.String snsSetting(org.springframework.ui.ModelMap) -> snsSetting
+    28:32:java.lang.String oauth_callback(java.lang.String,java.lang.String) -> oauth_callback
+lm.macro.web.interceptor.LmAuthInterceptor -> lm.macro.web.interceptor.LmAuthInterceptor:
+    10:10:void <init>() -> <init>
+    13:26:boolean preHandle(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse,java.lang.Object) -> preHandle

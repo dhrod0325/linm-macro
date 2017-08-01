@@ -1,0 +1,92 @@
+group 'lm.macro'
+version '1.0'
+
+buildscript {
+    repositories {
+        flatDir dirs: 'D:/work/proguard5.3.3/lib'
+    }
+    dependencies {
+        classpath ':proguard:'
+    }
+}
+
+compileJava {
+    options.encoding = "UTF-8"
+}
+
+task proguard(type: proguard.gradle.ProGuardTask) {
+    configuration 'proguard.txt'
+
+    injars 'build/libs/module-projects-macro-core-1.0.jar'
+    outjars 'build/libs/macro.jar'
+}
+
+repositories {
+    jcenter()
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url 'http://www.egovframe.go.kr/maven'
+    }
+    maven {
+        url 'https://code.lds.org/nexus/content/groups/main-repo'
+    }
+    maven {
+        url 'https://raw.githubusercontent.com/maven-eclipse/swt-repo/master'
+    }
+}
+
+dependencies {
+    compile group: 'org.eclipse.swt', name: 'org.eclipse.swt.win32.win32.x86_64', version: '4.4'
+
+    compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.3'
+    compile group: 'org.apache.httpcomponents', name: 'httpmime', version: '4.5.3'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    compile group: 'commons-beanutils', name: 'commons-beanutils', version: '1.9.3'
+    compile group: 'org.apache.commons', name: 'commons-configuration2', version: '2.1.1'
+    compile group: 'org.apache.commons', name: 'commons-compress', version: '1.8.1'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.6'
+    compile group: 'mysql', name: 'mysql-connector-java', version: '5.1.22'
+
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-security', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-jpa', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-websocket', version: springBootVersion
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: springBootVersion
+    compile group: 'org.springframework', name: 'spring-webmvc', version: springVersion
+
+    compile group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '8.5.15'
+    compile group: 'org.jboss.netty', name: 'netty', version: '3.2.10.Final'
+    compile group: 'com.google.guava', name: 'guava', version: '21.0'
+
+    compile group: 'org.pcap4j', name: 'pcap4j', version: '1.7.0'
+    compile group: 'org.pcap4j', name: 'pcap4j-core', version: '1.7.0'
+    compile group: 'org.pcap4j', name: 'pcap4j-packetfactory-static', version: '1.7.0'
+
+    compile group: 'javax.servlet', name: 'jstl', version: '1.2'
+    compile group: 'com.1stleg', name: 'jnativehook', version: '2.1.0'
+    compile group: 'com.jcabi', name: 'jcabi-xml', version: '0.19'
+
+    compile files('../../src/sources/libs/opencv/build/java/opencv-320.jar')
+    compile files('../../src/sources/libs/jadb-1.0.0.jar')
+
+    compile group: 'net.java.dev.jna', name: 'jna', version: '4.4.0'
+    compile group: 'net.java.dev.jna', name: 'jna-platform', version: '4.4.0'
+
+    compile group: 'org.hsqldb', name: 'hsqldb', version: '2.2.8'
+    compile group: 'com.h2database', name: 'h2', version: '1.4.196'
+    compile group: 'org.apache.commons', name: 'commons-dbcp2', version: '2.1.1'
+
+    compile group: 'com.github.scribejava', name: 'scribejava-core', version: '4.1.2'
+    compile group: 'com.github.scribejava', name: 'scribejava-apis', version: '4.1.2'
+
+    compile('org.simpleframework:simple-xml:2.7.1') {
+        exclude group: 'xpp3', module: 'xpp3'
+        exclude group: 'stax', module: 'stax-api'
+        exclude group: 'stax', module: 'stax'
+    }
+
+    testCompile group: 'org.springframework.boot', name: 'spring-boot-starter-test', version: '1.5.3.RELEASE'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+

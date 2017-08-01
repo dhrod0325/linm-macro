@@ -1,0 +1,14 @@
+.gradle/
+.idea/
+gradle/
+out/
+build/
+classes/
+db/
+
+module-*/*/build/
+module-*/*/.gradle/
+/.egradle/
+/emulators/
+/deploy/
+/src/sources/emulators/

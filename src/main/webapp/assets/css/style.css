@@ -1,0 +1,234 @@
+@import "dashboard.css";
+
+body {
+    font-size: 1.3rem;
+}
+
+tbody tr th {
+    background: #f2f2f2;
+}
+
+tbody tr.on {
+    background: #337ab7;
+    color: #fff;
+}
+
+.table > thead > tr > th, .table > tbody > tr > th, .table > tfoot > tr > th, .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td {
+    font-size: 12px;
+}
+
+#page * {
+    border-radius: 0;
+}
+
+img {
+    max-width: 100%;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+a {
+    text-decoration: none;
+}
+
+label, th {
+    font-weight: 400;
+}
+
+.menu-item h2 {
+    font-size: 2rem;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+#page .sidebar {
+    background: #fff;
+    padding-top: 0;
+}
+
+.admin-menu {
+    padding: 20px 0;
+}
+
+.admin-menu ul {
+    margin: 0;
+    padding: 0;
+}
+
+.admin-menu .nav-menu > ul {
+    border-top: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    margin-top: -1px;
+}
+
+.admin-menu .nav-menu > ul > li > a {
+    border-bottom: 1px solid #dedede;
+    background: #f5f5f5;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.admin-menu .nav-menu > ul ul {
+    padding: 0 0 0 20px;
+}
+
+.admin-menu ul li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.admin-menu ul li a {
+    display: block;
+    padding: 5px 10px;
+}
+
+.admin-menu ul li a:hover {
+    text-decoration: none;
+}
+
+.admin-menu ul li.active > a {
+    color: #333;
+}
+
+h1.page-header {
+}
+
+h1.page-header.on {
+}
+
+.ivh-treeview:first-child {
+    margin: 0;
+    padding: 0;
+}
+
+.ivh-treeview li {
+    list-style: none;
+}
+
+.ivh-treeview li li {
+    margin-left: 30px;
+    padding: 3px 0;
+    background: none;
+}
+
+ul.ivh-treeview li.ivh-treeview-node-leaf .ivh-treeview-twistie-leaf {
+    display: none;
+}
+
+.ivh-treeview input[type=checkbox],
+.ivh-treeview input[type=radio] {
+    position: relative;
+    top: 2px;
+}
+
+.selectedGroups {
+    margin: 10px 0;
+    padding: 0;
+
+}
+
+.selectedGroups li {
+    margin: 2px 0;
+    list-style: circle inside none;
+}
+
+.files {
+    margin-top: 10px;
+}
+
+#page-body {
+    padding-bottom: 30px;
+}
+
+.wp-pagination {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.table.table-noBorder th, .table.table-noBorder td {
+    border-top: none;
+}
+
+.logout {
+    float: right;
+    margin-top: 15px;
+}
+
+textarea#post_content,
+.tinymce {
+    min-height: 450px;
+}
+
+textarea#post_content {
+    font-size: 8px;
+}
+
+@media (min-width: 768px) {
+    .navbar-collapse.collapse {
+        display: none !important;
+    }
+}
+
+.navbar-collapse ul {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-collapse ul ul {
+    margin-left: 10px;
+}
+
+.navbar-collapse li a {
+    color: #fff;
+    display: block;
+    padding: 10px;
+}
+
+.chattingBox {
+    height: 400px;
+    overflow-y: scroll;
+    border: 1px solid #dedede;
+    padding: 5px;
+}
+
+.chattingBox ul {
+    margin: 0;
+    padding: 0;
+}
+
+.chattingBox ul li {
+    margin: 0;
+    list-style-type: none;
+}
+
+.userList {
+    border: 1px solid #dedede;
+}
+
+.userList tbody {
+    height: 350px;
+    overflow-y: scroll;
+    display: block;
+    width: 100%;
+}
+
+.userList thead, .userList tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.userList td {
+    text-align: center;
+}
+
+.userInfo th {
+    background: #f6f6f6;
+    width: 100px;
+}
