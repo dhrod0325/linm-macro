@@ -18,7 +18,7 @@ public class Test {
 
         LmAdbAndroidService deviceService = new LmAdbAndroidService();
         List<LmAndroidDevice> deviceList = deviceService.getDeviceList();
-        LmAndroidDevice device = deviceList.get(0);
+        LmAndroidDevice device = deviceList.get(2);
         System.out.println(device.getPort());
 
         PacketHandler packetHandler = new PacketHandler();

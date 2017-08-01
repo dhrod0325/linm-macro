@@ -46,11 +46,7 @@ public class LmItemUsePacket extends LmAbstractPacket {
 
     @Override
     public void _handlePacket(byte[] data, LmConnectedDeviceHolder holder, int opcode, byte[] byteData, Map<String, Integer> packetData, int srcPort, int dstPort) {
-        if(byteData.length <150){
-            int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
-            putValue(packetData, LmCommon.빨간물약, 빨간물약);
-        }
-
+        int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
         int 주홍물약 = getItemCount(data, new byte[]{40, -19, 1, 48});
         int 초록물약 = getItemCount(data, new byte[]{40, -4, 2, 48});
         int 강화초록물약 = getItemCount(data, new byte[]{40, -21, 1, 48});
@@ -95,11 +91,10 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.에바의축복, 에바의축복);
         putValue(packetData, LmCommon.드레곤의다이아몬드, 드레곤의다이아몬드);
 
-//        if (opcode == 201) {
-//            System.out.println(opcode + "," + Arrays.toString(byteData));
-//        }
-
-
+        if (opcode == 201) {
+            putValue(packetData, LmCommon.빨간물약, 빨간물약);
+            System.out.println(빨간물약);
+        }
     }
 
     @Override
