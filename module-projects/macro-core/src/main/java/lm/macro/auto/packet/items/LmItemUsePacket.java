@@ -5,6 +5,7 @@ import lm.macro.auto.common.LmCommon;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
 import java.util.Map;
 
 import static lm.macro.auto.packet.LmPacketUtils.read2ByteData;
@@ -45,7 +46,11 @@ public class LmItemUsePacket extends LmAbstractPacket {
 
     @Override
     public void _handlePacket(byte[] data, LmConnectedDeviceHolder holder, int opcode, byte[] byteData, Map<String, Integer> packetData, int srcPort, int dstPort) {
-        int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
+        if(byteData.length <150){
+            int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
+            putValue(packetData, LmCommon.빨간물약, 빨간물약);
+        }
+
         int 주홍물약 = getItemCount(data, new byte[]{40, -19, 1, 48});
         int 초록물약 = getItemCount(data, new byte[]{40, -4, 2, 48});
         int 강화초록물약 = getItemCount(data, new byte[]{40, -21, 1, 48});
@@ -68,8 +73,6 @@ public class LmItemUsePacket extends LmAbstractPacket {
         int 에바의축복 = getItemCount(data, new byte[]{40, -24, 8, 48});
         int 드레곤의다이아몬드 = getItemCount(data, new byte[]{40, -107, 50, 48});
 
-
-        putValue(packetData, LmCommon.빨간물약, 빨간물약);
         putValue(packetData, LmCommon.주홍물약, 주홍물약);
         putValue(packetData, LmCommon.초록물약, 초록물약);
         putValue(packetData, LmCommon.강화초록물약, 강화초록물약);
@@ -95,6 +98,8 @@ public class LmItemUsePacket extends LmAbstractPacket {
 //        if (opcode == 201) {
 //            System.out.println(opcode + "," + Arrays.toString(byteData));
 //        }
+
+
     }
 
     @Override

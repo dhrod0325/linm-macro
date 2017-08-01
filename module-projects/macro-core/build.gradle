@@ -1,25 +1,26 @@
 group 'lm.macro'
 version '1.0'
 
-buildscript {
-    repositories {
-        flatDir dirs: 'D:/work/proguard5.3.3/lib'
-    }
-    dependencies {
-        classpath ':proguard:'
-    }
-}
-
+//buildscript {
+//    repositories {
+//        flatDir dirs: 'D:/work/proguard5.3.3/lib'
+//        flatDir dirs: 'D:/work/proguard5.3.3/lib'
+//    }
+//    dependencies {
+//        classpath ':proguard:'
+//    }
+//}
+//task proguard(type: proguard.gradle.ProGuardTask) {
+//    configuration 'proguard.txt'
+//
+//    injars 'build/libs/module-projects-macro-core-1.0.jar'
+//    outjars 'build/libs/macro.jar'
+//}
 compileJava {
     options.encoding = "UTF-8"
 }
 
-task proguard(type: proguard.gradle.ProGuardTask) {
-    configuration 'proguard.txt'
 
-    injars 'build/libs/module-projects-macro-core-1.0.jar'
-    outjars 'build/libs/macro.jar'
-}
 
 repositories {
     jcenter()
