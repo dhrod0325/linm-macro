@@ -3,6 +3,7 @@ package lm.macro.auto.packet.items;
 import com.google.common.primitives.Bytes;
 import lm.macro.auto.common.LmCommon;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
+import lm.macro.pcap.Packet;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -46,6 +47,7 @@ public class LmItemUsePacket extends LmAbstractPacket {
 
     @Override
     public void _handlePacket(byte[] data, LmConnectedDeviceHolder holder, int opcode, byte[] byteData, Map<String, Integer> packetData, int srcPort, int dstPort) {
+        //17
         int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
         int 주홍물약 = getItemCount(data, new byte[]{40, -19, 1, 48});
         int 초록물약 = getItemCount(data, new byte[]{40, -4, 2, 48});
@@ -76,7 +78,6 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.변신주문서, 변신주문서);
         putValue(packetData, LmCommon.인형소환주문서, 인형소환주문서);
         putValue(packetData, LmCommon.와퍼, 와퍼);
-        putValue(packetData, LmCommon.은화살, 은화살);
 
         putValue(packetData, LmCommon.순간이동주문서, 순간이동주문서);
         putValue(packetData, LmCommon.귀환주문서, 귀환주문서);
@@ -91,9 +92,18 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.에바의축복, 에바의축복);
         putValue(packetData, LmCommon.드레곤의다이아몬드, 드레곤의다이아몬드);
 
-        if (opcode == 201) {
-            putValue(packetData, LmCommon.빨간물약, 빨간물약);
-            System.out.println(빨간물약);
+        if (빨간물약 != PACKET_NOT_FOUND) {
+            Packet packet = new Packet().data(byteData);
+
+            int first = packet.readC();
+
+            if (first == 8) {
+                putValue(packetData, LmCommon.빨간물약, 빨간물약);
+            }
+        }
+
+        if (은화살 != 34560) {
+            putValue(packetData, LmCommon.은화살, 은화살);
         }
     }
 
