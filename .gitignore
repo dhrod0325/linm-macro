@@ -12,3 +12,4 @@ module-*/*/.gradle/
 /emulators/
 /deploy/
 /src/sources/emulators/
+!/src/sources/libs/opencv/build/

@@ -212,7 +212,17 @@
                                     <option value="<%= LmHuntSetting.DAMAGED_MOTION_TELEPORT%>">순간이동사용(슬롯7에 순간이어야함)
                                     </option>
                                     <option value="<%= LmHuntSetting.DAMAGED_MOTION_HOME%>">귀환주문서사용</option>
+
+                                    <option value="<%= LmHuntSetting.DAMAGED_MOTION_ATTACK%>">반격</option>
                                 </select>
+                            </td>
+                        </tr>
+                        <tr ng-show="huntSetting.damagedMotion == '<%=LmHuntSetting.DAMAGED_MOTION_ATTACK%>'">
+                            <th>
+                                반격행동패턴
+                            </th>
+                            <td>
+
                             </td>
                         </tr>
                         <tr>

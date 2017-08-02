@@ -3,12 +3,24 @@ package lm.macro.auto.data.model.setting;
 import lm.macro.auto.data.model.item.LmHuntMap;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
 public class LmHuntSetting {
     public static final String DAMAGED_MOTION_TELEPORT = "DAMAGED_MOTION_TELEPORT";
     public static final String DAMAGED_MOTION_HOME = "DAMAGED_MOTION_HOME";
+    public static final String DAMAGED_MOTION_ATTACK = "DAMAGED_MOTION_ATTACK";
+
+    public static List<String> DAMAGED_MOTIONS() {
+        return new ArrayList<String>() {
+            {
+                add(DAMAGED_MOTION_TELEPORT);
+                add(DAMAGED_MOTION_HOME);
+                add(DAMAGED_MOTION_ATTACK);
+            }
+        };
+    }
 
     @Id
     private String deviceSerial;

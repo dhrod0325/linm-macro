@@ -92,11 +92,9 @@ public class LmPcInstance extends LmAbstractInstance {
 
     private LmJoystick joystick = new LmJoystick();
 
-    private LmPartyManager partyManager;
-
     private LmAndroidScreen screen;
 
-    private long macroStartTime;
+    private long macroStartTime = System.currentTimeMillis();
 
     @Override
     @JsonIgnore
@@ -128,7 +126,6 @@ public class LmPcInstance extends LmAbstractInstance {
             setVillage(villageGraphics.isInVillage(screen));
 
             this.screen = screen;
-            this.macroStartTime = System.currentTimeMillis();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -265,6 +262,8 @@ public class LmPcInstance extends LmAbstractInstance {
                         kakaoSnsService.feed("알림", "캐릭터가 공격당해 순간이동했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
 
                         return;
+                    } else if (LmHuntSetting.DAMAGED_MOTION_ATTACK.equalsIgnoreCase(huntSetting.getDamagedMotion())) {
+                        logger.debug("반격처리 진행 ", device);
                     }
                 }
 
@@ -593,7 +592,6 @@ public class LmPcInstance extends LmAbstractInstance {
 
     @Resource
     public void setPartyManager(LmPartyManager partyManager) {
-        this.partyManager = partyManager;
     }
 
     public long getMacroStartTime() {

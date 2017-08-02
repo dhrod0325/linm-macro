@@ -9,9 +9,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LmCommon {
-    public static final String VERSION = "0.1";
+    public static final String VERSION = "0.3";
 
-    public static final String DIR_PATH = getDirPath();
+    private static final String DIR_PATH = getDirPath();
 
     public static final String SOURCE_PATH = DIR_PATH + "/src/sources";
 
@@ -58,7 +58,6 @@ public class LmCommon {
     public static final String 드레곤의다이아몬드 = "드레곤의다이아몬드";
 
     public static final String 상점마을 = "우드벡 마을";
-    public static final String 중간상점마을 = "샌드 웜의 안식처";
 
     public static final String 가방무게 = "가방무게";
 
@@ -78,7 +77,6 @@ public class LmCommon {
     public static final String 아덴마을 = "아덴 마을";
     public static final String 요정숲마을 = "요정 숲 마을";
 
-
     public static final String 조이스틱_상 = "상";
     public static final String 조이스틱_우상 = "우상";
     public static final String 조이스틱_우 = "우";
@@ -87,7 +85,6 @@ public class LmCommon {
     public static final String 조이스틱_좌하 = "좌하";
     public static final String 조이스틱_좌 = "좌";
     public static final String 조이스틱_좌상 = "좌상";
-    private String dirPath;
 
     public static List<String> 조이스틱좌표() {
         List<String> list = new ArrayList<>();
@@ -103,7 +100,7 @@ public class LmCommon {
         return list;
     }
 
-    public static String getDirPath() {
+    private static String getDirPath() {
         Path currentRelativePath = Paths.get("");
         return currentRelativePath.toAbsolutePath().toString();
     }
