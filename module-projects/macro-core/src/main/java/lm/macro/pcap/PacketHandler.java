@@ -31,7 +31,7 @@ public class PacketHandler {
         PcapNetworkInterface nif = PcapUtils.getLocalLanPcapNetworkInterface();
 
         if (nif != null) {
-            pcapHandle = nif.openLive(52276, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);
+            pcapHandle = nif.openLive(52277, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);
             pcapHandle.loop(-1, this::handle);
         }
     }
