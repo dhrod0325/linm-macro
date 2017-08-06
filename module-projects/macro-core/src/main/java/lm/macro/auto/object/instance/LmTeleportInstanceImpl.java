@@ -46,11 +46,26 @@ public class LmTeleportInstanceImpl implements LmTeleportInstance {
     }
 
     public boolean toTeleport(LmAndroidDevice device, LmAndroidScreen screen, String name, boolean portalClick) throws Exception {
-        LmCommonUtils.sleep(1000);
-
-        openTeleport(device, screen);
-
-        return _toTeleport(device, screen, name, portalClick);
+        if (name.startsWith("퀘스트1")) {
+            LmPixels.퀘스트1().click(device);
+            LmCommonUtils.sleep(300);
+            LmPixels.확인버튼().click(device);
+            return true;
+        } else if (name.startsWith("퀘스트2")) {
+            LmPixels.퀘스트2().click(device);
+            LmCommonUtils.sleep(300);
+            LmPixels.확인버튼().click(device);
+            return true;
+        } else if (name.startsWith("퀘스트3")) {
+            LmPixels.퀘스트3().click(device);
+            LmCommonUtils.sleep(300);
+            LmPixels.확인버튼().click(device);
+            return true;
+        } else {
+            LmCommonUtils.sleep(1000);
+            openTeleport(device, screen);
+            return _toTeleport(device, screen, name, portalClick);
+        }
     }
 
     private boolean _toTeleport(LmAndroidDevice device, LmAndroidScreen screen, String name, boolean portalClick) throws Exception {

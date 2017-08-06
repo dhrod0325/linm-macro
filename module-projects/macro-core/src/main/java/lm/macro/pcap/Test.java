@@ -20,21 +20,20 @@ public class Test {
         List<LmAndroidDevice> deviceList = deviceService.getDeviceList();
         LmAndroidDevice device = null;
 
-//        device = deviceList.get(0);
-//
-        for (LmAndroidDevice d : deviceList) {
-            if (d.getPort() == 5565) {
-                device = d;
-            }
-        }
+        device = deviceList.get(0);
 
-        System.out.println(device.getPort());
+//        for (LmAndroidDevice d : deviceList) {
+//            if (d.getPort() == 5565) {
+//                device = d;
+//            }
+//        }
 
         PacketHandler packetHandler = new PacketHandler();
 
         LmPcInstancePacketListener listen = new LmPcInstancePacketListener();
         listen.addPacket(new LmItemUsePacket());
         listen.addPacket(new LmBagPacket());
+        listen.addPacket(new LmTestPacket());
 
         LmConnectedDeviceHolder holder = new LmConnectedDeviceHolder(device);
         holder.setAdbProcessManager(adbProcessManager);

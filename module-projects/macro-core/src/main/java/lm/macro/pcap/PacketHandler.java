@@ -37,8 +37,17 @@ public class PacketHandler {
     }
 
     public void stop() throws NotOpenException {
-        pcapHandle.breakLoop();
+        if (pcapHandle != null) {
+            pcapHandle.close();
+        }
     }
+
+    public void restart() throws Exception {
+        stop();
+
+        run();
+    }
+
 
     private int packetValidCheck(org.pcap4j.packet.Packet packet) {
         byte[] data = getData(packet);

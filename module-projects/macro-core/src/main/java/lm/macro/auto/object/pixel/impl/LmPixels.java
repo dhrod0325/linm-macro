@@ -50,4 +50,20 @@ public class LmPixels {
     public static LmCustomPixel 상점구매확인버튼() {
         return new LmCustomPixel(410, 380, 128, 28);
     }
+
+    public static LmCustomPixel 퀘스트1() {
+        return new LmCustomPixel(2, 140, 100, 45);
+    }
+
+    public static LmCustomPixel 퀘스트2() {
+        return new LmCustomPixel(2, 190, 100, 45);
+    }
+
+    public static LmCustomPixel 퀘스트3() {
+        return new LmCustomPixel(2, 240, 100, 45);
+    }
+
+    public static LmCustomPixel 확인버튼() {
+        return new LmCustomPixel(410, 382, 120, 30);
+    }
 }

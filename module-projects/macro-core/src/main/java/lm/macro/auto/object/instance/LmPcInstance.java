@@ -69,6 +69,7 @@ public class LmPcInstance extends LmAbstractInstance {
 
     private int hp = -1;
     private int mp = -1;
+    private double exp = -1;
 
     private boolean auto = false;
 
@@ -95,6 +96,8 @@ public class LmPcInstance extends LmAbstractInstance {
     private LmAndroidScreen screen;
 
     private long macroStartTime = System.currentTimeMillis();
+
+    private double startExp = -9999;
 
     @Override
     @JsonIgnore
@@ -257,7 +260,7 @@ public class LmPcInstance extends LmAbstractInstance {
 
                         saveScreenShot(screen.getScreenShotIO(), "처맞구순간이동");
 
-                        LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT7);
+                        damagedTeleport(screen);
 
                         kakaoSnsService.feed("알림", "캐릭터가 공격당해 순간이동했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
 
@@ -300,6 +303,7 @@ public class LmPcInstance extends LmAbstractInstance {
                         String message = "은화살이 없어서 귀환...";
 
                         logger.debug(message, device);
+
                         startHomeAndShopping(screen);
 
                         kakaoSnsService.feed("알림", "캐릭터가 은화살이 없어서 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
@@ -326,18 +330,29 @@ public class LmPcInstance extends LmAbstractInstance {
         }
     }
 
-    public void goHomeAndSleep2000(LmAndroidScreen screen) throws Exception {
-        for (int i = 0; i < 10; i++) {
-            LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
-            LmCommonUtils.sleep(500);
-
+    public void damagedTeleport(LmAndroidScreen screen) throws Exception {
+        for (int i = 0; i < 30; i++) {
+            LmCommonUtils.sleep(300);
             screen.refreshScreen(device);
+            LmCommonUtils.sleep(500);
+            if (!isDamaged(screen)) {
+                return;
+            }
+            LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT7);
+        }
+    }
 
-            LmCommonUtils.sleep(1000);
+    public void goHomeAndSleep2000(LmAndroidScreen screen) throws Exception {
+        for (int i = 0; i < 30; i++) {
+            LmCommonUtils.sleep(300);
+            screen.refreshScreen(device);
+            LmCommonUtils.sleep(500);
 
             if (villageGraphics.isInVillage(screen) != null) {
                 return;
             }
+
+            LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
         }
     }
 
@@ -483,9 +498,17 @@ public class LmPcInstance extends LmAbstractInstance {
     public void calcHpAndMp(LmAndroidScreen screen) {
         int _hp = (int) new LmHp().percent(screen);
         int _mp = (int) new LmMp().percent(screen);
+        double _exp = new LmExp().percent(screen);
 
         setHp(_hp);
         setMp(_mp);
+
+        if (_exp != 100)
+            setExp(_exp);
+
+        if ((startExp == -9999 || (exp < startExp && exp != 0)) && state == LmPcState.PLAY) {
+            startExp = _exp;
+        }
 
         logger.trace(String.format("현재 HP : %d, 현재 MP : %d", getHp(), getMp()), device);
     }
@@ -600,5 +623,41 @@ public class LmPcInstance extends LmAbstractInstance {
 
     public void setMacroStartTime(long macroStartTime) {
         this.macroStartTime = macroStartTime;
+    }
+
+    public double getExp() {
+        return exp;
+    }
+
+    public void setExp(double exp) {
+        this.exp = exp;
+    }
+
+    public double getStartExp() {
+        return startExp;
+    }
+
+    public void setStartExp(double startExp) {
+        this.startExp = startExp;
+    }
+
+    public double getMacroUpExp() {
+        return exp - startExp;
+    }
+
+    public long getPlayTime() {
+        return System.currentTimeMillis() - macroStartTime;
+    }
+
+    public long getPlayTimeSecond() {
+        return TimeUnit.MILLISECONDS.toSeconds(getPlayTime());
+    }
+
+    public long getPlayTimeMinute() {
+        return TimeUnit.MILLISECONDS.toMinutes(getPlayTime());
+    }
+
+    public long getPlayTimeHour() {
+        return TimeUnit.MILLISECONDS.toHours(getPlayTime());
     }
 }

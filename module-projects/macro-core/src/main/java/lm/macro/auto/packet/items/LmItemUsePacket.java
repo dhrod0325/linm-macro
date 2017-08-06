@@ -6,7 +6,6 @@ import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.pcap.Packet;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import static lm.macro.auto.packet.LmPacketUtils.read2ByteData;
@@ -47,7 +46,8 @@ public class LmItemUsePacket extends LmAbstractPacket {
 
     @Override
     public void _handlePacket(byte[] data, LmConnectedDeviceHolder holder, int opcode, byte[] byteData, Map<String, Integer> packetData, int srcPort, int dstPort) {
-        //17
+        int 정령옥 = getItemCount(data, new byte[]{40, -24, 1, 48});
+        int 마력의돌 = getItemCount(data, new byte[]{40, -2, 1, 48});
         int 빨간물약 = getItemCount(data, new byte[]{40, -23, 1, 48});
         int 주홍물약 = getItemCount(data, new byte[]{40, -19, 1, 48});
         int 초록물약 = getItemCount(data, new byte[]{40, -4, 2, 48});
@@ -57,6 +57,7 @@ public class LmItemUsePacket extends LmAbstractPacket {
         int 인형소환주문서 = getItemCount(data, new byte[]{40, -52, 6, 48});
         int 와퍼 = getItemCount(data, new byte[]{40, -63, 2, 48});
         int 은화살 = getItemCount(data, 50000, new byte[]{40, -47, 2, 48});
+        int 숫돌 = getItemCount(data, 50000, new byte[]{40, -51, 6, 48});
 
         int 순간이동주문서 = getItemCount(data, new byte[]{40, -71, 2, 48});
         int 귀환주문서 = getItemCount(data, new byte[]{40, -17, 1, 48});
@@ -91,6 +92,9 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.영리한칠면조, 영리한칠면조);
         putValue(packetData, LmCommon.에바의축복, 에바의축복);
         putValue(packetData, LmCommon.드레곤의다이아몬드, 드레곤의다이아몬드);
+        putValue(packetData, LmCommon.마력의돌, 마력의돌);
+        putValue(packetData, LmCommon.정령옥, 정령옥);
+        putValue(packetData, LmCommon.숫돌, 숫돌);
 
         if (빨간물약 != PACKET_NOT_FOUND) {
             Packet packet = new Packet().data(byteData);
@@ -105,6 +109,12 @@ public class LmItemUsePacket extends LmAbstractPacket {
         if (은화살 != 34560) {
             putValue(packetData, LmCommon.은화살, 은화살);
         }
+
+        /*
+        if (opcode == 201) {
+            System.out.println(Arrays.toString(byteData));
+        }
+        */
     }
 
     @Override

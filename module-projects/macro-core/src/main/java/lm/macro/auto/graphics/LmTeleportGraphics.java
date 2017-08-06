@@ -82,6 +82,10 @@ public class LmTeleportGraphics extends LmAbstractGraphics {
 
         add("잊혀진 섬 선착장", "tele_67.jpg");
         add("개미굴 입구", "tele_68.jpg");
+
+        add("퀘스트1", null);
+        add("퀘스트2", null);
+        add("퀘스트3", null);
     }
 
 }

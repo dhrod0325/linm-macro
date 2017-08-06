@@ -4,6 +4,7 @@ import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.screen.LmAndroidScreen;
 import lm.macro.auto.common.LmCommon;
 import lm.macro.auto.graphics.LmGraphics;
+import lm.macro.auto.object.pixel.impl.LmPixels;
 import lm.macro.auto.utils.LmCommonUtils;
 
 public class LmPortalPixel extends LmMatPixel {
@@ -21,6 +22,6 @@ public class LmPortalPixel extends LmMatPixel {
 
         LmCommonUtils.sleep(LmCommon.REFRESH_SLEEP);
 
-        new LmOkPixel(getScreen()).click(device);
+        LmPixels.확인버튼().click(device);
     }
 }
