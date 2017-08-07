@@ -71,7 +71,9 @@
         </table>
 
         <p>
-            <input type="checkbox" id="saveIdPw"/> <label for="saveIdPw">아이디 저장</label>
+            <input type="checkbox" name="remember-me" id="remember-me" value="1"/>
+            <label for="remember-me">아이디 저장</label>
+
             <a href="<%=LmCommon.WEB_SERVER_URL%>/bbs/register.php" target="_blank"
                style="float: right;display: inline-block">회원가입</a>
         </p>
@@ -80,89 +82,7 @@
             <input type="submit" class="btn btn-default" value="로그인"/>
         </div>
     </div>
-    <input type="hidden" name="remember-me" value="1"/>
 </form:form>
-
-<script>
-    var Cookie = {
-        findAll: function () {
-            var cookies = {};
-            _(document.cookie.split(';'))
-                .chain()
-                .map(function (m) {
-                    return m.replace(/^\s+/, '').replace(/\s+$/, '');
-                })
-                .each(function (c) {
-                    var arr = c.split('='),
-                        key = arr[0],
-                        value = null;
-                    var size = _.size(arr);
-                    if (size > 1) {
-                        value = arr.slice(1).join('');
-                    }
-                    cookies[key] = value;
-                });
-            return cookies;
-        },
-
-        find: function (name) {
-            var cookie = null,
-                list = this.findAll();
-
-            _.each(list, function (value, key) {
-                if (key === name) cookie = value;
-            });
-            return cookie;
-        },
-
-        create: function (name, value, time) {
-            var today = new Date(),
-                offset = (typeof time === 'undefined') ? (1000 * 60 * 60 * 24) : (time * 1000),
-                expires_at = new Date(today.getTime() + offset);
-
-            document.cookie = _.map({
-                name: escape(value),
-                expires: expires_at.toGMTString(),
-                path: '/'
-            }, function (value, key) {
-                return [(key === 'name') ? name : key, value].join('=');
-            }).join(';');
-
-            return this;
-        },
-
-        destroy: function (name, cookie) {
-            if (cookie = this.find(name)) {
-                this.create(name, null, -1000000);
-            }
-            return this;
-        }
-    };
-
-    $(document).ready(function () {
-        var message = '${responseUser.message}';
-
-        if (message) {
-            alert(message);
-        }
-
-        $('#user').submit(function () {
-            var checked = $('#saveIdPw').prop('checked');
-
-            if (checked) {
-                Cookie.create('id', $('#id').val());
-                Cookie.create('saveIdPw', true);
-            } else {
-                Cookie.destroy('id');
-                Cookie.create('saveIdPw', false);
-            }
-        });
-
-        $('#id').val(Cookie.find('id'));
-
-        $('#saveIdPw').prop('checked', Cookie.find("saveIdPw"));
-    });
-</script>
 
 </body>
 </html>

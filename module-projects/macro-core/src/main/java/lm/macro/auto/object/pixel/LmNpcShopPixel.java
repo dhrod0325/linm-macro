@@ -2,6 +2,7 @@ package lm.macro.auto.object.pixel;
 
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.screen.LmAndroidScreen;
+import lm.macro.auto.common.LmCommon;
 import lm.macro.auto.graphics.LmGraphics;
 import lm.macro.auto.graphics.LmVillageGraphics;
 import lm.macro.auto.object.LmSlot;
@@ -35,14 +36,18 @@ public class LmNpcShopPixel extends LmCustomPixel {
 
                 LmCommonUtils.sleep(300);
 
+                if (LmGameScreenUtils.isMenuOpen(screen)) {
+                    LmPixels.메뉴버튼().click(device);
+                }
+
                 if (!LmGameScreenUtils.isNormalGameScreen(screen)) {
                     return new LmPixelData();
                 }
 
                 logger.debug(String.format("상점찾기 시도중... 시도횟수 %d회", i), device);
 
-                LmPixelData shop1Position = screen.findPixelMatch(LmGraphics.NPC_SHOP_1, 0.7);
-                LmPixelData shop2Position = screen.findPixelMatch(LmGraphics.NPC_SHOP_2, 0.7);
+                LmPixelData shop1Position = screen.findPixelMatch(LmGraphics.NPC_SHOP_1, 0.65);
+                LmPixelData shop2Position = screen.findPixelMatch(LmGraphics.NPC_SHOP_2, 0.65);
 
                 if (shop1Position != null && shop1Position.isExists()) {
                     setPixelData(shop1Position);
@@ -64,7 +69,27 @@ public class LmNpcShopPixel extends LmCustomPixel {
                     screen.refreshScreen(device);
                     LmCommonUtils.sleep(100);
 
-                    joystick.swipeRight(device, 100, 2500);
+                    if (villageGraphics.isInVillage(LmCommon.우드벡마을, screen)) {
+                        joystick.swipeRight(device, 100, 2500);
+                    } else if (villageGraphics.isInVillage(LmCommon.켄트마을, screen)) {
+                        joystick.swipeTop(device, 100, 12000);
+                    } else if (villageGraphics.isInVillage(LmCommon.은기사마을, screen)) {
+                        joystick.swipeTopRight(device, 100, 3500);
+                        joystick.swipeTop(device, 100, 2000);
+                    } else if (villageGraphics.isInVillage(LmCommon.하이네마을, screen)) {
+
+                    } else if (villageGraphics.isInVillage(LmCommon.화전민마을, screen)) {
+
+                    } else if (villageGraphics.isInVillage(LmCommon.웰던마을, screen)) {
+                        joystick.swipeTop(device, 100, 9000);
+                        joystick.swipeRight(device, 100, 1000);
+                    } else if (villageGraphics.isInVillage(LmCommon.오렌마을, screen)) {
+                        joystick.swipeRight(device, 100, 2000);
+                    } else if (villageGraphics.isInVillage(LmCommon.아덴마을, screen)) {
+                        joystick.swipeTop(device, 100, 1000);
+                    }
+
+                    LmCommonUtils.sleep(1000);
                 }
             }
         } catch (Exception e) {
@@ -74,7 +99,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
         return null;
     }
 
-    public void openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
+    public boolean openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
         if (LmGameScreenUtils.isMenuOpen(screen)) {
             LmPixels.메뉴버튼().click(device);
         }
@@ -103,6 +128,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
             if (LmGameScreenUtils.isShopScreen(screen)) {
                 if (callback != null) {
                     callback.onOpen();
+                    return true;
                 }
             } else {
                 LmPixels.메뉴버튼().click(device);
@@ -111,16 +137,21 @@ public class LmNpcShopPixel extends LmCustomPixel {
             }
         } else {
             logger.debug("상점찾기에 실패하였습니다....");
+            return false;
         }
+
+        return true;
     }
 
-    public void click(LmAndroidDevice device, LmAndroidScreen screen, int findCount, LmNpcShopCallback callback) {
+    public boolean click(LmAndroidDevice device, LmAndroidScreen screen, int findCount, LmNpcShopCallback callback) {
         try {
             setCallback(callback);
-            openShop(findCount, device, screen);
+            return openShop(findCount, device, screen);
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return false;
     }
 
     public interface LmNpcShopCallback {

@@ -1,6 +1,5 @@
-package lm.macro.spring.config.security;
+package lm.macro.security;
 
-import lm.macro.login.LmLoginService;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -9,16 +8,23 @@ import javax.annotation.Resource;
 
 public class LmUserDetailService implements UserDetailsService {
     @Resource
-    private LmLoginService loginService;
+    private LmUserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         try {
-            loginService.loadUserByIdAndPassword(username, null);
+            LmUser user = userRepository.findOne(username);
+
+            if (user == null) {
+                throw new UsernameNotFoundException("존재하지 않는 사용자입니다.");
+            } else {
+                return user;
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return null;
+        throw new UsernameNotFoundException("");
     }
+
 }

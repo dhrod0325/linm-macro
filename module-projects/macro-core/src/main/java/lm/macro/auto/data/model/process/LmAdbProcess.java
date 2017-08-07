@@ -1,10 +1,11 @@
 package lm.macro.auto.data.model.process;
 
-import lm.macro.auto.utils.cmd.Process;
-import lm.macro.auto.utils.cmd.Netstat;
 import lm.macro.auto.data.model.netstat.LmNetstatProcessHolder;
 import lm.macro.auto.utils.LmAdbProcessUtils;
+import lm.macro.auto.utils.cmd.Netstat;
+import lm.macro.auto.utils.cmd.Process;
 import lm.macro.auto.utils.cmd.ProcessUtils;
+import org.apache.commons.lang3.time.StopWatch;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -165,22 +166,24 @@ public class LmAdbProcess extends Process {
         }
     }
 
-    public LmNetstatProcessHolder findHandlerProcess(int port) {
+    public LmNetstatProcessHolder findNetstatProcess(int port) {
+        StopWatch s = StopWatch.createStarted();
+
         LmNetstatProcessHolder netstatProcessHolder = new LmNetstatProcessHolder();
 
         try {
             initializingWithXml();
+
             List<Netstat> netstatList = new ArrayList<>();
 
             Process process = LmAdbProcessUtils.getAdbHandleProcessByUUID(getUuid(), port);
+            netstatProcessHolder.setProcess(process);
 
             if (process != null) {
                 netstatList.addAll(ProcessUtils.getNetstatByPidAndPort(process.getPid(), port));
             }
 
-            netstatProcessHolder.setProcess(process);
             netstatProcessHolder.setNetstatList(netstatList);
-
         } catch (Exception e) {
             e.printStackTrace();
         }

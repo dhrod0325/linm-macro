@@ -1,17 +1,32 @@
-package lm.macro.login;
+package lm.macro.security;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
-public class LmUser {
+@Entity
+public class LmUser implements UserDetails {
+    @Id
     @NotEmpty
     private String id;
+
     @NotEmpty
     private String pw;
+
     private String name;
+
     private Date registerDate;
+
     private Date macroUseDate;
+
     private String message;
     /**
      * 1- 1개월
@@ -77,5 +92,53 @@ public class LmUser {
 
     public boolean isLoggedIn() {
         return id != null;
+    }
+
+    @Transient
+    public List<GrantedAuthority> getAuthorityList() {
+        String role = "GRANT_" + macroUseType;
+        return AuthorityUtils.commaSeparatedStringToAuthorityList(role);
+    }
+
+    @Transient
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getAuthorityList();
+    }
+
+    @Transient
+    @Override
+    public String getPassword() {
+        return pw;
+    }
+
+    @Transient
+    @Override
+    public String getUsername() {
+        return id;
+    }
+
+    @Transient
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Transient
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Transient
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Transient
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

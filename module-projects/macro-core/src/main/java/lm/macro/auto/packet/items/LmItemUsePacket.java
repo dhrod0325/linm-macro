@@ -106,20 +106,11 @@ public class LmItemUsePacket extends LmAbstractPacket {
             }
         }
 
-        if (은화살 != 34560) {
+        if (은화살 != 34560 &&
+                은화살 != 19748 &&
+                은화살 != PACKET_NOT_FOUND) {
             putValue(packetData, LmCommon.은화살, 은화살);
         }
-
-        /*
-        if (opcode == 201) {
-            System.out.println(Arrays.toString(byteData));
-        }
-        */
-    }
-
-    @Override
-    public void onHandleServer(LmConnectedDeviceHolder holder, int opcode, byte[] byteData, byte[] data, int srcPort, int dstPort) {
-        super.onHandleServer(holder, opcode, byteData, data, srcPort, dstPort);
     }
 }
 

@@ -5,7 +5,7 @@ import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
-import lm.macro.auto.object.pixel.impl.LmExp;
+import lm.macro.auto.object.pixel.LmNpcShopPixel;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -45,23 +45,31 @@ public class Test {
         screen.setFileDir(device.getSerial());
         screen.setFileName("testScreen.png");
         screen.afterPropertiesSet();
+        screen.refreshScreen(deviceHolder.getDevice());
 
+        LmNpcShopPixel npcShopPixel = new LmNpcShopPixel();
+        npcShopPixel.click(device, screen, 5, () -> {
+        });
 
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                while (true) {
-                    try {
-                        screen.refreshScreen(deviceHolder.getDevice());
-                        System.out.println(new LmExp().percent(screen));
-                        Thread.sleep(500);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
+//        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
+//        System.out.println(t);
 
-                }
-            }
-        }).start();
+//
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                while (true) {
+//                    try {
+//                        screen.refreshScreen(deviceHolder.getDevice());
+//                        System.out.println(new LmExp().percent(screen));
+//                        Thread.sleep(500);
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+//            }
+//        }).start();
 
 
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();

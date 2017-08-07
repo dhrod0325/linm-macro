@@ -33,8 +33,8 @@ public class LmShopInstance {
 
     private LmNpcShopPixel npcShopPixel = new LmNpcShopPixel();
 
-    public void startBuyItem(List<LmBuyItem> items, LmAndroidDevice device, LmAndroidScreen screen) {
-        npcShopPixel.click(device, screen, 5, () -> {
+    public boolean startBuyItem(List<LmBuyItem> items, LmAndroidDevice device, LmAndroidScreen screen) {
+        return npcShopPixel.click(device, screen, 5, () -> {
             try {
                 screen.refreshScreen(device);
                 LmCommonUtils.sleep(200);

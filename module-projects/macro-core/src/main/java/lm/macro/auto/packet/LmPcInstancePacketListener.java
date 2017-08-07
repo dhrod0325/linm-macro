@@ -1,12 +1,13 @@
 package lm.macro.auto.packet;
 
-import lm.macro.auto.utils.cmd.Netstat;
 import lm.macro.auto.data.model.netstat.LmNetstatProcessHolder;
 import lm.macro.auto.log.LmLog;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.device.LmConnectedDeviceManager;
 import lm.macro.auto.object.instance.LmPcInstance;
 import lm.macro.auto.packet.items.LmBasePacket;
+import lm.macro.auto.utils.LmTimeChecker;
+import lm.macro.auto.utils.cmd.Netstat;
 import lm.macro.pcap.Packet;
 import lm.macro.pcap.PcapHandleListener;
 import org.pcap4j.packet.TcpPacket;
@@ -21,6 +22,8 @@ import java.util.Map;
 
 public class LmPcInstancePacketListener implements PcapHandleListener {
     public static final int SNIFF_PORT = 12000;
+
+    private LmTimeChecker netstatRefreshTimeChecker = new LmTimeChecker();
 
     private LmLog logger = new LmLog(getClass());
 
@@ -63,15 +66,12 @@ public class LmPcInstancePacketListener implements PcapHandleListener {
                 if (connectedDeviceManager != null) {
                     for (LmConnectedDeviceHolder holder : connectedDeviceManager.getConnectedDeviceList()) {
                         if (holder.getAdbProcess() != null) {
-                            LmNetstatProcessHolder netstatProcessHolder = netstatProcessHolderMap.computeIfAbsent(
-                                    holder.getDevice().getPort(), k -> holder.getAdbProcess().findHandlerProcess(SNIFF_PORT)
-                            );
-
-                            List<Netstat> netstatList = netstatProcessHolder.getNetstatList();
-
-                            if (netstatList == null) {
-                                return;
+                            boolean isRefreshTime = !netstatRefreshTimeChecker.isWaitTime(System.currentTimeMillis(), 3);
+                            if (holder.getNetstatProcessHolder() == null || isRefreshTime) {
+                                holder.loadNetstat();
                             }
+
+                            List<Netstat> netstatList = holder.getNetstatProcessHolder().getNetstatList();
 
                             for (Netstat netstat : netstatList) {
                                 try {

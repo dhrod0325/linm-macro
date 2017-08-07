@@ -299,15 +299,15 @@ public class LmPcInstance extends LmAbstractInstance {
                 }
 
                 if (huntSetting.isArrowGoHome()) {
-                    if (getUseItems().get(LmCommon.은화살) != null && getUseItems().get(LmCommon.은화살) < 10) {
-                        String message = "은화살이 없어서 귀환...";
+                    if (isEmptyArrow(screen)) {
+                        buyArrow();
+                        return;
+                    }
 
-                        logger.debug(message, device);
+                    Integer 은화살수량 = getUseItems().get(LmCommon.은화살);
 
-                        startHomeAndShopping(screen);
-
-                        kakaoSnsService.feed("알림", "캐릭터가 은화살이 없어서 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
-
+                    if (은화살수량 != null && getUseItems().get(LmCommon.은화살) < 10) {
+                        buyArrow();
                         return;
                     }
                 }
@@ -328,6 +328,13 @@ public class LmPcInstance extends LmAbstractInstance {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void buyArrow() throws Exception {
+        String message = "은화살이 없어서 귀환...";
+        logger.debug(message, device);
+        startHomeAndShopping(screen);
+        kakaoSnsService.feed("알림", "캐릭터가 은화살이 없어서 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
     }
 
     public void damagedTeleport(LmAndroidScreen screen) throws Exception {
@@ -371,7 +378,6 @@ public class LmPcInstance extends LmAbstractInstance {
             int count = 0;
 
             try {
-                //은화살의 경우 10000
                 count = useItems.get(copyItem.getName());
             } catch (Exception ignored) {
             }
@@ -387,7 +393,6 @@ public class LmPcInstance extends LmAbstractInstance {
             if (copyItem.getBuyCount() > 0) {
                 results.add(copyItem);
             }
-
         }
 
         return results;
@@ -414,23 +419,24 @@ public class LmPcInstance extends LmAbstractInstance {
             screen.refreshScreen(device);
             LmCommonUtils.sleep(500);
 
-            if (!villageGraphics.isInVillage(LmCommon.상점마을, screen)) {
-                if (villageGraphics.isInVillage(screen) == null) {
-                    useSlot(0, LmSlot.SlotType.SLOT8);
-                    LmCommonUtils.sleep(300);
-                }
+            /*
+            * 현재 위치가 마을이 아니라면 귀환한다.
+            * */
+            if (villageGraphics.isInVillage(screen) == null) {
+                goHomeAndSleep2000(screen);
+            }
 
-                boolean teleport = teleportInstance.toTeleport(device, screen, LmCommon.상점마을, false);
+            /**
+             * 현재 위치 마을 상태
+             */
+            LmCommonUtils.sleep(1000);
+            screen.refreshScreen(device);
+            LmCommonUtils.sleep(100);
 
-                if (teleport) {
-                    LmCommonUtils.sleep(1000);
-                    screen.refreshScreen(device);
-                    LmCommonUtils.sleep(100);
+            boolean buyItem = shopInstance.startBuyItem(buyItems, device, screen);
 
-                    shopInstance.startBuyItem(buyItems, device, screen);
-                }
-            } else {
-                shopInstance.startBuyItem(buyItems, device, screen);
+            if (!buyItem) {
+                teleportInstance.toTeleport(device, screen, LmCommon.상점마을, false);
             }
 
             setState(LmPcState.PLAY);
@@ -492,6 +498,11 @@ public class LmPcInstance extends LmAbstractInstance {
 
     public boolean isDamaged(LmAndroidScreen screen) throws Exception {
         LmPixelData t = screen.findPixelMatch(LmGraphics.ATTACK);
+        return t.getPercent() > 0.94;
+    }
+
+    public boolean isEmptyArrow(LmAndroidScreen screen) throws Exception {
+        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR);
         return t.getPercent() > 0.94;
     }
 
@@ -660,4 +671,5 @@ public class LmPcInstance extends LmAbstractInstance {
     public long getPlayTimeHour() {
         return TimeUnit.MILLISECONDS.toHours(getPlayTime());
     }
+
 }

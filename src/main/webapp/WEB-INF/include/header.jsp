@@ -43,6 +43,7 @@
                     </button>
                     <a class="navbar-brand" href="/">Lm-Macro</a>
                 </div>
+                <a href="/logout" class="logout btn-xs btn btn-default">로그아웃</a>
             </div>
             <div id="navbar" class="navbar-collapse collapse">
                 <%@ include file="navMenu.jsp" %>

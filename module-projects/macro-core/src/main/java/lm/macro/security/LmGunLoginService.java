@@ -1,4 +1,4 @@
-package lm.macro.login;
+package lm.macro.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lm.macro.auto.common.LmCommon;
@@ -10,6 +10,7 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.message.BasicNameValuePair;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 public class LmGunLoginService implements LmLoginService {
@@ -24,11 +25,13 @@ public class LmGunLoginService implements LmLoginService {
             add(new BasicNameValuePair("pw", pw));
         }});
 
-
         post.setEntity(formEntity);
 
         CloseableHttpResponse response = client.execute(post);
 
-        return new ObjectMapper().readValue(response.getEntity().getContent(), LmUser.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm"));
+
+        return objectMapper.readValue(response.getEntity().getContent(), LmUser.class);
     }
 }

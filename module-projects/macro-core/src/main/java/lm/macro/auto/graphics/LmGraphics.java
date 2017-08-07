@@ -41,6 +41,8 @@ public class LmGraphics {
     public static final Mat IS_DIE = loadImage("die.jpg");
     public static final Mat IS_POISON = loadImage("is_poison.jpg");
 
+    public static final Mat EMPTY_ARR = loadImage("empty_arr.jpg");
+
     public static Mat loadImage(String image) {
         return Imgcodecs.imread(LmCommon.SOURCE_PATH + "/images/" + image);
     }

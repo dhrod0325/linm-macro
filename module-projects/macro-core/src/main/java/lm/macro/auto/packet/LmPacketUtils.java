@@ -28,6 +28,8 @@ public class LmPacketUtils {
             return (int) ((b / 2.2) + a);
         } else if (bytes[1] == 10) {
             return (int) ((b / 2.2) + a);
+        } else if (bytes[1] < 0) {
+            return (int) ((b / 2.1) + a);
         } else if (bytes[1] < 10) {
             return (int) ((b / 1.2) + a);
         } else {

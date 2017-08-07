@@ -1,6 +1,7 @@
 package lm.macro.auto.manager.device;
 
 import lm.macro.auto.android.device.model.LmAndroidDevice;
+import lm.macro.auto.data.model.netstat.LmNetstatProcessHolder;
 import lm.macro.auto.data.model.process.LmAdbProcess;
 import lm.macro.auto.manager.process.LmAdbProcessManager;
 import lm.macro.auto.object.instance.LmAiInstance;
@@ -14,7 +15,11 @@ import java.net.UnknownHostException;
 import java.util.Objects;
 
 public class LmConnectedDeviceHolder {
+    public static final int SNIFF_PORT = 12000;
+
     private LmAdbProcessManager adbProcessManager;
+
+    private LmNetstatProcessHolder netstatProcessHolder;
 
     private LmAndroidDevice device;
 
@@ -36,6 +41,16 @@ public class LmConnectedDeviceHolder {
         }
     }
 
+    public void loadNetstat() {
+        if (getAdbProcess() != null) {
+            this.netstatProcessHolder = getAdbProcess().findNetstatProcess(SNIFF_PORT);
+        }
+    }
+
+    public LmNetstatProcessHolder getNetstatProcessHolder() {
+        return netstatProcessHolder;
+    }
+
     public LmConnectedDeviceHolder(LmAndroidDevice device) {
         this();
 
@@ -48,8 +63,10 @@ public class LmConnectedDeviceHolder {
 
         LmAdbProcess p = getAdbProcess();
 
-        if (p != null)
+        if (p != null) {
             this.aiInstance.setName(p.getTitle());
+            getAdbProcess().findNetstatProcess(SNIFF_PORT);
+        }
     }
 
     @Resource

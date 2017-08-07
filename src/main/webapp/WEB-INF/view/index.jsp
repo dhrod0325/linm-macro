@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ include file="../include/header.jsp" %>
 
 <h1 class="page-header">매크로 정보</h1>
@@ -17,7 +18,9 @@
             </tr>
             <tr>
                 <th>남은사용기간</th>
-                <td></td>
+                <td>
+                    <fmt:formatDate pattern="yyyy-MM-dd" value="${user.macroUseDate}"/>일 까지
+                </td>
             </tr>
         </table>
     </div>

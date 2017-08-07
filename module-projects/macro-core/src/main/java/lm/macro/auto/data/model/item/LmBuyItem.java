@@ -58,4 +58,5 @@ public class LmBuyItem implements Serializable {
     public String toString() {
         return String.format("구매물품 이름 :%s,수량 : %d", name, buyCount);
     }
+
 }

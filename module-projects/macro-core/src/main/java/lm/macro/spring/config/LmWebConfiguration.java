@@ -1,8 +1,8 @@
 package lm.macro.spring.config;
 
 import com.google.common.collect.Lists;
-import lm.macro.login.LmGunLoginService;
-import lm.macro.login.LmLoginService;
+import lm.macro.security.LmGunLoginService;
+import lm.macro.security.LmLoginService;
 import lm.macro.web.interceptor.LmAuthInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

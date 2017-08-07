@@ -22,12 +22,6 @@ public class Test {
 
         device = deviceList.get(0);
 
-//        for (LmAndroidDevice d : deviceList) {
-//            if (d.getPort() == 5565) {
-//                device = d;
-//            }
-//        }
-
         PacketHandler packetHandler = new PacketHandler();
 
         LmPcInstancePacketListener listen = new LmPcInstancePacketListener();
