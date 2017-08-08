@@ -1,5 +1,6 @@
 package lm.macro.auto.server;
 
+import lm.macro.security.LmUser;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -17,6 +18,12 @@ import java.io.IOException;
 @Component
 public class LmServerCommunicationService {
     private static final String SERVER_URL = "http://linm.ideapeople.co.kr";
+
+    public void connectCheck(LmUser user) {
+        HttpClient client = HttpClientBuilder.create().build();
+        HttpPost post = new HttpPost(String.format("%s/linm/module/uploadScreen.php", SERVER_URL));
+        
+    }
 
     public HttpResponse sendToImageFile(String userName, File file) throws IOException {
         HttpClient client = HttpClientBuilder.create().build();

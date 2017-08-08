@@ -338,22 +338,21 @@ public class LmPcInstance extends LmAbstractInstance {
     }
 
     public void damagedTeleport(LmAndroidScreen screen) throws Exception {
-        for (int i = 0; i < 30; i++) {
-            LmCommonUtils.sleep(300);
+        for (int i = 0; i < 50; i++) {
             screen.refreshScreen(device);
-            LmCommonUtils.sleep(500);
+            LmCommonUtils.sleep(200);
             if (!isDamaged(screen)) {
                 return;
             }
+
             LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT7);
         }
     }
 
     public void goHomeAndSleep2000(LmAndroidScreen screen) throws Exception {
-        for (int i = 0; i < 30; i++) {
-            LmCommonUtils.sleep(300);
+        for (int i = 0; i < 50; i++) {
             screen.refreshScreen(device);
-            LmCommonUtils.sleep(500);
+            LmCommonUtils.sleep(200);
 
             if (villageGraphics.isInVillage(screen) != null) {
                 return;
