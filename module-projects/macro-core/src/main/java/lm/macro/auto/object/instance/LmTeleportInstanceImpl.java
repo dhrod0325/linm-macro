@@ -113,7 +113,8 @@ public class LmTeleportInstanceImpl implements LmTeleportInstance {
                 return true;
             } else {
                 device.swipe(76, 400, 76, 332);
-                LmCommonUtils.sleep(2000);
+                
+                LmCommonUtils.sleep(3000);
             }
         }
 
