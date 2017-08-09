@@ -73,7 +73,15 @@ public class LmPcInstancePacketListener implements PcapHandleListener {
 
                             List<Netstat> netstatList = holder.getNetstatProcessHolder().getNetstatList();
 
+                            if (netstatList == null) {
+                                return;
+                            }
+
                             for (Netstat netstat : netstatList) {
+                                if (netstat == null) {
+                                    continue;
+                                }
+
                                 try {
                                     URI uri = new URI("lm://" + netstat.getSrc());
 

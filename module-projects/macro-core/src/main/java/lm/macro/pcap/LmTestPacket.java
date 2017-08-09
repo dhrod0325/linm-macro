@@ -8,6 +8,7 @@ import java.util.Arrays;
 public class LmTestPacket implements LmBasePacket {
     @Override
     public void onHandleServer(LmConnectedDeviceHolder holder, int opcode, byte[] byteData, byte[] data, int srcPort, int dstPort) {
+
     }
 
     @Override
