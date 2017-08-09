@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LmCommon {
-    public static final String VERSION = "0.51";
+    public static final String VERSION = "0.6";
 
     private static final String DIR_PATH = getDirPath();
 
@@ -57,7 +57,7 @@ public class LmCommon {
     public static final String 용기의물약 = "용기의물약";
     public static final String 드레곤의다이아몬드 = "드레곤의다이아몬드";
 
-    public static final String 상점마을 = "우드벡 마을";
+    public static final String 상점마을 = "48 우드벡 마을";
 
     public static final String 가방무게 = "가방무게";
 
