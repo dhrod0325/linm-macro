@@ -99,14 +99,14 @@ public class LmPcInstance extends LmAbstractInstance {
 
     private double startExp = -9999;
 
-    private String lastHuntMap = "";
+    private int lastHuntMapIndex = -1;
 
-    public String getLastHuntMap() {
-        return lastHuntMap;
+    public int getLastHuntMapIndex() {
+        return lastHuntMapIndex;
     }
 
-    public void setLastHuntMap(String lastHuntMap) {
-        this.lastHuntMap = lastHuntMap;
+    public void setLastHuntMapIndex(int lastHuntMapIndex) {
+        this.lastHuntMapIndex = lastHuntMapIndex;
     }
 
     @Override
@@ -212,17 +212,20 @@ public class LmPcInstance extends LmAbstractInstance {
                 if (huntSetting.isUseHuntTeleport()) {
                     screen.refreshScreen(device);
                     LmCommonUtils.sleep(500);
-                    LmHuntMap map = null;
 
-                    while (true) {
-                        int v = RandomUtils.nextInt(0, huntSetting.getHuntMapList().size());
-                        map = huntSetting.getHuntMapList().get(v);
+                    LmHuntMap map;
 
-                        if (!StringUtils.isEmpty(lastHuntMap) && !lastHuntMap.equalsIgnoreCase(map.getName()))
-                            break;
+                    if (huntSetting.getHuntMapList().size() == 1) {
+                        map = huntSetting.getHuntMapList().get(0);
+                    } else {
+                        while (true) {
+                            int mapIndex = RandomUtils.nextInt(0, huntSetting.getHuntMapList().size());
 
-                        if (!lastHuntMap.equalsIgnoreCase(map.getName())) {
-                            setLastHuntMap(map.getName());
+                            if (mapIndex != lastHuntMapIndex) {
+                                map = huntSetting.getHuntMapList().get(mapIndex);
+                                setLastHuntMapIndex(mapIndex);
+                                break;
+                            }
                         }
                     }
 

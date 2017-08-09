@@ -35,7 +35,7 @@ public class LmTeleportInstanceImpl implements LmTeleportInstance {
             mapPixel.click(device);
             LmCommonUtils.sleep(500);
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 8; i++) {
                 device.swipe(76, 200, 76, 600);
                 logger.trace("텔레포트 스크롤 제일 위로 올리는중 횟수: " + i, device);
                 LmCommonUtils.sleep(50);
