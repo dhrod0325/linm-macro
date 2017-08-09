@@ -79,12 +79,11 @@ public class LmCommonController {
 
     @RequestMapping("/connectDevice")
     public List<LmConnectedDeviceHolder> connectDevice(LmAdbProcess process) {
-        LmUser user = (LmUser) LmUserDetailsHelper.getUser();
-
-        if (connectedDeviceManager.getConnectedDeviceList().size() < user.getTotalUseAbleCount()) {
+//        LmUser user = (LmUser) LmUserDetailsHelper.getUser();
+//        if (connectedDeviceManager.getConnectedDeviceList().size() < user.getTotalUseAbleCount()) {
             LmAndroidDevice device = androidDeviceService.getDeviceByPort(process.getHostPort());
             connectedDeviceManager.connect(device);
-        }
+//        }
 
         return getConnectedDeviceList();
     }
