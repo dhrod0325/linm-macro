@@ -18,7 +18,7 @@ public class LmGunLoginService implements LmLoginService {
     public LmUser loadUserByIdAndPassword(String id, String pw) throws Exception {
         CloseableHttpClient client = HttpClientBuilder.create().build();
 
-        HttpPost post = new HttpPost(LmCommon.WEB_SERVER_URL + "/linm/login/login.php");
+        HttpPost post = new HttpPost(LmCommon.WEB_SERVER_URL + "/linm/login/login2.php");
 
         UrlEncodedFormEntity formEntity = new UrlEncodedFormEntity(new ArrayList<NameValuePair>() {{
             add(new BasicNameValuePair("id", id));
@@ -33,5 +33,12 @@ public class LmGunLoginService implements LmLoginService {
         objectMapper.setDateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm"));
 
         return objectMapper.readValue(response.getEntity().getContent(), LmUser.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        LmGunLoginService t = new LmGunLoginService();
+        LmUser user = t.loadUserByIdAndPassword("test", "1234");
+        System.out.println(user.getMacroDataList());
+
     }
 }

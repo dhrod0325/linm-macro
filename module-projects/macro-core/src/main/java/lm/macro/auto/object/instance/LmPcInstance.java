@@ -99,6 +99,16 @@ public class LmPcInstance extends LmAbstractInstance {
 
     private double startExp = -9999;
 
+    private String lastHuntMap = "";
+
+    public String getLastHuntMap() {
+        return lastHuntMap;
+    }
+
+    public void setLastHuntMap(String lastHuntMap) {
+        this.lastHuntMap = lastHuntMap;
+    }
+
     @Override
     @JsonIgnore
     public LmAndroidScreen getScreen() {
@@ -202,9 +212,19 @@ public class LmPcInstance extends LmAbstractInstance {
                 if (huntSetting.isUseHuntTeleport()) {
                     screen.refreshScreen(device);
                     LmCommonUtils.sleep(500);
+                    LmHuntMap map = null;
 
-                    int v = RandomUtils.nextInt(0, huntSetting.getHuntMapList().size() - 1);
-                    LmHuntMap map = huntSetting.getHuntMapList().get(v);
+                    while (true) {
+                        int v = RandomUtils.nextInt(0, huntSetting.getHuntMapList().size());
+                        map = huntSetting.getHuntMapList().get(v);
+
+                        if (!StringUtils.isEmpty(lastHuntMap) && !lastHuntMap.equalsIgnoreCase(map.getName()))
+                            break;
+
+                        if (!lastHuntMap.equalsIgnoreCase(map.getName())) {
+                            setLastHuntMap(map.getName());
+                        }
+                    }
 
                     if (teleportInstance.toTeleport(device, screen, map.getName(), !map.isNoDungeon())) {
                         LmCommonUtils.sleep(500);
@@ -353,7 +373,7 @@ public class LmPcInstance extends LmAbstractInstance {
         for (int i = 0; i < 50; i++) {
             screen.refreshScreen(device);
             LmCommonUtils.sleep(200);
-            
+
             if (!isDamaged(screen)) {
                 return;
             }
@@ -471,7 +491,6 @@ public class LmPcInstance extends LmAbstractInstance {
             }
         }
     }
-
 
     /**
      * 집으로 귀환후 매크로 정지상태 설정 체크후 체크 안되있으면 쇼핑 시작

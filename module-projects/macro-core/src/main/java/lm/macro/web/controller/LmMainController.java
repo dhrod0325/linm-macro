@@ -7,6 +7,7 @@ import lm.macro.auto.graphics.LmShopItemGraphics;
 import lm.macro.auto.graphics.LmTeleportGraphics;
 import lm.macro.auto.utils.LmStringUtils;
 import lm.macro.auto.utils.gnu.GnuUtils;
+import lm.macro.security.LmUser;
 import lm.macro.security.LmUserDetailsHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,8 +28,6 @@ public class LmMainController {
 
     @RequestMapping("/")
     public String index(ModelMap model) throws Exception {
-        model.addAttribute("user", LmUserDetailsHelper.getUser());
-
         model.addAttribute("noticeList", GnuUtils.getLatestList(
                 LmCommon.WEB_SERVER_URL + "/linm/bbs/list.php",
                 "notice"));

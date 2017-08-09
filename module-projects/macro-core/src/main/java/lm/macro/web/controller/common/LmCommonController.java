@@ -10,6 +10,8 @@ import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.device.LmConnectedDeviceManager;
 import lm.macro.auto.manager.process.LmAdbProcessManager;
 import lm.macro.auto.utils.pixel.LmPixelUtils;
+import lm.macro.security.LmUser;
+import lm.macro.security.LmUserDetailsHelper;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -77,9 +79,12 @@ public class LmCommonController {
 
     @RequestMapping("/connectDevice")
     public List<LmConnectedDeviceHolder> connectDevice(LmAdbProcess process) {
-        LmAndroidDevice device = androidDeviceService.getDeviceByPort(process.getHostPort());
+        LmUser user = (LmUser) LmUserDetailsHelper.getUser();
 
-        connectedDeviceManager.connect(device);
+        if (connectedDeviceManager.getConnectedDeviceList().size() > user.getTotalUseAbleCount()) {
+            LmAndroidDevice device = androidDeviceService.getDeviceByPort(process.getHostPort());
+            connectedDeviceManager.connect(device);
+        }
 
         return getConnectedDeviceList();
     }

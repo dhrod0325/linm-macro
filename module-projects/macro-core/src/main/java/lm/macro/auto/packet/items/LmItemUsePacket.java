@@ -6,7 +6,6 @@ import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.pcap.Packet;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.Map;
 
 import static lm.macro.auto.packet.LmPacketUtils.read2ByteData;
@@ -99,8 +98,6 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.숫돌, 숫돌);
 
         if (빨간물약 != PACKET_NOT_FOUND) {
-            System.out.println(빨간물약);
-
             Packet packet = new Packet().data(byteData);
 
             int first = packet.readC();

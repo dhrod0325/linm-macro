@@ -2,16 +2,15 @@ package lm.macro.auto.manager.device;
 
 import com.google.common.collect.Lists;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
-import lm.macro.auto.data.model.netstat.LmNetstatProcessHolder;
 import lm.macro.auto.event.LmDeviceConnectEvent;
 import lm.macro.auto.log.LmLog;
+import lm.macro.security.LmUser;
+import lm.macro.security.LmUserDetailsHelper;
 import lm.macro.spring.app.LmAppContext;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Component
 public class LmConnectedDeviceManager {

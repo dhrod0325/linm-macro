@@ -1,5 +1,6 @@
 package lm.macro.web.interceptor;
 
+import lm.macro.security.LmUserDetailsHelper;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -10,16 +11,7 @@ public class LmAuthInterceptor extends HandlerInterceptorAdapter {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         boolean result = super.preHandle(request, response, handler);
 
-//        URI u = new URI(request.getRequestURL().toString());
-//
-//        if (!u.getPath().startsWith("/login")) {
-//            LmUser user = (LmUser) request.getSession().getAttribute("user");
-//
-//            if (user == null || !user.isLoggedIn()) {
-//                response.sendRedirect("/login");
-//                return false;
-//            }
-//        }
+        request.setAttribute("user", LmUserDetailsHelper.getUser());
 
         return result;
     }

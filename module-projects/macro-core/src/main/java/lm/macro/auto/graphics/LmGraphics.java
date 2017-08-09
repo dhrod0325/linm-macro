@@ -38,7 +38,9 @@ public class LmGraphics {
     public static final Mat ITEM_NUM_20000 = loadImage("num20000.jpg");
     public static final Mat ITEM_NUM_30000 = loadImage("num30000.jpg");
     public static final Mat ITEM_NUM_40000 = loadImage("num40000.jpg");
+
     public static final Mat IS_DIE = loadImage("die.jpg");
+    
     public static final Mat IS_POISON = loadImage("is_poison.jpg");
 
     public static final Mat EMPTY_ARR = loadImage("empty_arr.jpg");
@@ -46,10 +48,9 @@ public class LmGraphics {
     public static final Mat NC_SHOP_SCREEN = loadImage("nc_shop_screen.jpg");
 
     public static final Mat OPEN_EQ_SCREEN = loadImage("open_eq_screen.jpg");
+    public static final Mat QUEST_SCREEN = loadImage("quest_screen.jpg");
 
     public static Mat loadImage(String image) {
         return Imgcodecs.imread(LmCommon.SOURCE_PATH + "/images/" + image);
     }
-
-    public static final Mat QUEST_SCREEN = loadImage("quest_screen.jpg");
 }

@@ -7,6 +7,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 public class LmUserDetailsHelper {
     public static UserDetails getUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return (LmUser) authentication.getPrincipal();
+        Object principal = authentication.getPrincipal();
+
+        if (principal instanceof LmUser) {
+            return (UserDetails) principal;
+        } else {
+            return null;
+        }
     }
 }

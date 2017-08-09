@@ -17,7 +17,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
 
     private LmVillageGraphics villageGraphics = new LmVillageGraphics();
 
-    public void setCallback(LmNpcShopCallback callback) {
+    private void setCallback(LmNpcShopCallback callback) {
         this.callback = callback;
     }
 
@@ -48,7 +48,8 @@ public class LmNpcShopPixel extends LmCustomPixel {
                 }
 
                 if (LmGameScreenUtils.isNcShopScreen(screen)
-                        || LmGameScreenUtils.isQuestScreen(screen)) {
+                        || LmGameScreenUtils.isQuestScreen(screen)
+                        || LmGameScreenUtils.isTeleportScreen(screen)) {
                     LmPixels.메뉴버튼().click(device);
 
                     LmCommonUtils.sleep(200);
@@ -114,11 +115,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
         return null;
     }
 
-    public boolean openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
-        if (LmGameScreenUtils.isMenuOpen(screen)) {
-            LmPixels.메뉴버튼().click(device);
-        }
-
+    private boolean openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
         LmPixelData findShop = findShopLocation(screen, device, count);
 
         if (findShop != null && findShop.isExists()) {

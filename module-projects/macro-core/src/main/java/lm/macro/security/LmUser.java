@@ -1,16 +1,18 @@
 package lm.macro.security;
 
+import com.google.common.base.Splitter;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.util.StringUtils;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Transient;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
 
 @Entity
 public class LmUser implements UserDetails {
@@ -28,11 +30,10 @@ public class LmUser implements UserDetails {
     private Date macroUseDate;
 
     private String message;
-    /**
-     * 1- 1개월
-     * 2- 3개월
-     */
+
     private int macroUseType;
+
+    private String macroInfo;
 
     public String getId() {
         return id;
@@ -140,5 +141,103 @@ public class LmUser implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public String getMacroInfo() {
+        return macroInfo;
+    }
+
+    public void setMacroInfo(String macroInfo) {
+        this.macroInfo = macroInfo;
+    }
+
+    @Transient
+    public int getTotalUseAbleCount() {
+        List<LmMacroInfo> data = getMacroUseAbleDataList();
+
+        int sum = 0;
+
+        for (LmMacroInfo item : data) {
+            sum += item.getMacroCount();
+        }
+
+        return sum;
+    }
+
+    public List<LmMacroInfo> getMacroUseAbleDataList() {
+        List<LmMacroInfo> result = new ArrayList<>();
+        List<LmMacroInfo> data = getMacroDataList();
+
+        for (LmMacroInfo item : data) {
+            Date currentDate = new Date();
+
+            if (currentDate.getTime() < item.getEndDate().getTime()) {
+                result.add(item);
+            }
+        }
+
+        return result;
+    }
+
+    @Transient
+    public List<LmMacroInfo> getMacroDataList() {
+        List<LmMacroInfo> result = new ArrayList<>();
+
+        if (macroInfo != null) {
+            SimpleDateFormat transFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+
+            Set<String> list = StringUtils.commaDelimitedListToSet(macroInfo);
+
+            for (String info : list) {
+                try {
+                    Iterable<String> keyValue = Splitter.on("|").split(info.trim());
+                    Iterator<String> iter = keyValue.iterator();
+                    String a = iter.next();
+                    String b = iter.next();
+
+                    String endDate = a.split("=")[1];
+                    String macroCount = b.split("=")[1];
+
+                    LmMacroInfo macroInfo = new LmMacroInfo();
+                    macroInfo.setEndDate(transFormat.parse(endDate));
+                    macroInfo.setMacroCount(Integer.parseInt(macroCount));
+
+                    result.add(macroInfo);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+        return result;
+    }
+
+    public class LmMacroInfo {
+        private Date endDate;
+        private int macroCount;
+
+        public Date getEndDate() {
+            return endDate;
+        }
+
+        public void setEndDate(Date endDate) {
+            this.endDate = endDate;
+        }
+
+        public int getMacroCount() {
+            return macroCount;
+        }
+
+        public void setMacroCount(int macroCount) {
+            this.macroCount = macroCount;
+        }
+
+        @Override
+        public String toString() {
+            return "LmMacroInfo{" +
+                    "endDate=" + endDate +
+                    ", macroCount=" + macroCount +
+                    '}';
+        }
     }
 }

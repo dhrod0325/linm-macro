@@ -1,8 +1,8 @@
 package lm.macro;
 
 import lm.macro.spring.config.LmWebConfiguration;
+import org.apache.commons.lang3.RandomUtils;
 import org.opencv.core.Core;
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.web.ErrorMvcAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -26,7 +26,12 @@ public class Main extends SpringBootServletInitializer {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(Main.class, args);
+        for (int i = 0; i < 100; i++) {
+            int v = RandomUtils.nextInt(0, 3);
+            System.out.println(v);
+        }
+
+//        SpringApplication.run(Main.class, args);
     }
 
     @Override
