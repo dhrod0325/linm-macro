@@ -249,7 +249,9 @@ public class LmPcInstance extends LmAbstractInstance {
                 if (isDamaged(screen)) {
                     if (LmHuntSetting.DAMAGED_MOTION_HOME.equals(huntSetting.getDamagedMotion())) {
                         logger.debug("유저 공격으로 인해 귀환 ... ", device);
+
                         saveScreenShot(screen.getScreenShotIO(), "처맞구귀환");
+
                         startHomeAndShopping(screen);
 
                         kakaoSnsService.feed("알림", "캐릭터가 공격당해 귀환 했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
@@ -351,6 +353,7 @@ public class LmPcInstance extends LmAbstractInstance {
         for (int i = 0; i < 50; i++) {
             screen.refreshScreen(device);
             LmCommonUtils.sleep(200);
+            
             if (!isDamaged(screen)) {
                 return;
             }

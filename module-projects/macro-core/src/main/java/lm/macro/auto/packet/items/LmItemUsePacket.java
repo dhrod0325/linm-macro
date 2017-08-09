@@ -99,7 +99,6 @@ public class LmItemUsePacket extends LmAbstractPacket {
         putValue(packetData, LmCommon.숫돌, 숫돌);
 
         if (빨간물약 != PACKET_NOT_FOUND) {
-
             System.out.println(빨간물약);
 
             Packet packet = new Packet().data(byteData);

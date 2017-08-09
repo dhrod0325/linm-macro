@@ -21,7 +21,7 @@ public class LmGraphics {
 
     public static final Mat BAG_OPENED = loadImage("bag_opened.jpg");
     public static final Mat BAG_HEAVY = loadImage("bag_heavy.jpg");
-    public static final Mat ATTACK = loadImage("attack.jpg");
+    public static final Mat ATTACK = loadImage("is_damaged.jpg");
 
     public static final Mat PAD_NUM_0 = loadImage("num0.jpg");
     public static final Mat PAD_NUM_1 = loadImage("num1.jpg");
@@ -42,8 +42,14 @@ public class LmGraphics {
     public static final Mat IS_POISON = loadImage("is_poison.jpg");
 
     public static final Mat EMPTY_ARR = loadImage("empty_arr.jpg");
+    public static final Mat REMEMBER_BOOK_SCREEN = loadImage("remember_book_screen.jpg");
+    public static final Mat NC_SHOP_SCREEN = loadImage("nc_shop_screen.jpg");
+
+    public static final Mat OPEN_EQ_SCREEN = loadImage("open_eq_screen.jpg");
 
     public static Mat loadImage(String image) {
         return Imgcodecs.imread(LmCommon.SOURCE_PATH + "/images/" + image);
     }
+
+    public static final Mat QUEST_SCREEN = loadImage("quest_screen.jpg");
 }

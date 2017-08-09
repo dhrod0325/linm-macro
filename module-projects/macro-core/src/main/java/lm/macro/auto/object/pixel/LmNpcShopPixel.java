@@ -33,16 +33,31 @@ public class LmNpcShopPixel extends LmCustomPixel {
         try {
             for (int i = 0; i < findCount; i++) {
                 screen.refreshScreen(device);
+                LmCommonUtils.sleep(500);
 
-                LmCommonUtils.sleep(300);
+                if (LmGameScreenUtils.isEqOpen(screen)) {
+                    LmPixels.장비닫기버튼().click(device);
+                }
 
                 if (LmGameScreenUtils.isMenuOpen(screen)) {
                     LmPixels.메뉴버튼().click(device);
                 }
 
-                if (!LmGameScreenUtils.isNormalGameScreen(screen)) {
-                    return new LmPixelData();
+                if (LmGameScreenUtils.isRememberBook(screen)) {
+                    LmPixels.취소버튼().click(device);
                 }
+
+                if (LmGameScreenUtils.isNcShopScreen(screen)
+                        || LmGameScreenUtils.isQuestScreen(screen)) {
+                    LmPixels.메뉴버튼().click(device);
+
+                    LmCommonUtils.sleep(200);
+
+                    LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
+                }
+
+                screen.refreshScreen(device);
+                LmCommonUtils.sleep(500);
 
                 logger.debug(String.format("상점찾기 시도중... 시도횟수 %d회", i), device);
 
@@ -115,23 +130,23 @@ public class LmNpcShopPixel extends LmCustomPixel {
 
             click(device);
 
-            logger.debug("클릭 한 후 상점이 제대로 오픈되었는지 확인 처리", device);
-
-            LmCommonUtils.sleep(200);
-
-            LmPixels.상점에서_장비_탭_버튼().click(device);
+            LmCommonUtils.sleep(1000);
 
             screen.refreshScreen(device);
 
-            LmCommonUtils.sleep(200);
+            LmCommonUtils.sleep(1000);
+
+            logger.debug("클릭 한 후 상점이 제대로 오픈되었는지 확인 처리", device);
 
             if (LmGameScreenUtils.isShopScreen(screen)) {
+                LmPixels.상점에서_장비_탭_버튼().click(device);
+
                 if (callback != null) {
                     callback.onOpen();
+
                     return true;
                 }
             } else {
-                LmPixels.메뉴버튼().click(device);
                 joystick.swipeTopLeft(device, 300, 1000);
                 openShop(count, device, screen);
             }

@@ -5,8 +5,7 @@ import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
-import lm.macro.auto.object.instance.LmTeleportInstance;
-import lm.macro.auto.object.instance.LmTeleportInstanceImpl;
+import lm.macro.auto.object.pixel.LmNpcShopPixel;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -48,30 +47,31 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
-        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
-        teleportInstance.toTeleport(device, screen, "48 우드벡 마을", false);
+        LmNpcShopPixel npcShopPixel = new LmNpcShopPixel();
+        npcShopPixel.click(device, screen, 5, () -> {
+        });
 
-//        LmNpcShopPixel npcShopPixel = new LmNpcShopPixel();
-//        npcShopPixel.click(device, screen, 5, () -> {
-//        });
+//        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
+//        teleportInstance.toTeleport(device, screen, "48 우드벡 마을", false);
+
 
 //        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
 //        System.out.println(t);
 
 //
-//        new Thread(new Runnable() {
-//            @Override
-//            public void run() {
-//                while (true) {
-//                    try {
-//                        screen.refreshScreen(deviceHolder.getDevice());
-//                        System.out.println(new LmExp().percent(screen));
-//                        Thread.sleep(500);
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
+//        new Thread(() -> {
+//            while (true) {
+//                try {
+//                    screen.refreshScreen(deviceHolder.getDevice());
 //
+//                    LmPixelData t = screen.findPixelMatch(LmGraphics.ATTACK);
+//                    System.out.println(t);
+//
+//                    Thread.sleep(500);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
 //                }
+//
 //            }
 //        }).start();
 

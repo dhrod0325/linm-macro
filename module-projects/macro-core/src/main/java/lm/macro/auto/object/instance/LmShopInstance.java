@@ -49,7 +49,7 @@ public class LmShopInstance {
         try {
             for (int i = 0; i < 5; i++) {
                 screen.refreshScreen(device);
-                LmCommonUtils.sleep(300);
+                LmCommonUtils.sleep(500);
 
                 if (!LmGameScreenUtils.isShopScreen(screen)) {
                     logger.debug("현재상태 상점 아님 정지함");

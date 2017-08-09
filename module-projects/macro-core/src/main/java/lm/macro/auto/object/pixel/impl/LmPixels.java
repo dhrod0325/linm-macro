@@ -66,4 +66,12 @@ public class LmPixels {
     public static LmCustomPixel 확인버튼() {
         return new LmCustomPixel(410, 382, 120, 30);
     }
+
+    public static LmCustomPixel 취소버튼() {
+        return new LmCustomPixel(270, 380, 120, 30);
+    }
+
+    public static LmCustomPixel 장비닫기버튼() {
+        return new LmCustomPixel(760, 66, 17, 17);
+    }
 }

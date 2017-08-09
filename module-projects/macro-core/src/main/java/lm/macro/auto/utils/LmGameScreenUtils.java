@@ -57,4 +57,28 @@ public class LmGameScreenUtils {
         LmPixelData t = screen.findPixelMatch(LmGraphics.BUTTON_MENU_OPEN, 0.9);
         return t.isExists();
     }
+
+    public static boolean isRememberBook(LmAndroidScreen screen) throws Exception {
+        LmPixelData t = screen.findPixelMatch(LmGraphics.REMEMBER_BOOK_SCREEN, 0.9);
+
+        return t.isExists();
+    }
+
+    public static boolean isNcShopScreen(LmAndroidScreen screen) throws Exception {
+        LmPixelData t = screen.findPixelMatch(LmGraphics.NC_SHOP_SCREEN, 0.9);
+
+        return t.isExists();
+    }
+
+    public static boolean isEqOpen(LmAndroidScreen screen) throws Exception {
+        LmPixelData t = screen.findPixelMatch(LmGraphics.OPEN_EQ_SCREEN, 0.9);
+
+        return t.isExists();
+    }
+
+    public static boolean isQuestScreen(LmAndroidScreen screen) throws Exception {
+        LmPixelData t = screen.findPixelMatch(LmGraphics.QUEST_SCREEN, 0.9);
+
+        return t.isExists();
+    }
 }

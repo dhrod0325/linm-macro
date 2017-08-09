@@ -2,6 +2,9 @@ package lm.macro.auto.utils.cmd;
 
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 public class Netstat {
     private String type;
     private String src;
@@ -30,6 +33,26 @@ public class Netstat {
 
     public String getSrc() {
         return src;
+    }
+
+    public URI getDestUri() {
+        try {
+            return new URI("lm://" + dest);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    public URI getSrcUri() {
+        try {
+            return new URI("lm://" + src);
+        } catch (URISyntaxException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
     public void setSrc(String src) {

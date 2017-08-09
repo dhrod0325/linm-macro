@@ -108,8 +108,6 @@ public class GuiUpdateMain {
         LmDownloader downloader = new LmDownloader();
         String downUrl = String.format("%s", SERVER_URL) + version.getLocation();
 
-        System.out.println(downUrl);
-
         File updateFile = new File(UPDATE_ZIP);
 
         if (updateFile.exists()) {
@@ -204,8 +202,6 @@ public class GuiUpdateMain {
         String path = currentRelativePath.toAbsolutePath().toString();
 
         String result = path + "/..";
-
-        System.out.println(result);
 
         return result;
     }
