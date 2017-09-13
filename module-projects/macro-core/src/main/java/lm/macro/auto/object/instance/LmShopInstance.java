@@ -101,7 +101,7 @@ public class LmShopInstance {
         for (LmBuyItem item : items) {
             if (!LmGameScreenUtils.isShopScreen(screen)) {
                 logger.error("상점 모드 아님 상점구매 중지...", device);
-                break;
+                return;
             }
 
             if (item.getBuyCount() <= 0) {

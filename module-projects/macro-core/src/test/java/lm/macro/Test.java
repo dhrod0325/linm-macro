@@ -3,12 +3,25 @@ package lm.macro;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
+import lm.macro.auto.common.LmCommon;
+import lm.macro.auto.data.model.item.LmBuyItem;
+import lm.macro.auto.graphics.LmGraphics;
+import lm.macro.auto.graphics.LmVillageGraphics;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
+import lm.macro.auto.object.instance.LmPcInstance;
+import lm.macro.auto.object.instance.LmShopInstance;
+import lm.macro.auto.object.instance.LmTeleportInstance;
+import lm.macro.auto.object.instance.LmTeleportInstanceImpl;
 import lm.macro.auto.object.pixel.LmNpcShopPixel;
+import lm.macro.auto.object.pixel.LmPixelData;
+import lm.macro.auto.object.pixel.impl.LmHp;
+import lm.macro.auto.object.pixel.impl.LmMp;
+import lm.macro.auto.utils.LmGameScreenUtils;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Test {
@@ -37,7 +50,7 @@ public class Test {
         LmInMemoryAdbProcessManager adbProcessManager = new LmInMemoryAdbProcessManager();
         adbProcessManager.refresh();
 
-        LmAndroidDevice device = deviceList.get(0);
+        LmAndroidDevice device = deviceList.get(1);
         LmConnectedDeviceHolder deviceHolder = new LmConnectedDeviceHolder(device);
 
         LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
@@ -46,26 +59,22 @@ public class Test {
         screen.setFileName("testScreen.png");
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
+        LmVillageGraphics villageGraphics = new LmVillageGraphics();
 
-        LmNpcShopPixel npcShopPixel = new LmNpcShopPixel();
-        npcShopPixel.click(device, screen, 5, () -> {
-        });
+//        System.out.println(villageGraphics.isInVillage(LmCommon.요정숲마을, screen));
 
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
 //        teleportInstance.toTeleport(device, screen, "48 우드벡 마을", false);
 
-
 //        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
 //        System.out.println(t);
 
-//
 //        new Thread(() -> {
 //            while (true) {
 //                try {
 //                    screen.refreshScreen(deviceHolder.getDevice());
 //
-//                    LmPixelData t = screen.findPixelMatch(LmGraphics.ATTACK);
-//                    System.out.println(t);
+//                    System.out.println(LmGameScreenUtils.isShopScreen(screen));
 //
 //                    Thread.sleep(500);
 //                } catch (Exception e) {
@@ -111,12 +120,11 @@ public class Test {
 //            }).start();
 //        }
 
-//        List<LmBuyItem> items = new ArrayList<>();
-//        items.add(new LmBuyItem(LmCommon.빨간물약, 2));
-//        LmShopInstance shopInstance = new LmShopInstance();
-//        shopInstance.startBuyItem(items, device, screen);
-//
 
+        List<LmBuyItem> items = new ArrayList<>();
+        items.add(new LmBuyItem(LmCommon.빨간물약, 2));
+        LmShopInstance shopInstance = new LmShopInstance();
+        shopInstance.startBuyItem(items, device, screen);
 
 //        LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
 //        screen.setFileDir("");

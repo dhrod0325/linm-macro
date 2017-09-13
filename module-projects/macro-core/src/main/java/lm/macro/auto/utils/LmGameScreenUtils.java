@@ -31,9 +31,14 @@ public class LmGameScreenUtils {
     }
 
     public static boolean isShopScreen(LmAndroidScreen screen) throws Exception {
-        LmPixelData match = screen.findPixelMatch(
-                LmGraphics.loadImage("game_screen_shop.jpg"), 0.8);
-        boolean result = match.isExists();
+        LmPixelData match = screen.findPixelMatch(LmGraphics.loadImage("game_screen_shop.jpg"), 0.8);
+
+        LmPixelData match2 = screen.findPixelMatch(LmGraphics.loadImage("game_screen_shop2.jpg"), 0.75);
+
+        boolean result1 = match.isExists();
+        boolean result2 = match2.isExists();
+
+        boolean result = result1 || result2;
 
         if (result) {
             logger.debug("현재상태 잡탬 상점");

@@ -11,7 +11,7 @@ import java.awt.image.BufferedImage;
 public class LmHp extends LmColorRangePixel {
     @Override
     public LmPixelData getPixelData() {
-        return new LmPixelData(48, 14);
+        return new LmPixelData(52, 28);
     }
 
     @Override

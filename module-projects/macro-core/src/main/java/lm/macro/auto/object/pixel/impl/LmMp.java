@@ -10,7 +10,7 @@ import java.awt.*;
 public class LmMp extends LmCustomPixel {
     @Override
     public LmPixelData getPixelData() {
-        return new LmPixelData(47, 27);
+        return new LmPixelData(47, 40);
     }
 
     @Override
