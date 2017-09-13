@@ -13,6 +13,7 @@ import lm.macro.auto.object.instance.LmPcInstance;
 import lm.macro.auto.object.instance.LmShopInstance;
 import lm.macro.auto.object.instance.LmTeleportInstance;
 import lm.macro.auto.object.instance.LmTeleportInstanceImpl;
+import lm.macro.auto.object.pixel.LmMatPixel;
 import lm.macro.auto.object.pixel.LmNpcShopPixel;
 import lm.macro.auto.object.pixel.LmPixelData;
 import lm.macro.auto.object.pixel.impl.LmHp;
@@ -20,6 +21,7 @@ import lm.macro.auto.object.pixel.impl.LmMp;
 import lm.macro.auto.utils.LmGameScreenUtils;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
+import org.opencv.imgcodecs.Imgcodecs;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -50,7 +52,7 @@ public class Test {
         LmInMemoryAdbProcessManager adbProcessManager = new LmInMemoryAdbProcessManager();
         adbProcessManager.refresh();
 
-        LmAndroidDevice device = deviceList.get(1);
+        LmAndroidDevice device = deviceList.get(0);
         LmConnectedDeviceHolder deviceHolder = new LmConnectedDeviceHolder(device);
 
         LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
@@ -59,7 +61,13 @@ public class Test {
         screen.setFileName("testScreen.png");
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
-        LmVillageGraphics villageGraphics = new LmVillageGraphics();
+
+        LmMatPixel matPixel = new LmMatPixel(screen, Imgcodecs.imread(LmCommon.IMAGE_PATH + "shop_arrow.jpg"));
+        LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.92);
+
+        System.out.println(pixelData);
+
+//        LmVillageGraphics villageGraphics = new LmVillageGraphics();
 
 //        System.out.println(villageGraphics.isInVillage(LmCommon.요정숲마을, screen));
 
@@ -121,10 +129,10 @@ public class Test {
 //        }
 
 
-        List<LmBuyItem> items = new ArrayList<>();
-        items.add(new LmBuyItem(LmCommon.빨간물약, 2));
-        LmShopInstance shopInstance = new LmShopInstance();
-        shopInstance.startBuyItem(items, device, screen);
+//        List<LmBuyItem> items = new ArrayList<>();
+//        items.add(new LmBuyItem(LmCommon.빨간물약, 2));
+//        LmShopInstance shopInstance = new LmShopInstance();
+//        shopInstance.startBuyItem(items, device, screen);
 
 //        LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
 //        screen.setFileDir("");

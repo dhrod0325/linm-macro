@@ -57,7 +57,7 @@ public class LmShopInstance {
                 }
 
                 LmMatPixel matPixel = new LmMatPixel(screen, buyItem.toMat());
-                LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.94);
+                LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.92);
 
                 if (!pixelData.isExists()) {
                     device.swipe(135, 294, 135, 206);
