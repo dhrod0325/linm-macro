@@ -17,6 +17,7 @@ public class LmVillageGraphics extends LmAbstractGraphics {
         add(LmCommon.오렌마을, "village_09.jpg");
         add(LmCommon.아덴마을, "village_10.jpg");
         add(LmCommon.요정숲마을, "village_11.jpg");
+        add(LmCommon.아지트, "village_12.jpg");
     }
 
     public boolean isInVillage(String villageName, LmAndroidScreen screen) throws Exception {

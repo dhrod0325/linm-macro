@@ -62,10 +62,10 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
-        LmMatPixel matPixel = new LmMatPixel(screen, Imgcodecs.imread(LmCommon.IMAGE_PATH + "shop_arrow.jpg"));
-        LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.92);
-
-        System.out.println(pixelData);
+//        LmMatPixel matPixel = new LmMatPixel(screen, Imgcodecs.imread(LmCommon.IMAGE_PATH + "shop_arrow.jpg"));
+//        LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.92);
+//
+//        System.out.println(pixelData);
 
 //        LmVillageGraphics villageGraphics = new LmVillageGraphics();
 

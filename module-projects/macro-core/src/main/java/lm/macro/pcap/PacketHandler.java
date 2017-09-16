@@ -6,6 +6,7 @@ import org.jboss.netty.buffer.ChannelBuffers;
 import org.pcap4j.core.NotOpenException;
 import org.pcap4j.core.PcapHandle;
 import org.pcap4j.core.PcapNetworkInterface;
+import org.pcap4j.core.Pcaps;
 import org.pcap4j.packet.TcpPacket;
 
 import java.util.ArrayList;
@@ -28,7 +29,8 @@ public class PacketHandler {
     }
 
     public void run() throws Exception {
-        PcapNetworkInterface nif = PcapUtils.getLocalLanPcapNetworkInterface();
+        List<PcapNetworkInterface> nifs = Pcaps.findAllDevs();
+        PcapNetworkInterface nif = nifs.get(1);
 
         if (nif != null) {
             pcapHandle = nif.openLive(52277, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);

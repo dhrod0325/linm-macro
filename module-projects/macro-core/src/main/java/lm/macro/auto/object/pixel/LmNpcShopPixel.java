@@ -50,10 +50,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
                 if (LmGameScreenUtils.isNcShopScreen(screen)
                         || LmGameScreenUtils.isQuestScreen(screen)
                         || LmGameScreenUtils.isTeleportScreen(screen)) {
-                    LmPixels.메뉴버튼().click(device);
-
                     LmCommonUtils.sleep(200);
-
                     LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
                 }
 

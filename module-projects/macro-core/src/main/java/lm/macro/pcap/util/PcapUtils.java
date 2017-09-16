@@ -1,8 +1,8 @@
 package lm.macro.pcap.util;
 
-import org.pcap4j.core.PcapAddress;
-import org.pcap4j.core.PcapNetworkInterface;
-import org.pcap4j.core.Pcaps;
+import org.pcap4j.core.*;
+import org.pcap4j.packet.Packet;
+import org.pcap4j.packet.TcpPacket;
 
 import java.net.InetAddress;
 import java.net.NetworkInterface;
@@ -11,6 +11,30 @@ import java.util.Enumeration;
 import java.util.List;
 
 public class PcapUtils {
+    public static void main(String[] args) throws Exception {
+        List<PcapNetworkInterface> nifs = Pcaps.findAllDevs();
+//        PcapNetworkInterface nif = nifs.get(1);
+//        if (nif != null) {
+//            PcapHandle pcapHandle = nif.openLive(52277, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);
+//            pcapHandle.loop(-1, new PacketListener() {
+//                @Override
+//                public void gotPacket(Packet packet) {
+//                    TcpPacket tcpPkt = packet.get(TcpPacket.class);
+//
+//                    if (tcpPkt != null) {
+//                        int srcPort = tcpPkt.getHeader().getSrcPort().valueAsInt();
+//                        int dstPort = tcpPkt.getHeader().getDstPort().valueAsInt();
+//                        System.out.println(srcPort + "," + dstPort);
+//                    }
+//                }
+//            });
+//        }
+
+        for(PcapNetworkInterface pcapNetworkInterface : nifs){
+            System.out.println(getLocalHostLANAddress());
+        }
+    }
+
     public static PcapNetworkInterface getLocalLanPcapNetworkInterface() throws Exception {
         String localAddress = getLocalHostLANAddress().toString();
         List<PcapNetworkInterface> nifs = Pcaps.findAllDevs();
@@ -19,6 +43,7 @@ public class PcapUtils {
             List<PcapAddress> addresses = nif.getAddresses();
             for (PcapAddress address : addresses) {
                 String pcapNifAddress = address.getAddress().toString();
+
                 if (pcapNifAddress.equals(localAddress)) {
                     return nif;
                 }

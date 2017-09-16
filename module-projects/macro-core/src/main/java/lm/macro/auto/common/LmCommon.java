@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LmCommon {
-    public static final String VERSION = "0.63";
+    public static final String VERSION = "0.81";
 
     private static final String DIR_PATH = getDirPath();
 
@@ -76,6 +76,7 @@ public class LmCommon {
     public static final String 오렌마을 = "오렌 마을";
     public static final String 아덴마을 = "아덴 마을";
     public static final String 요정숲마을 = "요정 숲 마을";
+    public static final String 아지트 = "아지트";
 
     public static final String 조이스틱_상 = "상";
     public static final String 조이스틱_우상 = "우상";
@@ -85,6 +86,7 @@ public class LmCommon {
     public static final String 조이스틱_좌하 = "좌하";
     public static final String 조이스틱_좌 = "좌";
     public static final String 조이스틱_좌상 = "좌상";
+
 
     public static List<String> 조이스틱좌표() {
         List<String> list = new ArrayList<>();
