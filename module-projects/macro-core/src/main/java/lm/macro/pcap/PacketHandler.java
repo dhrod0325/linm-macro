@@ -29,8 +29,7 @@ public class PacketHandler {
     }
 
     public void run() throws Exception {
-        List<PcapNetworkInterface> nifs = Pcaps.findAllDevs();
-        PcapNetworkInterface nif = nifs.get(1);
+        PcapNetworkInterface nif = PcapUtils.getLocalLanPcapNetworkInterface();
 
         if (nif != null) {
             pcapHandle = nif.openLive(52277, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);
