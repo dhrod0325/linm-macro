@@ -47,6 +47,7 @@ public class LmLocalAndroidScreen extends LmAbstractAndroidScreen {
                 loadScreenFromBuffer(bufferedImage);
             }
         } catch (RasterFormatException e) {
+            e.printStackTrace();
             logger.error("화면 최소화상태입니다..");
         } catch (Exception e) {
             e.printStackTrace();

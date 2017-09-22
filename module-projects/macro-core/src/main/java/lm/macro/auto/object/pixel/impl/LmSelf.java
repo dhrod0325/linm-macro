@@ -10,7 +10,7 @@ import java.awt.*;
 public class LmSelf extends LmBooleanPixel {
     @Override
     public LmPixelData getPixelData() {
-        return new LmPixelData(663, 276);
+        return new LmPixelData(663, 273);
     }
 
     @Override

@@ -2,13 +2,16 @@ package lm.macro;
 
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
+import lm.macro.auto.android.screen.LmAndroidScreen;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
 import lm.macro.auto.common.LmCommon;
 import lm.macro.auto.data.model.item.LmBuyItem;
 import lm.macro.auto.graphics.LmGraphics;
+import lm.macro.auto.graphics.LmTeleportGraphics;
 import lm.macro.auto.graphics.LmVillageGraphics;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
+import lm.macro.auto.object.LmSlot;
 import lm.macro.auto.object.instance.LmPcInstance;
 import lm.macro.auto.object.instance.LmShopInstance;
 import lm.macro.auto.object.instance.LmTeleportInstance;
@@ -18,6 +21,9 @@ import lm.macro.auto.object.pixel.LmNpcShopPixel;
 import lm.macro.auto.object.pixel.LmPixelData;
 import lm.macro.auto.object.pixel.impl.LmHp;
 import lm.macro.auto.object.pixel.impl.LmMp;
+import lm.macro.auto.object.pixel.impl.LmPixels;
+import lm.macro.auto.object.pixel.impl.LmSelf;
+import lm.macro.auto.utils.LmCommonUtils;
 import lm.macro.auto.utils.LmGameScreenUtils;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
@@ -62,15 +68,17 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
+        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
+        teleportInstance.toTeleport(device, screen, "46 용의 던전 서쪽입구", false);
+
+//        teleportInstance.toTeleport(device, screen, "44 용의 던전 동쪽입구", false);
+
 //        LmMatPixel matPixel = new LmMatPixel(screen, Imgcodecs.imread(LmCommon.IMAGE_PATH + "shop_arrow.jpg"));
 //        LmPixelData pixelData = screen.findPixelMatch(matPixel.getMat(), 0.92);
 //
 //        System.out.println(pixelData);
-
 //        LmVillageGraphics villageGraphics = new LmVillageGraphics();
-
 //        System.out.println(villageGraphics.isInVillage(LmCommon.요정숲마을, screen));
-
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
 //        teleportInstance.toTeleport(device, screen, "48 우드벡 마을", false);
 
@@ -82,7 +90,11 @@ public class Test {
 //                try {
 //                    screen.refreshScreen(deviceHolder.getDevice());
 //
-//                    System.out.println(LmGameScreenUtils.isShopScreen(screen));
+//                    if (LmGameScreenUtils.isNcShopScreen(screen)
+//                            || LmGameScreenUtils.isQuestScreen(screen)
+//                            || LmGameScreenUtils.isTeleportScreen(screen)) {
+//                        LmPixels.메뉴버튼().click(device);
+//                    }
 //
 //                    Thread.sleep(500);
 //                } catch (Exception e) {

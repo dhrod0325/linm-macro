@@ -71,10 +71,6 @@ public class LmTeleportInstanceImpl implements LmTeleportInstance {
     private boolean _toTeleport(LmAndroidDevice device, LmAndroidScreen screen, String name, boolean portalClick) throws Exception {
         double percent = 0.83;
 
-        if (name.contains("쪽")) {
-            percent = 0.94;
-        }
-
         for (int i = 0; i < LmCommon.TELEPORT_FIND_MAX_COUNT; i++) {
             screen.refreshScreen(device);
             LmCommonUtils.sleep(500);
@@ -113,7 +109,7 @@ public class LmTeleportInstanceImpl implements LmTeleportInstance {
                 return true;
             } else {
                 device.swipe(76, 400, 76, 332);
-                
+
                 LmCommonUtils.sleep(3000);
             }
         }
