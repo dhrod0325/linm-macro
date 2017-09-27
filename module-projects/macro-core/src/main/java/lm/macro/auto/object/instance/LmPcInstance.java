@@ -313,24 +313,14 @@ public class LmPcInstance extends LmAbstractInstance {
                     LmMatPixel potionEmpty = new LmMatPixel(screen, LmGraphics.POTION_EMPTY, 0.99);
 
                     Map<String, Integer> items = getUseItems();
+                    items.putIfAbsent(LmCommon.빨간물약, 0);
 
-                    if (items != null) {
-                        if (items.get(LmCommon.빨간물약) < 10 || potionEmpty.getPixelData().isExists()) {
-                            logger.debug("물약이 없어서 귀환...", device);
-                            startHomeAndShopping(screen, huntSetting.isRedPotionEmptyStopMacro());
-                            kakaoSnsService.feed("알림", "캐릭터가 물약이 없어 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
-                            return;
-                        }
-                    } else {
-                        if (potionEmpty.getPixelData().isExists()) {
-                            logger.debug("물약이 없어서 귀환...", device);
-                            startHomeAndShopping(screen, huntSetting.isRedPotionEmptyStopMacro());
-                            kakaoSnsService.feed("알림", "캐릭터가 물약이 없어 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
-                            return;
-                        }
+                    if (items.get(LmCommon.빨간물약) < 10 || potionEmpty.getPixelData().isExists()) {
+                        logger.debug("물약이 없어서 귀환...", device);
+                        startHomeAndShopping(screen, huntSetting.isRedPotionEmptyStopMacro());
+                        kakaoSnsService.feed("알림", "캐릭터가 물약이 없어 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
+                        return;
                     }
-
-
                 }
 
                 if (huntSetting.isArrowGoHome()) {
