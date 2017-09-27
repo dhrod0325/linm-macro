@@ -161,7 +161,7 @@ public class LmPcInstance extends LmAbstractInstance {
         }
 
         if (state == LmPcState.PLAY) {
-            checkLetter(time, screen);
+            checkLetter(time);
 
             calcHpAndMp(screen);
 
@@ -185,11 +185,11 @@ public class LmPcInstance extends LmAbstractInstance {
         }
     }
 
-    private void checkLetter(long time, LmAndroidScreen screen) {
+    private void checkLetter(long time) {
         try {
             if (huntSetting.isUseCheckLetter()) {
                 if (!letterCheckTime.isWaitTime(time, 60 * 30)) {
-                    new LmLetter().check(device, screen);
+                    new LmLetter().check(device);
                 }
             }
         } catch (Exception e) {
