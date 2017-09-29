@@ -65,20 +65,20 @@ public class Test {
 //        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
 //        System.out.println(t);
 
-        new Thread(() -> {
-            while (true) {
-                try {
-                    screen.refreshScreen(deviceHolder.getDevice());
-                    LmVillageGraphics villageGraphics = new LmVillageGraphics();
-                    System.out.println(villageGraphics.isInVillage(screen).getName());
-
-                    Thread.sleep(500);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
+//        new Thread(() -> {
+//            while (true) {
+//                try {
+//                    screen.refreshScreen(deviceHolder.getDevice());
+//                    LmVillageGraphics villageGraphics = new LmVillageGraphics();
+//                    System.out.println(villageGraphics.isInVillage(screen).getName());
+//
+//                    Thread.sleep(500);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
 
 
 //        LmPartyManager partyManager = new LmPartyManager();
