@@ -3,9 +3,9 @@ package lm.macro;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
-import lm.macro.auto.graphics.LmVillageGraphics;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
+import lm.macro.auto.object.pixel.LmNpcShopPixel;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -47,6 +47,13 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
+        LmNpcShopPixel shopPixel = new LmNpcShopPixel();
+        shopPixel.click(device, screen, 5, new LmNpcShopPixel.LmNpcShopCallback() {
+            @Override
+            public void onOpen() throws Exception {
+            }
+        });
+
 
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
 //        teleportInstance.toTeleport(device, screen, "46 용의 던전 서쪽입구", false);
@@ -69,8 +76,10 @@ public class Test {
 //            while (true) {
 //                try {
 //                    screen.refreshScreen(deviceHolder.getDevice());
-//                    LmVillageGraphics villageGraphics = new LmVillageGraphics();
-//                    System.out.println(villageGraphics.isInVillage(screen).getName());
+//
+////                    System.out.println(k);
+////                    LmDieRestart dieRestart = new LmDieRestart();
+////                    System.out.println(dieRestart.isDie(screen));
 //
 //                    Thread.sleep(500);
 //                } catch (Exception e) {

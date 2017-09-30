@@ -139,6 +139,7 @@ public class LmPcInstance extends LmAbstractInstance {
             setVillage(villageGraphics.isInVillage(screen));
 
             this.screen = screen;
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -153,6 +154,13 @@ public class LmPcInstance extends LmAbstractInstance {
 
         if (!commonCheckTime.isWaitTime(time, 5)) {
             logger.debug(String.format("[%s] 현재 아이템 : %s", getName(), getUseItems()));
+        }
+
+        if (dieRestart.getDieCount() > 2) {
+            state = LmPcState.STOP;
+            dieRestart.setDieCount(0);
+
+            return;
         }
 
         //초기화상태이거나 스탑상태라면 동작 정지

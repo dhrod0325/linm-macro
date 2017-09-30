@@ -21,15 +21,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
         this.callback = callback;
     }
 
-    @Override
-    public double[] clickPosition() {
-        double x = getPixelData().getX() + (getWidth() / 2);
-        double y = getPixelData().getY() + (getHeight() / 2);
-
-        return new double[]{x, y - 47};
-    }
-
-    private LmPixelData findShopLocation(LmAndroidScreen screen, LmAndroidDevice device, int findCount) {
+    public LmPixelData findShopLocation(LmAndroidScreen screen, LmAndroidDevice device, int findCount) {
         try {
             for (int i = 0; i < findCount; i++) {
                 screen.refreshScreen(device);
@@ -113,7 +105,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
         return null;
     }
 
-    private boolean openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
+    public boolean openShop(int count, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
         LmPixelData findShop = findShopLocation(screen, device, count);
 
         if (findShop != null && findShop.isExists()) {
@@ -122,7 +114,6 @@ public class LmNpcShopPixel extends LmCustomPixel {
             logger.debug("상점 발견... 상점 클릭", device);
 
             setPixelData(findShop);
-
             click(device);
 
             LmCommonUtils.sleep(1000);
@@ -133,7 +124,7 @@ public class LmNpcShopPixel extends LmCustomPixel {
 
             logger.debug("클릭 한 후 상점이 제대로 오픈되었는지 확인 처리", device);
 
-            if (LmGameScreenUtils.isShopScreen(screen)) {
+            if (LmGameScreenUtils.isShopScreen(screen, device)) {
                 LmPixels.상점에서_장비_탭_버튼().click(device);
 
                 if (callback != null) {

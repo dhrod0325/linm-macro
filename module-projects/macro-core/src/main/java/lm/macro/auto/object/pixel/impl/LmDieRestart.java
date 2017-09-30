@@ -3,7 +3,6 @@ package lm.macro.auto.object.pixel.impl;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.screen.LmAndroidScreen;
 import lm.macro.auto.graphics.LmGraphics;
-import lm.macro.auto.object.pixel.LmCustomPixel;
 import lm.macro.auto.object.pixel.LmPixelData;
 import lm.macro.auto.utils.LmCommonUtils;
 
@@ -18,7 +17,6 @@ public class LmDieRestart {
             dieCount++;
 
             LmCommonUtils.saveScreenShot(device, screen.getScreenShotIO(), "사망");
-
             LmPixels.재시작버튼().click(device);
         }
     }
@@ -30,5 +28,9 @@ public class LmDieRestart {
 
     public int getDieCount() {
         return dieCount;
+    }
+
+    public void setDieCount(int dieCount) {
+        this.dieCount = dieCount;
     }
 }

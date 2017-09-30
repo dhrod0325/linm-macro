@@ -51,7 +51,7 @@ public class LmShopInstance {
                 screen.refreshScreen(device);
                 LmCommonUtils.sleep(500);
 
-                if (!LmGameScreenUtils.isShopScreen(screen)) {
+                if (!LmGameScreenUtils.isShopScreen(screen, device)) {
                     logger.debug("현재상태 상점 아님 정지함");
                     break;
                 }
@@ -83,7 +83,7 @@ public class LmShopInstance {
     }
 
     public void buyItem(List<LmBuyItem> items, LmAndroidDevice device, LmAndroidScreen screen) throws Exception {
-        if (!LmGameScreenUtils.isShopScreen(screen)) {
+        if (!LmGameScreenUtils.isShopScreen(screen, device)) {
             logger.error("상점 모드 아님 상점구매 중지...", device);
             return;
         }
@@ -99,7 +99,7 @@ public class LmShopInstance {
         int delay = 300;
 
         for (LmBuyItem item : items) {
-            if (!LmGameScreenUtils.isShopScreen(screen)) {
+            if (!LmGameScreenUtils.isShopScreen(screen, device)) {
                 logger.error("상점 모드 아님 상점구매 중지...", device);
                 return;
             }
@@ -169,7 +169,7 @@ public class LmShopInstance {
             }
         }
 
-        if (!LmGameScreenUtils.isShopScreen(screen)) {
+        if (!LmGameScreenUtils.isShopScreen(screen, device)) {
             logger.error("상점 모드 아님 상점구매 중지...", device);
             return;
         }

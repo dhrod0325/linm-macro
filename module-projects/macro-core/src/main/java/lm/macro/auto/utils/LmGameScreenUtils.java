@@ -4,6 +4,7 @@ import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.screen.LmAndroidScreen;
 import lm.macro.auto.graphics.LmGraphics;
 import lm.macro.auto.log.LmLog;
+import lm.macro.auto.object.pixel.LmMatPixel;
 import lm.macro.auto.object.pixel.LmPixelData;
 
 public class LmGameScreenUtils {
@@ -30,7 +31,12 @@ public class LmGameScreenUtils {
         return result;
     }
 
-    public static boolean isShopScreen(LmAndroidScreen screen) throws Exception {
+    public static boolean isShopScreen(LmAndroidScreen screen, LmAndroidDevice device) throws Exception {
+        LmMatPixel pixel = new LmMatPixel(screen, LmGraphics.TODAY_CLOSE);
+
+        if (pixel.getPixelData().isExists())
+            pixel.click(device);
+
         String[] matches = {
                 "game_screen_shop.jpg",
                 "game_screen_shop1.jpg",
