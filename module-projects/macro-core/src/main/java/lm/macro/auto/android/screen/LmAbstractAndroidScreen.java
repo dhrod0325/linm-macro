@@ -19,7 +19,6 @@ public abstract class LmAbstractAndroidScreen implements LmAndroidScreen, Initia
     private Mat opencvScreenShot;
 
     protected String fileDir;
-
     protected String fileName;
 
     protected void dirCheck(LmAndroidDevice device) {

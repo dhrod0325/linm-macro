@@ -40,7 +40,7 @@ public class LmPoisonHp extends LmPixel {
 
     @Override
     public LmPixelData getPixelData() {
-        return new LmPixelData(48, 14);
+        return new LmPixelData(52, 28);
     }
 
     @Override
@@ -52,5 +52,4 @@ public class LmPoisonHp extends LmPixel {
     public int getHeight() {
         return 8;
     }
-
 }

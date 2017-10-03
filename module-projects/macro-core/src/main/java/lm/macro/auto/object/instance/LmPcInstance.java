@@ -273,11 +273,9 @@ public class LmPcInstance extends LmAbstractInstance {
                     }
                 }
             } else {
-                autoCheck(screen, time);
+                boolean isDamaged = isDamaged(screen);
 
-                dieRestart.restart(screen, device);
-
-                if (isDamaged(screen)) {
+                if (isDamaged) {
                     if (LmHuntSetting.DAMAGED_MOTION_HOME.equals(huntSetting.getDamagedMotion())) {
                         logger.debug("유저 공격으로 인해 귀환 ... ", device);
 
@@ -354,9 +352,14 @@ public class LmPcInstance extends LmAbstractInstance {
                     return;
                 }
 
-                poisonCheck(time, screen);
+                if (!isDamaged) {
+//                    poisonCheck(time, screen);
 
-                executeAutoPatterns();
+                    autoCheck(screen, time);
+
+                    dieRestart.restart(screen, device);
+                    executeAutoPatterns();
+                }
             }
         } catch (Exception e) {
             e.printStackTrace();

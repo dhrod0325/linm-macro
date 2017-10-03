@@ -117,7 +117,7 @@ public class LmShopInstance {
 
                 LmGraphic buyItem = new LmShopItemGraphics().getByName(item.getName());
                 LmMatPixel findPixel = findItem(device, screen, buyItem);
-
+                
                 for (int i = 0; i < 3; i++) {
                     logger.debug(String.format("%s 아이템검색 시도 %d회.", buyItem.getName(), i + 1));
 

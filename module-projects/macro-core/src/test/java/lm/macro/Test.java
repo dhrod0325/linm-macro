@@ -5,7 +5,7 @@ import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
-import lm.macro.auto.object.pixel.LmNpcShopPixel;
+import lm.macro.auto.object.pixel.impl.LmHp;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -47,12 +47,13 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
-        LmNpcShopPixel shopPixel = new LmNpcShopPixel();
-        shopPixel.click(device, screen, 5, new LmNpcShopPixel.LmNpcShopCallback() {
-            @Override
-            public void onOpen() throws Exception {
-            }
-        });
+
+//        LmNpcShopPixel shopPixel = new LmNpcShopPixel();
+//        shopPixel.click(device, screen, 5, new LmNpcShopPixel.LmNpcShopCallback() {
+//            @Override
+//            public void onOpen() throws Exception {
+//            }
+//        });
 
 
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
@@ -72,22 +73,21 @@ public class Test {
 //        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
 //        System.out.println(t);
 
-//        new Thread(() -> {
-//            while (true) {
-//                try {
-//                    screen.refreshScreen(deviceHolder.getDevice());
-//
-////                    System.out.println(k);
-////                    LmDieRestart dieRestart = new LmDieRestart();
-////                    System.out.println(dieRestart.isDie(screen));
-//
-//                    Thread.sleep(500);
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
-//
-//            }
-//        }).start();
+        new Thread(() -> {
+            while (true) {
+                try {
+                    screen.refreshScreen(deviceHolder.getDevice());
+
+                    LmHp hp = new LmHp();
+                    System.out.println(hp.percent(screen));
+
+                    Thread.sleep(500);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }).start();
 
 
 //        LmPartyManager partyManager = new LmPartyManager();
