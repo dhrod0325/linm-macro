@@ -1,5 +1,6 @@
 package lm.macro.pcap;
 
+import lm.macro.auto.common.LmCommon;
 import lm.macro.pcap.util.PcapUtils;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.buffer.ChannelBuffers;
@@ -29,7 +30,13 @@ public class PacketHandler {
     }
 
     public void run() throws Exception {
-        PcapNetworkInterface nif = PcapUtils.getLocalLanPcapNetworkInterface();
+        PcapNetworkInterface nif;
+
+        if (LmCommon.PCAP_NETWORK_NO != -1) {
+            nif = Pcaps.findAllDevs().get(LmCommon.PCAP_NETWORK_NO);
+        } else {
+            nif = PcapUtils.getLocalLanPcapNetworkInterface();
+        }
 
         if (nif != null) {
             pcapHandle = nif.openLive(52277, PcapNetworkInterface.PromiscuousMode.PROMISCUOUS, 10);

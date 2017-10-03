@@ -17,6 +17,8 @@ public class LmCommon {
 
     public static final ImmutableConfiguration prop = LmPropUtils.load(SOURCE_PATH + "/config/macro.properties");
 
+    public static final int PCAP_NETWORK_NO = prop.getInt("pcap.network", -1);
+
     public static final String WEB_SERVER_URL = "http://linm.ideapeople.co.kr";
 
     public static final int MACRO_SCHEDULER_TIME = 1000;
