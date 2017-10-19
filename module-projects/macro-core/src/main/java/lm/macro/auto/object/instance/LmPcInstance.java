@@ -243,7 +243,7 @@ public class LmPcInstance extends LmAbstractInstance {
                         LmCommonUtils.sleep(500);
 
                         for (LmHuntJoystick huntJoystick : map.getHuntJoysticks()) {
-                            int dis = 60;
+                            int dis = 160;
 
                             long delay = TimeUnit.SECONDS.toMillis((long) huntJoystick.getJoystickDelay());
 
@@ -413,10 +413,21 @@ public class LmPcInstance extends LmAbstractInstance {
             }
 
             if (count > 0) {
+                int realBuyCount = copyItem.getBuyCount() - count;
+
                 if (LmCommon.은화살.equals(copyItem.getName())) {
-                    copyItem.setBuyCount(copyItem.getBuyCount() - (count / 10));
+
+                    int arrBuyCount = copyItem.getBuyCount() - (count / 10);
+
+                    if (arrBuyCount > 100) {
+                        copyItem.setBuyCount(arrBuyCount);
+                    } else {
+                        copyItem.setBuyCount(0);
+                    }
+                } else if (LmCommon.빨간물약.equals(copyItem.getName()) && realBuyCount < 20) {
+                    copyItem.setBuyCount(0);
                 } else {
-                    copyItem.setBuyCount(copyItem.getBuyCount() - count);
+                    copyItem.setBuyCount(realBuyCount);
                 }
             }
 

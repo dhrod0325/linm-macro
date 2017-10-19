@@ -141,6 +141,8 @@ public class LmShopInstance {
 
                 int count1000 = (int) Math.floor(count / 1000);
                 int count100 = (int) Math.floor(count % 1000 / 100);
+                int count10 = (int) Math.floor(count % 100 / 10);
+                int count1 = (int) Math.floor(count % 100 % 10);
 
                 for (int i = 0; i < count1000; i++) {
                     cart1000Button.click(device);
@@ -152,17 +154,16 @@ public class LmShopInstance {
                     LmCommonUtils.sleep(delay);
                 }
 
-//                int count10 = (int) Math.floor(count % 100 / 10);
-//                int count1 = (int) Math.floor(count % 100 % 10);
-//                for (int i = 0; i < count10; i++) {
-//                    cart10Button.click(device);
-//                    LmCommonUtils.sleep(delay);
-//                }
-//                for (int i = 0; i < count1; i++) {
-//                    cart1Button.click(device);
-//                    LmCommonUtils.sleep(delay);
-//                }
-
+                if (count < 102) {
+                    for (int i = 0; i < count10; i++) {
+                        cart10Button.click(device);
+                        LmCommonUtils.sleep(delay);
+                    }
+                    for (int i = 0; i < count1; i++) {
+                        cart1Button.click(device);
+                        LmCommonUtils.sleep(delay);
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
             }
