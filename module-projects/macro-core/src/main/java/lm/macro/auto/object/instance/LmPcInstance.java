@@ -241,8 +241,9 @@ public class LmPcInstance extends LmAbstractInstance {
                         LmCommonUtils.sleep(500);
                         screen.refreshScreen(device);
                         LmCommonUtils.sleep(500);
+
                         for (LmHuntJoystick huntJoystick : map.getHuntJoysticks()) {
-                            int dis = 500;
+                            int dis = 60;
 
                             long delay = TimeUnit.SECONDS.toMillis((long) huntJoystick.getJoystickDelay());
 
@@ -266,6 +267,7 @@ public class LmPcInstance extends LmAbstractInstance {
                         }
 
                         autoPixel.click(device);
+
                         setSelf(screen, true);
                     } else {
                         //텔포에 실패했다...

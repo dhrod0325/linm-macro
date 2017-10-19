@@ -2,9 +2,6 @@ package lm.macro.auto.object.pixel.impl;
 
 import lm.macro.auto.object.pixel.LmCustomPixel;
 
-/**
- * Created by dhrod0325 on 2017-07-25.
- */
 public class LmPixels {
     public static LmCustomPixel 상점에서_장비_탭_버튼() {
         return new LmCustomPixel(654, 92, 34, 8);
@@ -12,10 +9,6 @@ public class LmPixels {
 
     public static LmCustomPixel 메뉴버튼() {
         return new LmCustomPixel(762, 19, 27, 27);
-    }
-
-    public static LmCustomPixel 가방닫기버튼() {
-        return new LmCustomPixel(760, 66, 27, 27);
     }
 
     public static LmCustomPixel 재시작버튼() {
@@ -41,7 +34,6 @@ public class LmPixels {
     public static LmCustomPixel 상점구매1000() {
         return new LmCustomPixel(500, 415, 77, 32);
     }
-
 
     public static LmCustomPixel 상점구매버튼() {
         return new LmCustomPixel(593, 416, 147, 35);

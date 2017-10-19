@@ -3,9 +3,16 @@ package lm.macro;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
+import lm.macro.auto.common.LmCommon;
+import lm.macro.auto.graphics.LmTeleportGraphics;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
+import lm.macro.auto.object.instance.LmTeleportInstance;
+import lm.macro.auto.object.pixel.LmMatPixel;
+import lm.macro.auto.object.pixel.LmPixelData;
 import lm.macro.auto.object.pixel.impl.LmHp;
+import lm.macro.auto.utils.LmCommonUtils;
+import lm.macro.auto.utils.LmGameScreenUtils;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -37,7 +44,7 @@ public class Test {
         LmInMemoryAdbProcessManager adbProcessManager = new LmInMemoryAdbProcessManager();
         adbProcessManager.refresh();
 
-        LmAndroidDevice device = deviceList.get(0);
+        LmAndroidDevice device = deviceList.get(1);
         LmConnectedDeviceHolder deviceHolder = new LmConnectedDeviceHolder(device);
 
         LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
@@ -47,7 +54,25 @@ public class Test {
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
 
-
+//        for (int i = 0; i < LmCommon.TELEPORT_FIND_MAX_COUNT; i++) {
+//            screen.refreshScreen(device);
+//            LmCommonUtils.sleep(500);
+//
+//            if (!LmGameScreenUtils.isTeleportScreen(screen)) {
+//                continue;
+//            }
+//
+//            LmMatPixel data = new LmMatPixel(screen, new LmTeleportGraphics().getByName("17 메마른 불모지").toMat());
+//            LmPixelData pos = screen.findPixelMatch(data.getMat(), 0.83);
+//
+//            if (pos.isExists()) {
+//                data.click(device);
+//                break;
+//            } else {
+//                device.swipe(76, 400, 76, 350);
+//                LmCommonUtils.sleep(3000);
+//            }
+//        }
 //        LmNpcShopPixel shopPixel = new LmNpcShopPixel();
 //        shopPixel.click(device, screen, 5, new LmNpcShopPixel.LmNpcShopCallback() {
 //            @Override
@@ -58,7 +83,6 @@ public class Test {
 
 //        LmTeleportInstance teleportInstance = new LmTeleportInstanceImpl();
 //        teleportInstance.toTeleport(device, screen, "46 용의 던전 서쪽입구", false);
-
 //        teleportInstance.toTeleport(device, screen, "44 용의 던전 동쪽입구", false);
 
 //        LmMatPixel matPixel = new LmMatPixel(screen, Imgcodecs.imread(LmCommon.IMAGE_PATH + "shop_arrow.jpg"));
@@ -73,21 +97,21 @@ public class Test {
 //        LmPixelData t = screen.findPixelMatch(LmGraphics.EMPTY_ARR, 0.95);
 //        System.out.println(t);
 
-        new Thread(() -> {
-            while (true) {
-                try {
-                    screen.refreshScreen(deviceHolder.getDevice());
-
-                    LmHp hp = new LmHp();
-                    System.out.println(hp.percent(screen));
-
-                    Thread.sleep(500);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-
-            }
-        }).start();
+//        new Thread(() -> {
+//            while (true) {
+//                try {
+//                    screen.refreshScreen(deviceHolder.getDevice());
+//
+//                    LmHp hp = new LmHp();
+//                    System.out.println(hp.percent(screen));
+//
+//                    Thread.sleep(500);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//
+//            }
+//        }).start();
 
 
 //        LmPartyManager partyManager = new LmPartyManager();
