@@ -277,40 +277,30 @@ public class LmPcInstance extends LmAbstractInstance {
             } else {
                 boolean isDamaged = isDamaged(screen);
 
+                /*
                 if (isDamaged) {
                     if (LmHuntSetting.DAMAGED_MOTION_HOME.equals(huntSetting.getDamagedMotion())) {
                         logger.debug("유저 공격으로 인해 귀환 ... ", device);
-
                         saveScreenShot(screen.getScreenShotIO(), "처맞구귀환");
-
                         startHomeAndShopping(screen);
-
                         kakaoSnsService.feed("알림", "캐릭터가 공격당해 귀환 했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
-
                         return;
                     } else if (LmHuntSetting.DAMAGED_MOTION_TELEPORT.equals(huntSetting.getDamagedMotion())) {
                         logger.debug("유저 공격으로 인해 순간이동 ... ", device);
-
                         saveScreenShot(screen.getScreenShotIO(), "처맞구순간이동");
-
                         damagedTeleport(screen);
-
                         kakaoSnsService.feed("알림", "캐릭터가 공격당해 순간이동했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
-
                         return;
                     } else if (LmHuntSetting.DAMAGED_MOTION_ATTACK.equalsIgnoreCase(huntSetting.getDamagedMotion())) {
-                        logger.debug("반격처리 진행 ", device);
                     }
                 }
+                */
 
                 if (huntSetting.isHpGoHome()) {
                     if (hp > 0 && hp < huntSetting.getHpGoHomeValue()) {
                         logger.debug("HP가 설정값보다 작기때문에 귀환...", device);
-
                         saveScreenShot(screen.getScreenShotIO(), "피없어서귀환");
-
                         startHomeAndShopping(screen);
-
                         kakaoSnsService.feed("알림", "캐릭터가 피가없어 귀환했습니다.", "https://img.youtube.com/vi/kCrLup8D30Q/0.jpg", "http://null");
 
                         return;
@@ -356,9 +346,7 @@ public class LmPcInstance extends LmAbstractInstance {
 
                 if (!isDamaged) {
 //                    poisonCheck(time, screen);
-
                     autoCheck(screen, time);
-
                     dieRestart.restart(screen, device);
                     executeAutoPatterns();
                 }
@@ -385,6 +373,12 @@ public class LmPcInstance extends LmAbstractInstance {
             }
 
             LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT7);
+
+            Thread.sleep(2000);
+
+            screen.refreshScreen(device);
+
+            setAuto(screen, true);
         }
     }
 
@@ -392,11 +386,9 @@ public class LmPcInstance extends LmAbstractInstance {
         for (int i = 0; i < 50; i++) {
             screen.refreshScreen(device);
             LmCommonUtils.sleep(200);
-
             if (villageGraphics.isInVillage(screen) != null) {
                 return;
             }
-
             LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
         }
     }
@@ -503,7 +495,7 @@ public class LmPcInstance extends LmAbstractInstance {
      *
      * @param screen 화면
      */
-    private void startHomeAndShopping(LmAndroidScreen screen) throws Exception {
+    public void startHomeAndShopping(LmAndroidScreen screen) throws Exception {
         startHomeAndShopping(screen, false);
     }
 
@@ -637,7 +629,7 @@ public class LmPcInstance extends LmAbstractInstance {
         return buyItemRepositoryService.findAllByDeviceSerial(device.getSerial());
     }
 
-    private void saveScreenShot(BufferedImage image, String dir) throws IOException {
+    public void saveScreenShot(BufferedImage image, String dir) throws IOException {
         LmCommonUtils.saveScreenShot(device, image, dir);
     }
 
