@@ -5,6 +5,7 @@ import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
+import lm.macro.auto.object.LmSlot;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -36,7 +37,7 @@ public class Test {
         LmInMemoryAdbProcessManager adbProcessManager = new LmInMemoryAdbProcessManager();
         adbProcessManager.refresh();
 
-        LmAndroidDevice device = deviceList.get(2);
+        LmAndroidDevice device = deviceList.get(0);
         LmConnectedDeviceHolder deviceHolder = new LmConnectedDeviceHolder(device);
 
         LmLocalAndroidScreen screen = new LmLocalAndroidScreen();
@@ -45,6 +46,8 @@ public class Test {
         screen.setFileName("testScreen.png");
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
+
+        LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
 
 //        for (int i = 0; i < LmCommon.TELEPORT_FIND_MAX_COUNT; i++) {
 //            screen.refreshScreen(device);

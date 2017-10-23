@@ -373,12 +373,6 @@ public class LmPcInstance extends LmAbstractInstance {
             }
 
             LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT7);
-
-            Thread.sleep(2000);
-
-            screen.refreshScreen(device);
-
-            setAuto(screen, true);
         }
     }
 

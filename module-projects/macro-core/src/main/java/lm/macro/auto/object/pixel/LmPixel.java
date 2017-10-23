@@ -3,6 +3,7 @@ package lm.macro.auto.object.pixel;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.log.LmLog;
 import lm.macro.auto.utils.LmAdbUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.commons.lang3.builder.ReflectionToStringBuilder;
 
 public abstract class LmPixel {
@@ -51,8 +52,13 @@ public abstract class LmPixel {
     }
 
     public double[] clickPosition() {
-        double x = getPixelData().getX() + (getWidth() / 2);
-        double y = getPixelData().getY() + (getHeight() / 2);
+        int w = getWidth();
+        int h = getHeight();
+        double start_x = getPixelData().getX();
+        double start_y = getPixelData().getY();
+
+        double x = RandomUtils.nextDouble(start_x, start_x + w);
+        double y = RandomUtils.nextDouble(start_y, start_y + h);
 
         return new double[]{x, y};
     }

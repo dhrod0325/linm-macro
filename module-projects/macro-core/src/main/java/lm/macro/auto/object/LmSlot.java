@@ -9,9 +9,9 @@ import java.util.Map;
 
 public class LmSlot {
     private static final int SLOT_DISTANCE = 50;
-    private static final int SLOT_Y = 400;
-    private static final int SLOT_WIDTH = 42;
-    private static final int SLOT_HEIGHT = 55;
+    private static final int SLOT_Y = 390;
+    private static final int SLOT_WIDTH = 43;
+    private static final int SLOT_HEIGHT = 45;
 
     public static Map<SlotType, LmPixel> slotData = new HashMap<SlotType, LmPixel>() {
         {
