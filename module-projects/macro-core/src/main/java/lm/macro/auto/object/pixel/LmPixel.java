@@ -34,6 +34,7 @@ public abstract class LmPixel {
             return;
         }
 
+
         double[] clickPosition = clickPosition();
         double x = clickPosition[0];
         double y = clickPosition[1];

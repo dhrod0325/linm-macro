@@ -41,7 +41,8 @@ public class LmGameScreenUtils {
                 "game_screen_shop.jpg",
                 "game_screen_shop1.jpg",
                 "game_screen_shop2.jpg",
-                "game_screen_shop3.jpg"
+                "game_screen_shop3.jpg",
+                "game_screen_shop4.jpg"
         };
 
         boolean result = false;

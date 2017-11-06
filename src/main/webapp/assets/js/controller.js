@@ -114,12 +114,18 @@ controllers.controller('MacroController', function ($scope, $http, $uibModal, $i
         $scope.autoPattern = {};
     };
 
+    $scope.startShopMacro = function () {
+        $http.post('/macro/shopMacro', {
+            port: $scope.currentDevice.device.port
+        }).success(function (response) {
+            $scope.currentDevice.pcInstance.state = 'SHOP';
+        });
+    };
 
     $scope.startMacro = function () {
         $http.post('/macro/startMacro', {
             port: $scope.currentDevice.device.port
         }).success(function (response) {
-            console.log($scope.currentDevice);
             $scope.currentDevice.pcInstance.state = 'PLAY';
         });
     };

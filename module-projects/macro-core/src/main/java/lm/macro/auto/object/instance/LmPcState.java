@@ -6,7 +6,7 @@ package lm.macro.auto.object.instance;
 public enum LmPcState {
     PLAY("PLAY"),
     STOP("STOP"),
-    SHOPPING("SHOPPING");
+    SHOPPING("SHOPPING"), SHOP("SHOP");
 
     private String name;
 

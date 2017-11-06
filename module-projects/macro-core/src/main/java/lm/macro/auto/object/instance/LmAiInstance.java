@@ -4,7 +4,7 @@ import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.screen.LmAndroidScreen;
 
 public interface LmAiInstance {
-    void ai(LmAndroidScreen screen, long time);
+    void ai(LmAndroidScreen screen, long time) throws Exception;
 
     void setState(LmPcState state);
 

@@ -3,9 +3,13 @@ package lm.macro;
 import lm.macro.auto.android.device.model.LmAndroidDevice;
 import lm.macro.auto.android.device.service.impl.LmAdbAndroidService;
 import lm.macro.auto.android.screen.LmLocalAndroidScreen;
+import lm.macro.auto.graphics.LmGraphics;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.process.LmInMemoryAdbProcessManager;
-import lm.macro.auto.object.LmSlot;
+import lm.macro.auto.object.pixel.LmCustomPixel;
+import lm.macro.auto.object.pixel.LmPixel;
+import lm.macro.auto.object.pixel.LmPixelData;
+import lm.macro.auto.utils.LmCvUtils;
 import lm.macro.auto.utils.cmd.ProcessUtils;
 import org.opencv.core.Core;
 
@@ -46,8 +50,6 @@ public class Test {
         screen.setFileName("testScreen.png");
         screen.afterPropertiesSet();
         screen.refreshScreen(deviceHolder.getDevice());
-
-        LmSlot.useSlot(0, device, LmSlot.SlotType.SLOT8);
 
 //        for (int i = 0; i < LmCommon.TELEPORT_FIND_MAX_COUNT; i++) {
 //            screen.refreshScreen(device);
@@ -91,9 +93,26 @@ public class Test {
 //            while (true) {
 //                try {
 //                    screen.refreshScreen(deviceHolder.getDevice());
-//                    LmHp hp = new LmHp();
-//                    System.out.println(hp.percent(screen));
-//                    Thread.sleep(500);
+//
+//                    LmPixel 새로고침 = new LmCustomPixel(660, 427, 98, 26);
+//                    새로고침.click(device);
+//
+//                    Thread.sleep(1000);
+//
+//                    LmPixelData a = LmCvUtils.cropAndFindMatch(screen.getScreenShotIO(), 170, 140, 500, 86, LmGraphics.DIA, 0.9);
+//
+//                    if (a.isExists()) {
+//                        LmCustomPixel 아이템 = new LmCustomPixel(251, 172, 37, 31);
+//                        아이템.click(device);
+//                        Thread.sleep(200);
+//                        LmCustomPixel 구매 = new LmCustomPixel(680, 386, 85, 22);
+//                        구매.click(device);
+//                        Thread.sleep(200);
+//                        LmCustomPixel 구매확인 = new LmCustomPixel(407, 365, 100, 22);
+//                        구매확인.click(device);
+//                    }
+//
+//                    Thread.sleep(1000);
 //                } catch (Exception e) {
 //                    e.printStackTrace();
 //                }

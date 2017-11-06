@@ -50,6 +50,8 @@ public class LmGraphics {
     public static final Mat OPEN_EQ_SCREEN = loadImage("open_eq_screen.jpg");
     public static final Mat QUEST_SCREEN = loadImage("quest_screen.jpg");
     public static final Mat TODAY_CLOSE = loadImage("today_close.jpg");
+    public static final Mat ENEMY = loadImage("enemy.jpg");
+    public static final Mat DIA = loadImage("dia.jpg");
 
     public static Mat loadImage(String image) {
         return Imgcodecs.imread(LmCommon.SOURCE_PATH + "/images/" + image);

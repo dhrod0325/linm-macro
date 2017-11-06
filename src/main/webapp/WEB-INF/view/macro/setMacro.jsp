@@ -44,7 +44,13 @@
                 <p class="text-right">
                     <span style="float: left">매크로 동작상태 : {{currentDevice.pcInstance.state}}</span>
                     <button class="btn btn-default"
-                            ng-class="{'btn-primary':currentDevice.pcInstance.state!='STOP','btn-default':currentDevice.pcInstance.state=='STOP' }"
+                            ng-class="{'btn-primary':currentDevice.pcInstance.state=='SHOP','btn-default':currentDevice.pcInstance.state1='SHOP' }"
+                            ng-click="startShopMacro()">
+                        거래소 매크로 시작
+                    </button>
+
+                    <button class="btn btn-default"
+                            ng-class="{'btn-primary':currentDevice.pcInstance.state=='PLAY','btn-default':currentDevice.pcInstance.state!='PLAY' }"
                             ng-click="startMacro()">
                         매크로 시작
                     </button>

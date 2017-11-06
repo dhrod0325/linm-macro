@@ -29,4 +29,12 @@ public class LmMacroController {
 
         return device;
     }
+
+    @RequestMapping("/shopMacro")
+    public LmConnectedDeviceHolder shopMacro(@RequestParam("port") int port) {
+        LmConnectedDeviceHolder device = connectedDeviceManager.getConnectedDeviceByPort(port);
+        device.getPcInstance().setState(LmPcState.SHOP);
+
+        return device;
+    }
 }

@@ -16,11 +16,14 @@ import lm.macro.auto.graphics.LmVillageGraphics;
 import lm.macro.auto.motion.LmAutoPatternService;
 import lm.macro.auto.object.LmSlot;
 import lm.macro.auto.object.manager.LmPartyManager;
+import lm.macro.auto.object.pixel.LmCustomPixel;
 import lm.macro.auto.object.pixel.LmMatPixel;
+import lm.macro.auto.object.pixel.LmPixel;
 import lm.macro.auto.object.pixel.LmPixelData;
 import lm.macro.auto.object.pixel.impl.*;
 import lm.macro.auto.packet.items.LmItemUsePacket;
 import lm.macro.auto.utils.LmCommonUtils;
+import lm.macro.auto.utils.LmCvUtils;
 import lm.macro.auto.utils.LmTimeChecker;
 import lm.macro.sns.service.KakaoSnsService;
 import org.apache.commons.lang3.RandomUtils;
@@ -146,7 +149,7 @@ public class LmPcInstance extends LmAbstractInstance {
     }
 
     @Override
-    public void ai(LmAndroidScreen screen, long time) {
+    public void ai(LmAndroidScreen screen, long time) throws Exception {
         if (screen == null)
             return;
 
@@ -163,6 +166,10 @@ public class LmPcInstance extends LmAbstractInstance {
             return;
         }
 
+        if (state == LmPcState.SHOP) {
+            startShopMacro();
+        }
+
         //초기화상태이거나 스탑상태라면 동작 정지
         if (state == LmPcState.STOP) {
             return;
@@ -174,6 +181,24 @@ public class LmPcInstance extends LmAbstractInstance {
             calcHpAndMp(screen);
 
             startHunt(screen, time);
+        }
+    }
+
+    private void startShopMacro() throws Exception {
+        LmPixel 새로고침 = new LmCustomPixel(660, 427, 98, 26);
+        새로고침.click(device);
+        Thread.sleep(1000);
+        LmPixelData a = LmCvUtils.cropAndFindMatch(screen.getScreenShotIO(), 170, 140, 500, 86, LmGraphics.DIA, 0.9);
+
+        if (a.isExists()) {
+            LmCustomPixel 아이템 = new LmCustomPixel(251, 172, 37, 31);
+            아이템.click(device);
+            Thread.sleep(200);
+            LmCustomPixel 구매 = new LmCustomPixel(680, 386, 85, 22);
+            구매.click(device);
+            Thread.sleep(200);
+            LmCustomPixel 구매확인 = new LmCustomPixel(407, 365, 100, 22);
+            구매확인.click(device);
         }
     }
 
@@ -270,7 +295,6 @@ public class LmPcInstance extends LmAbstractInstance {
 
                         setSelf(screen, true);
                     } else {
-                        //텔포에 실패했다...
                         LmPixels.메뉴버튼().click(device);
                     }
                 }

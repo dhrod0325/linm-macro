@@ -6,6 +6,7 @@ import lm.macro.auto.log.LmLog;
 import lm.macro.auto.manager.device.LmConnectedDeviceHolder;
 import lm.macro.auto.manager.device.LmConnectedDeviceManager;
 import lm.macro.auto.manager.screen.LmScreenManager;
+import lm.macro.auto.object.LmSlot;
 import lm.macro.auto.object.instance.LmAiInstance;
 import lm.macro.auto.object.instance.LmPcInstance;
 import lm.macro.auto.object.instance.LmPcState;
@@ -42,6 +43,7 @@ public class LmFastScheduler {
                         if (instance.isDamaged(screen)) {
                             if (LmHuntSetting.DAMAGED_MOTION_HOME.equals(instance.getHuntSetting().getDamagedMotion())) {
                                 instance.startHomeAndShopping(screen);
+                                instance.useSlot(0, LmSlot.SlotType.SLOT8);
                             } else if (LmHuntSetting.DAMAGED_MOTION_TELEPORT.equals(instance.getHuntSetting().getDamagedMotion())) {
                                 instance.damagedTeleport(screen);
                             }
